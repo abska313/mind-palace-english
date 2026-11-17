@@ -1,0 +1,2344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1715" />
+  <meta name="description" content="تعلّم 1000 كلمة إنجليزية (A2) بطريقة القصر الذهني ثلاثي الأبعاد" />
+  <meta name="apple-mobile-web-app-title" content="القصر الذهني" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>القصر الذهني | تعلم الإنجليزية A2</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    if (window.tailwind) tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'Inter', 'sans-serif'],
+            en: ['Inter', 'sans-serif']
+          },
+          colors: {
+            emeraldDark: '#051611',
+            emeraldCard: '#0b261e',
+            emeraldBorder: '#164e3e',
+            goldWarm: '#f59e0b',
+            goldLight: '#fbbf24'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body {
+      font-family: 'Cairo', 'Inter', sans-serif;
+      background: radial-gradient(circle at 50% 0%, #0f382c 0%, #051611 55%, #030c09 100%);
+      color: #f0fdf4;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      overscroll-behavior-y: contain;
+    }
+    .font-en { font-family: 'Inter', sans-serif; }
+    /* 3D Flip Card Styles Optimized for Mobile & Desktop */
+    .perspective-1000 { perspective: 1200px; }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 295px;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-style: preserve-3d;
+    }
+    @media (min-width: 640px) {
+      .flip-card-inner { min-height: 355px; }
+    }
+    .flip-card-inner.is-flipped {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 1.25rem;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+    /* Prevent page scroll while rotating 3D canvas on touch phones */
+    #threeCanvas {
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    /* Hide scrollbar on horizontal mobile pill strips */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #051611; }
+    ::-webkit-scrollbar-thumb { background: #164e3e; border-radius: 9999px; }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 12px rgba(245, 158, 11, 0.22); }
+      50% { box-shadow: 0 0 24px rgba(16, 185, 129, 0.42); }
+    }
+    .glow-active { animation: pulseGlow 2.5s infinite; }
+    .safe-bottom { padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)); }
+  </style>
+
+  <style id="professional-theme">
+    :root{--bg:#0b1715;--bg2:#0e1e1b;--surface:#132522;--surface2:#172d29;--border:#2a4740;--border-soft:#203a34;--text:#edf5f1;--muted:#9aafa8;--teal:#55b69a;--teal-deep:#176653;--gold:#d9b36a;--blue:#9ab8d7;--radius:20px}
+    *{box-sizing:border-box}
+    html,body{background:radial-gradient(ellipse at 50% -18%,#17312b 0%,var(--bg) 60%,#08110f 100%)!important;color:var(--text);font-family:'Cairo','Inter',sans-serif;min-height:100%;scroll-behavior:smooth}
+    body{letter-spacing:.005em}
+    ::selection{background:rgba(85,182,154,.35);color:#fff}
+    ::-webkit-scrollbar-track{background:#0d1b18!important}::-webkit-scrollbar-thumb{background:#36584f!important}
+    header.sticky{background:rgba(10,24,21,.92)!important;border-color:rgba(85,182,154,.16)!important;box-shadow:0 8px 28px rgba(0,0,0,.18)!important}
+    header.sticky>div:first-child{min-height:66px}
+    header nav.hidden.md\:flex{background:#12231f!important;border-color:#29473f!important}
+    header nav.hidden.md\:flex button.bg-gradient-to-r{background:#d9b36a!important;color:#1b211d!important}
+    header nav.hidden.md\:flex button:not(.bg-gradient-to-r){color:#adc3ba!important}
+    header h1{font-size:15px!important;letter-spacing:0!important}
+    header p{display:none}
+    header .bg-gradient-to-br{background:linear-gradient(145deg,#62c8a6,#1e6955)!important;color:#081713!important;box-shadow:0 5px 16px rgba(38,130,103,.24)!important}
+    header .px-2.py-1.rounded-xl{background:rgba(22,48,42,.82)!important;border-color:#2d5148!important;color:#c9ded5!important}
+    #btnMuteSfx{background:#172d29!important;border-color:#2a4740!important;border-radius:12px!important}
+    #topProgressBar{background:linear-gradient(90deg,#4db393,#93c7a9)!important}
+    body>section{background:rgba(14,30,27,.88)!important;border-color:rgba(85,182,154,.14)!important}
+    #pageLevelSelect{background:#10201d!important;border-color:#36574d!important;color:#e6c985!important;border-radius:12px!important;min-height:38px}
+    #levelPillsContainer{display:none!important}
+    #levelPillsContainer button{border-radius:10px!important;transition:background .18s ease,border .18s ease}
+    #viewPalace{padding-top:4px}
+    #viewPalace>div:first-child{background:rgba(19,37,34,.96)!important;border:1px solid var(--border)!important;border-radius:15px!important;padding:5px!important;gap:4px!important;box-shadow:0 8px 24px rgba(0,0,0,.13)}
+    #viewPalace>div:first-child button{min-height:36px;border-radius:11px!important;color:#a9beb7!important;font-size:11px!important}
+    #viewPalace>div:first-child button.bg-amber-500{background:#d9b36a!important;color:#1d211b!important}
+    #mobileCardPanel .flip-card-inner{min-height:350px}
+    #mobileCardPanel .flip-card-front{background:linear-gradient(145deg,#172e29,#10221f 70%)!important;border:1px solid #42675d!important;border-radius:22px!important;box-shadow:0 18px 42px rgba(0,0,0,.25)!important;padding:18px!important}
+    #mobileCardPanel .flip-card-back{background:linear-gradient(145deg,#1d2d33,#132522)!important;border:1px solid #526e72!important;border-radius:22px!important;box-shadow:0 18px 42px rgba(0,0,0,.25)!important;padding:18px!important}
+    .glow-active{animation:none!important}
+    #cardWordIdBadge{background:rgba(217,179,106,.14)!important;border-color:rgba(217,179,106,.35)!important;color:#e7ca8c!important}
+    #cardPageBadge{background:#203b34!important;border-color:#385c50!important;color:#c2d8cd!important}
+    #btnCardStar{background:#1c3831!important;border-color:#3c6558!important;color:#decca2!important;min-height:36px}
+    #mobileCardPanel .flip-card-front>div:nth-child(2){padding:12px 0!important}
+    #cardEmoji{font-size:42px!important;margin-bottom:7px!important}
+    #cardEnglishWord{font-size:clamp(32px,8vw,44px)!important;line-height:1.05;letter-spacing:-.035em!important;margin-bottom:8px!important}
+    #cardPhoneticAr{background:rgba(12,27,24,.55)!important;border-color:#35534a!important;color:#d8c58e!important;margin-bottom:12px!important}
+    #mobileCardPanel .flip-card-front>div:nth-child(2)>div:last-child{background:rgba(8,19,17,.48)!important;border-color:#35574d!important;border-radius:15px!important;padding:9px 12px!important}
+    #mobileCardPanel .flip-card-front>div:nth-child(2)>div:last-child>div:first-child{color:#8fb9a9!important}
+    #cardArabicWord{color:#e8c778!important;font-size:26px!important}
+    #mobileCardPanel .flip-card-front>div.grid.grid-cols-3{border-color:rgba(98,150,130,.28)!important;padding-top:12px!important;gap:7px!important}
+    #mobileCardPanel .flip-card-front>div.grid.grid-cols-3 button{min-height:43px;border-radius:12px!important;font-size:11px!important;white-space:nowrap;padding:8px 5px!important}
+    #mobileCardPanel .flip-card-front>div.grid.grid-cols-3 button:first-child{background:#d9b36a!important;color:#1b211d!important;border:0!important}
+    #mobileCardPanel .flip-card-front>div.grid.grid-cols-3 button:nth-child(2){background:#1c5143!important;border-color:#36705b!important}
+    #mobileCardPanel .flip-card-front>div.grid.grid-cols-3 button:nth-child(3){background:#263b45!important;border-color:#465f67!important;color:#e5edf0!important}
+    #mobileCardPanel .bg-\[\#081f18\]\/95{background:#10211e!important;border-color:#2c4941!important;border-radius:18px!important;box-shadow:0 12px 30px rgba(0,0,0,.14)!important}
+    #mobileCardPanel>div:last-child>div:first-child{grid-template-columns:.72fr 1.3fr .72fr!important;gap:7px!important}
+    #mobileCardPanel>div:last-child>div:first-child button{min-height:48px;border-radius:13px!important;padding:8px 5px!important;font-size:12px!important;white-space:nowrap}
+    #mobileCardPanel>div:last-child>div:first-child button:first-child,#mobileCardPanel>div:last-child>div:first-child button:last-child{background:#1a332e!important;border-color:#35564d!important;color:#d2e1da!important}
+    #btnMasterWord{background:#4da889!important;color:#081712!important;box-shadow:0 6px 15px rgba(47,142,109,.22)!important}
+    #btnMasterWord.bg-emerald-800{background:#1c5143!important;color:#d9eee5!important}
+    #mobileCardPanel>div:last-child>div:last-child{border-top-color:rgba(98,150,130,.22)!important;padding-top:9px!important}
+    #btnAutoPlayToggle{background:#245747!important;color:#e7f3ed!important;border-radius:12px!important;padding:9px 12px!important}
+    #quickSpellInput{background:#0b1917!important;border-color:#35564d!important;border-radius:12px!important;min-height:39px}
+    #quickSpellFeedback{background:#142c26!important;border-color:#2b4a40!important}
+    #mobile3DPanel{background:rgba(16,32,29,.96)!important;border-color:#29483f!important;border-radius:20px!important;box-shadow:0 15px 35px rgba(0,0,0,.2)!important}
+    #threeContainer{border-color:#36594e!important;border-radius:16px!important}
+    #threeContainer button{background:rgba(8,20,17,.86)!important;border-color:#45675a!important;color:#d8e7de!important;border-radius:10px!important}
+    #threeHoverLabel{color:#e5c779!important}
+    #btn3DHelix,#btn3DSphere,#btn3DPalace{border-radius:9px!important;padding:6px 9px!important}
+    #btn3DHelix.bg-amber-500,#btn3DSphere.bg-amber-500,#btn3DPalace.bg-amber-500{background:#d9b36a!important;color:#1b211d!important}
+    #currentLevelWordStrip button{border-radius:11px!important}
+    #currentLevelWordStrip button.bg-amber-500{background:#d9b36a!important;color:#1b211d!important}
+    #viewDirectory>div:first-child,#viewQuiz>div:first-child,#viewRoadmap>div>div{background:rgba(17,34,31,.97)!important;border-color:#2a4940!important;border-radius:20px!important;box-shadow:0 16px 36px rgba(0,0,0,.17)!important}
+    #viewDirectory input,#viewDirectory select,#viewQuiz select,#quizSpellInput{background:#0c1b18!important;border-color:#35564d!important;color:#e8f1ed!important;border-radius:12px!important;min-height:42px}
+    #viewDirectory button,#viewQuiz button,#viewRoadmap button{border-radius:12px!important}
+    #directoryGridContainer>div{background:#10211e!important;border-color:#2a4940!important;border-radius:15px!important;min-height:76px;transition:transform .15s ease,border .15s ease}
+    #directoryGridContainer>div:active{transform:scale(.99)}
+    #quizOptionsGrid button{min-height:52px;background:#142a25!important;border-color:#34564b!important;border-radius:14px!important}
+    #quizOptionsGrid button:hover{border-color:#65b99c!important;background:#1a3830!important}
+    #roadmapCardsGrid>div{background:#10221f!important;border-color:#2a4940!important;border-radius:15px!important;padding:14px!important}
+    #roadmapCardsGrid>div:hover{border-color:#548c75!important;transform:translateY(-1px)}
+    #pomoTimeDisplay{color:#e5c478!important}
+    #mNavPalace,#mNavDirectory,#mNavQuiz,#mNavRoadmap{border-radius:12px!important;min-height:48px;gap:2px}
+    nav.fixed.bottom-0{background:rgba(9,22,19,.96)!important;border-color:#2a4940!important;box-shadow:0 -8px 28px rgba(0,0,0,.25)!important;padding-bottom:calc(7px + env(safe-area-inset-bottom,0px))!important}
+    nav.fixed.bottom-0 button.bg-amber-500{background:#d9b36a!important;color:#1c211d!important}
+    #toastBox{background:#d9b36a!important;color:#18201b!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:14px!important}
+    #confirmResetModal>div{background:#142723!important;border-color:#aa7c50!important;border-radius:22px!important}
+    .text-amber-400,.text-amber-300{color:#e0c37f!important}
+    .border-emerald-800\/70{border-color:#2a4940!important}
+    button{transition:transform .16s ease,background-color .16s ease,border-color .16s ease,box-shadow .16s ease}
+    button:active{transform:scale(.985)}
+    button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #65b99c!important;outline-offset:2px}
+    @media(max-width:767px){
+      header.sticky>div:first-child{min-height:58px;padding-top:7px;padding-bottom:7px}
+      header h1{font-size:13px!important}
+      header .text-\[10px\].px-1\.5{font-size:9px!important}
+      header .px-2.py-1.rounded-xl{gap:4px!important;padding:5px 7px!important;font-size:10px!important}
+      body>section{padding-top:7px!important;padding-bottom:7px!important}
+      body>section .max-w-7xl{gap:4px!important}
+      body>section .max-w-7xl>div:first-child{gap:6px!important}
+      body>section button[onclick^="changePageLevel"]{font-size:0!important;min-width:39px;min-height:38px;padding:6px!important}
+      body>section button[onclick^="changePageLevel"]:first-child:after{content:'‹';font-size:20px;line-height:1}
+      body>section button[onclick^="changePageLevel"]:last-child:after{content:'›';font-size:20px;line-height:1}
+      #levelPillsContainer{display:none!important}
+      #pageLevelSelect{font-size:10px!important;max-width:calc(100vw - 118px)}
+      #viewPalace>div:first-child button{font-size:10px!important;min-height:34px}
+      #mobileCardPanel .flip-card-inner{min-height:338px}
+      #mobileCardPanel .flip-card-front,#mobileCardPanel .flip-card-back{padding:14px!important;border-radius:18px!important}
+      #mobileCardPanel .flip-card-front>div:first-child{gap:4px!important}
+      #mobileCardPanel .flip-card-front>div:first-child>div:first-child{gap:4px!important}
+      #mobileCardPanel .flip-card-front>div:first-child>div:last-child{gap:5px!important}
+      #cardWordIdBadge{font-size:10px!important;padding:4px 7px!important}
+      #cardPageBadge{font-size:10px!important;padding:4px 7px!important;max-width:110px!important}
+      #btnCardStar{font-size:10px!important;padding:6px 8px!important}
+      #mobileCardPanel .flip-card-front>div:first-child button[onclick="flip3DCard()"]{font-size:10px!important;padding:6px 8px!important}
+      #cardEmoji{font-size:36px!important;margin-bottom:4px!important}
+      #cardEnglishWord{font-size:34px!important}
+      #cardPhoneticAr{font-size:10px!important;padding:4px 9px!important;margin-bottom:8px!important}
+      #cardArabicWord{font-size:23px!important}
+      #mobileCardPanel .flip-card-front>div.grid.grid-cols-3 button{font-size:10px!important;min-width:0;padding:7px 3px!important;gap:4px!important}
+      #mobileCardPanel>div:last-child{padding:9px!important;gap:8px!important}
+      #mobileCardPanel>div:last-child>div:first-child button{font-size:11px!important;min-height:45px}
+      #mobileCardPanel>div:last-child>div:first-child button:first-child,#mobileCardPanel>div:last-child>div:first-child button:last-child{font-size:0!important}
+      #mobileCardPanel>div:last-child>div:first-child button:first-child:after{content:'‹ السابق';font-size:11px}
+      #mobileCardPanel>div:last-child>div:first-child button:last-child:after{content:'التالي ›';font-size:11px}
+      #btnMasterWordText{font-size:11px!important}
+      #mobileCardPanel>div:last-child>div:last-child{gap:6px!important}
+      #btnAutoPlayToggle{font-size:10px!important;padding:9px 8px!important}
+      #quickSpellInput{min-width:105px!important;font-size:11px!important}
+      #quickSpellFeedback{font-size:10px!important}
+      #mobile3DPanel{padding:10px!important;gap:10px!important}
+      #mobile3DPanel h2{font-size:13px!important}
+      #threeContainer{height:270px!important}
+      #threeContainer>div:first-of-type{max-width:100%;flex-wrap:wrap}
+      #threeContainer button{font-size:9px!important;padding:5px 7px!important}
+      #threeContainer>div:last-of-type{font-size:9px!important}
+      #mobileCardPanel .flip-card-back>div:nth-child(2){gap:8px!important}
+      #mobileCardPanel .flip-card-back>div:nth-child(2)>div{padding:9px!important}
+      #mobileCardPanel .flip-card-back>div:first-child span{font-size:10px!important}
+      #mobileCardPanel .flip-card-back>div:first-child button{font-size:10px!important;padding:6px 8px!important}
+      #mobileCardPanel .flip-card-back>div:nth-child(2) p{font-size:11px!important;line-height:1.55}
+      #viewDirectory>div:first-child,#viewQuiz>div:first-child,#viewRoadmap>div>div{padding:14px!important}
+      #viewDirectory>div:first-child>div:first-child{align-items:flex-start}
+      #viewDirectory>div:first-child>div:first-child h2,#viewQuiz h2,#viewRoadmap h2{font-size:15px!important}
+      #viewDirectory>div:first-child>div:first-child button{max-width:145px;font-size:10px!important}
+      #viewDirectory input,#viewDirectory select,#viewQuiz select{font-size:11px!important}
+      #directoryGridContainer>div{padding:10px!important}
+      #directoryGridContainer>div .text-base{font-size:14px!important}
+      #viewQuiz>div:first-child{margin-bottom:0}
+      #viewQuiz>div:first-child>div:first-child{flex-wrap:wrap}
+      #viewQuiz .grid.grid-cols-3 button{font-size:10px!important;padding:8px 4px!important}
+      #viewRoadmap>div>div{padding:12px!important}
+      #roadmapCardsGrid>div{padding:11px!important}
+      #mNavPalace,#mNavDirectory,#mNavQuiz,#mNavRoadmap{font-size:10px!important;min-height:47px}
+      #mNavPalace span:first-child,#mNavDirectory span:first-child,#mNavQuiz span:first-child,#mNavRoadmap span:first-child{font-size:14px!important}
+      .safe-bottom{padding-bottom:calc(4.5rem + env(safe-area-inset-bottom,0px))!important}
+    }
+    @media(min-width:1024px){
+      main.max-w-7xl{padding-top:20px!important}
+      #mobileCardPanel .flip-card-inner{min-height:390px}
+      #mobileCardPanel .flip-card-front,#mobileCardPanel .flip-card-back{padding:22px!important}
+      #mobile3DPanel{padding:18px!important}
+      #threeContainer{height:440px!important}
+      #viewPalace>div:first-child{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+
+</head>
+<body class="selection:bg-amber-500 selection:text-slate-950 safe-bottom">
+
+  <!-- Compact Mobile-First Top App Bar -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-[#051611]/95 border-b border-emerald-800/70 shadow-md">
+    <div class="max-w-7xl mx-auto px-3 py-2 flex items-center justify-between gap-2">
+      <!-- App Title & Mobile Badge -->
+      <div class="flex items-center gap-2 min-w-0">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400 to-emerald-600 flex items-center justify-center text-slate-950 font-black text-base shadow shrink-0">
+          3D
+        </div>
+        <div class="min-w-0">
+          <h1 class="text-sm sm:text-base font-black text-white truncate flex items-center gap-1.5">
+            <span>القصر الذهني 3D</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 font-bold">1000 كلمة</span>
+          </h1>
+          <p class="text-[10px] text-emerald-300/80 truncate"></p>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Tabs (Hidden on Phone, replaced by Bottom Thumb Bar) -->
+      <nav class="hidden md:flex items-center gap-1 bg-[#081f18] p-1 rounded-xl border border-emerald-800/70">
+        <button id="tabBtn3D" onclick="switchMainTab('palace')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 shadow">
+          التعلّم
+        </button>
+        <button id="tabBtnList" onclick="switchMainTab('directory')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-emerald-200 hover:bg-emerald-900/50">
+          القاموس
+        </button>
+        <button id="tabBtnQuiz" onclick="switchMainTab('quiz')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-emerald-200 hover:bg-emerald-900/50">
+          اختبار سريع
+        </button>
+        <button id="tabBtnPlan" onclick="switchMainTab('roadmap')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-emerald-200 hover:bg-emerald-900/50">
+          خطة التعلّم
+        </button>
+      </nav>
+
+      <!-- Live Stats Pill & Mute Button -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <div class="px-2 py-1 rounded-xl bg-emerald-950/90 border border-emerald-700/60 flex items-center gap-1.5 text-[11px]">
+          <span title="الكلمات المتقنة">✅ <strong id="statMastered" class="text-emerald-400 font-en">0</strong></span>
+          <span class="text-emerald-700">|</span>
+          <span title="المفضلة">⭐ <strong id="statStarred" class="text-amber-400 font-en">0</strong></span>
+          <span class="text-emerald-700">|</span>
+          <span title="نقاط الخبرة">⚡ <strong id="statXP" class="text-amber-300 font-en">0</strong></span>
+        </div>
+        <button id="btnMuteSfx" onclick="toggleMuteSfx()" class="w-8 h-8 rounded-xl bg-emerald-950/90 border border-emerald-700/60 text-emerald-200 flex items-center justify-center text-xs active:scale-95" title="كتم/تشغيل المؤثرات الصوتية">
+          🔔
+        </button>
+      </div>
+    </div>
+
+    <!-- Overall Mastery Progress Bar -->
+    <div class="w-full h-1 bg-emerald-950">
+      <div id="topProgressBar" class="h-full bg-gradient-to-r from-emerald-400 via-amber-400 to-amber-500 transition-all duration-500" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- Compact Mobile Level / Page Selector Bar -->
+  <section class="bg-[#071c15]/95 border-b border-emerald-900/70 py-1.5 px-3">
+    <div class="max-w-7xl mx-auto flex flex-col gap-1.5">
+      <div class="flex items-center justify-between gap-1.5">
+        <button onclick="changePageLevel(-1)" class="px-2.5 py-1.5 rounded-xl bg-emerald-900/80 active:bg-emerald-700 text-xs font-extrabold border border-emerald-700/60 shrink-0">
+          ‹ السابق
+        </button>
+
+        <select id="pageLevelSelect" onchange="selectPageLevel(parseInt(this.value, 10))" class="flex-1 min-w-0 bg-[#051611] text-amber-300 text-xs font-extrabold px-2.5 py-1.5 rounded-xl border border-amber-500/60 focus:outline-none truncate text-center">
+        </select>
+
+        <button onclick="changePageLevel(1)" class="px-2.5 py-1.5 rounded-xl bg-emerald-900/80 active:bg-emerald-700 text-xs font-extrabold border border-emerald-700/60 shrink-0">
+          التالي ›
+        </button>
+      </div>
+
+      <!-- Hidden badge kept for DOM compatibility + Horizontal 20-Page Touch Ribbon -->
+      <span id="currentLevelTitleBadge" class="hidden">صفحة 1</span>
+      <div id="levelPillsContainer" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-7xl mx-auto px-2.5 sm:px-6 py-2.5">
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: 3D MEMORY PALACE & FLASHCARD STUDIO -->
+    <!-- ========================================== -->
+    <section id="viewPalace" class="space-y-2.5">
+
+      <!-- Mobile Display Mode Switcher (Lets Phone Users Choose Split vs Card-First vs Full-3D) -->
+      <div class="flex lg:hidden items-center justify-between gap-1.5 bg-[#081f18] p-1 rounded-xl border border-emerald-800/80">
+        <button id="mViewSplit" onclick="setMobileStudyLayout('split')" class="flex-1 py-1.5 rounded-lg text-[11px] font-extrabold bg-amber-500 text-slate-950 shadow text-center">
+          معاً
+        </button>
+        <button id="mViewCard" onclick="setMobileStudyLayout('card')" class="flex-1 py-1.5 rounded-lg text-[11px] font-bold text-emerald-200 text-center">
+          البطاقة
+        </button>
+        <button id="mView3D" onclick="setMobileStudyLayout('3d')" class="flex-1 py-1.5 rounded-lg text-[11px] font-bold text-emerald-200 text-center">
+          القصر 3D
+        </button>
+      </div>
+
+      <!-- Responsive Grid: On Mobile, Flashcard + Thumb Controls are immediately accessible alongside 3D -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 items-start">
+
+        <!-- Column A: 3D Flashcard + Thumb Controls (First on Mobile for instant thumb reach, 5 cols on Desktop) -->
+        <div id="mobileCardPanel" class="lg:col-span-5 lg:order-2 flex flex-col gap-2.5">
+
+          <!-- 3D Flip Card Container with Touch Swipe Support -->
+          <div id="touchCardZone" class="perspective-1000 w-full select-none">
+            <div id="flashcardInner" class="flip-card-inner">
+
+              <!-- FRONT OF 3D CARD -->
+              <div class="flip-card-front bg-gradient-to-br from-[#0c2d23] via-[#082019] to-[#051410] border-2 border-amber-500/60 p-3.5 sm:p-5 flex flex-col justify-between shadow-2xl glow-active">
+                <!-- Top Card Row -->
+                <div class="flex items-center justify-between gap-1.5">
+                  <div class="flex items-center gap-1">
+                    <span id="cardWordIdBadge" class="px-2 py-0.5 rounded-lg bg-amber-500/20 border border-amber-400/40 text-amber-300 font-en font-black text-xs">
+                      #1 / 1000
+                    </span>
+                    <span id="cardPageBadge" class="px-2 py-0.5 rounded-lg bg-emerald-900/80 border border-emerald-700/60 text-emerald-200 font-bold text-[11px] truncate max-w-[140px] sm:max-w-none">
+                      صفحة 1
+                    </span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <button id="btnCardStar" onclick="toggleStarCurrentWord()" class="px-2.5 py-1 rounded-lg bg-emerald-950/90 border border-emerald-700 text-xs font-bold active:scale-95">
+                      ☆ مهمة
+                    </button>
+                    <button onclick="flip3DCard()" class="px-2.5 py-1 rounded-lg bg-indigo-950/90 border border-indigo-500/50 text-indigo-200 text-xs font-bold active:scale-95">
+                      المثال
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Center Word & Pronunciation Showcase (Tap to Speak) -->
+                <div onclick="speakCurrentWord(1.0)" class="my-auto py-1.5 text-center flex flex-col items-center cursor-pointer active:scale-[0.99] transition-transform">
+                  <div id="cardEmoji" class="text-4xl sm:text-6xl mb-1 select-none">
+                    🏠
+                  </div>
+                  <h3 id="cardEnglishWord" class="font-en text-3xl sm:text-4xl font-black tracking-wide text-white mb-1">
+                    apartment
+                  </h3>
+                  <!-- Phonetic Arabic Transcription -->
+                  <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-950/90 border border-emerald-700/70 text-amber-300 text-xs font-bold mb-2">
+                    <span>🗣️ اسمع:</span>
+                    <span id="cardPhoneticAr" class="text-white font-extrabold">أَبارتمِنت</span>
+                  </div>
+
+                  <!-- Arabic Meaning Box -->
+                  <div class="w-full bg-[#04120e]/95 border border-emerald-600/50 rounded-xl py-2 px-3 shadow-inner">
+                    <div class="text-[10px] text-emerald-400 font-bold">المعنى بالعربية</div>
+                    <div id="cardArabicWord" class="text-2xl sm:text-3xl font-black text-amber-400">
+                      شقة
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Audio Pronunciation Buttons Row (Thumb-Friendly) -->
+                <div class="grid grid-cols-3 gap-1.5 pt-2 border-t border-emerald-800/60">
+                  <button onclick="speakCurrentWord(1.0)" class="py-2.5 px-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 active:scale-95 text-slate-950 font-extrabold text-xs flex items-center justify-center gap-1 shadow">
+                    <span>🔊</span>
+                    <span>استمع</span>
+                  </button>
+                  <button onclick="speakCurrentWord(0.6)" class="py-2.5 px-2 rounded-xl bg-emerald-800/95 active:scale-95 text-white font-bold text-xs flex items-center justify-center gap-1 border border-emerald-600/50">
+                    <span>🐢</span>
+                    <span>بطيء</span>
+                  </button>
+                  <button onclick="flip3DCard(true)" class="py-2.5 px-2 rounded-xl bg-indigo-600/95 active:scale-95 text-white font-bold text-xs flex items-center justify-center gap-1 border border-indigo-400/40">
+                    <span>◷</span>
+                    <span>المثال</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- BACK OF 3D CARD (Contextual Sentence + Memory Link) -->
+              <div class="flip-card-back bg-gradient-to-br from-[#131b3a] via-[#0d152b] to-[#061411] border-2 border-indigo-400/60 p-3.5 sm:p-5 flex flex-col justify-between shadow-2xl">
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 rounded-lg bg-indigo-500/20 border border-indigo-400/40 text-indigo-200 font-bold text-xs">
+                    المثال والربط الذهني
+                  </span>
+                  <button onclick="flip3DCard(false)" class="px-2.5 py-1 rounded-lg bg-emerald-900/80 border border-emerald-600/50 text-emerald-200 text-xs font-bold active:scale-95">
+                    🔙 العودة للوجه الأمامي
+                  </button>
+                </div>
+
+                <div class="my-auto space-y-2 py-1">
+                  <div class="flex items-center justify-between bg-slate-950/70 p-2 rounded-xl border border-indigo-500/30">
+                    <div>
+                      <span id="backWordEn" class="font-en text-lg font-black text-white">apartment</span>
+                      <span class="mx-1.5 text-indigo-400">•</span>
+                      <span id="backWordAr" class="text-base font-extrabold text-amber-400">شقة</span>
+                    </div>
+                    <button onclick="speakCurrentWord(0.9)" class="px-2.5 py-1 rounded-lg bg-amber-500 text-slate-950 font-bold text-xs">
+                      🔊 نطق الكلمة
+                    </button>
+                  </div>
+
+                  <!-- Contextual Example Sentence -->
+                  <div class="bg-slate-950/80 p-2.5 rounded-xl border border-emerald-600/40 space-y-1">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[11px] font-bold text-emerald-400">📌 جملة الفهم السياقي (A2):</span>
+                      <button onclick="speakCurrentSentence()" class="px-2 py-0.5 rounded-md bg-emerald-800 text-white text-[11px] font-bold">
+                        🔊 استمع للجملة
+                      </button>
+                    </div>
+                    <p id="cardExampleEn" dir="ltr" class="font-en text-xs sm:text-sm font-bold text-white text-left">
+                      "I learned the word apartment today."
+                    </p>
+                    <p id="cardExampleAr" class="text-xs text-amber-300 font-semibold">
+                      "تعلمت كلمة (شقة) اليوم."
+                    </p>
+                  </div>
+
+                  <!-- Genius Memory Hook -->
+                  <div class="bg-amber-500/10 p-2.5 rounded-xl border border-amber-400/30 space-y-0.5">
+                    <div class="text-[11px] font-extrabold text-amber-300">💡 حيلة التذكر العبقرية:</div>
+                    <p id="cardMemoryTip" class="text-[11px] text-emerald-100 leading-relaxed">
+                      اربط صوت الكلمة بـ (أَبارتمِنت) وتخيل 🏠 في القصر ثلاثي الأبعاد.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between gap-2 pt-1.5 border-t border-indigo-800/60">
+                  <button onclick="speakCurrentSentence()" class="flex-1 py-2 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-xs">
+                    🗣️ نطق الكلمة + الجملة
+                  </button>
+                  <button onclick="flip3DCard(false)" class="py-2 px-4 rounded-xl bg-slate-800 text-white font-bold text-xs">
+                    إغلاق
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Big Thumb Action Bar: Next / Master / Prev + Radio + Spelling -->
+          <div class="bg-[#081f18]/95 border border-emerald-800/70 rounded-2xl p-2.5 space-y-2 shadow-lg">
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="stepWord(-1)" aria-label="الكلمة السابقة" class="py-3 px-2 rounded-xl bg-emerald-950 active:bg-emerald-800 border border-emerald-700/70 text-xs sm:text-sm font-extrabold text-white flex items-center justify-center gap-1 shadow">
+                <span>‹</span>
+                <span>السابق</span>
+              </button>
+              <button id="btnMasterWord" onclick="toggleMasterCurrentWord()" class="py-3 px-2 rounded-xl bg-emerald-500 active:scale-95 text-slate-950 text-xs sm:text-sm font-black flex items-center justify-center gap-1 shadow">
+                <span>✅</span>
+                <span id="btnMasterWordText">أتقنتها</span>
+              </button>
+              <button onclick="stepWord(1)" aria-label="الكلمة التالية" class="py-3 px-2 rounded-xl bg-emerald-950 active:bg-emerald-800 border border-emerald-700/70 text-xs sm:text-sm font-extrabold text-white flex items-center justify-center gap-1 shadow">
+                <span>التالي</span>
+                <span>›</span>
+              </button>
+            </div>
+
+            <!-- Compact Auto-Play Radio & Quick Spelling Row -->
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button id="btnAutoPlayToggle" onclick="toggleAutoPlayRadio()" class="px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-extrabold text-xs shrink-0 shadow">
+                ▶️ تشغيل الراديو
+              </button>
+              <span id="autoPlayStatusText" class="hidden"></span>
+              <input id="quickSpellInput" type="text" dir="ltr" placeholder="✍️ اختبر إملاءك بالإنكليزي..." oninput="checkQuickSpelling(this.value)" class="flex-1 min-w-[130px] bg-[#04120e] border border-emerald-700/70 focus:border-amber-400 rounded-xl px-2.5 py-1.5 text-xs font-en text-white placeholder:text-emerald-500/70 focus:outline-none" />
+              <span id="quickSpellFeedback" class="text-[11px] font-bold px-2 py-1.5 rounded-lg bg-emerald-950 border border-emerald-800 text-emerald-300 whitespace-nowrap">
+                إملاء
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Column B: Interactive 3D Three.js Memory Galaxy (7 cols on Desktop, Touch-Optimized on Mobile) -->
+        <div id="mobile3DPanel" class="lg:col-span-7 lg:order-1 flex flex-col gap-2.5 bg-[#081f18]/90 border border-emerald-800/70 rounded-2xl p-2.5 sm:p-4 shadow-2xl">
+          <div class="flex flex-wrap items-center justify-between gap-1.5">
+            <div class="flex items-center gap-1.5">
+              <h2 class="text-xs sm:text-base font-extrabold text-white">🌐 مجرة الكلمات 3D</h2>
+              <span id="palacePageIndicator" class="text-[11px] font-bold text-amber-300 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded-md">50 كلمة</span>
+            </div>
+            <!-- 3D Layout Mode Buttons -->
+            <div class="flex items-center gap-1 bg-[#051611] p-1 rounded-xl border border-emerald-800/80">
+              <button id="btn3DHelix" onclick="set3DFormation('helix')" class="px-2 py-1 rounded-lg text-[11px] font-bold bg-amber-500 text-slate-950">
+                🧬 حلزون 3D
+              </button>
+              <button id="btn3DSphere" onclick="set3DFormation('sphere')" class="px-2 py-1 rounded-lg text-[11px] font-bold text-emerald-200">
+                🌍 كرة 3D
+              </button>
+              <button id="btn3DPalace" onclick="set3DFormation('grid')" class="px-2 py-1 rounded-lg text-[11px] font-bold text-emerald-200">
+                🏛️ قصر 3D
+              </button>
+            </div>
+          </div>
+
+          <!-- 3D Canvas Viewport (Touch-Locked so Finger Drag Rotates 3D Smoothly) -->
+          <div id="threeContainer" class="relative w-full h-[230px] sm:h-[410px] rounded-xl overflow-hidden bg-gradient-to-b from-[#030d0a] via-[#061c15] to-[#04120d] border border-emerald-700/50 shadow-inner">
+            <canvas id="threeCanvas" class="w-full h-full block"></canvas>
+
+            <!-- Floating Overlay Controls inside 3D Viewport -->
+            <div class="absolute top-2 right-2 flex items-center gap-1 pointer-events-auto">
+              <button id="btnAutoRotate" onclick="toggle3DAutoRotate()" class="px-2 py-1 rounded-lg bg-slate-950/80 backdrop-blur border border-emerald-600/50 text-[11px] font-bold text-emerald-300">
+                دوران تلقائي
+              </button>
+              <button onclick="reset3DCamera()" class="px-2 py-1 rounded-lg bg-slate-950/80 backdrop-blur border border-emerald-600/50 text-[11px] font-bold text-emerald-200">
+                إعادة التوسيط
+              </button>
+            </div>
+
+            <!-- Legend Bottom Overlay -->
+            <div class="absolute bottom-2 right-2 left-2 flex items-center justify-between gap-2 pointer-events-none text-[10px] sm:text-[11px] bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg border border-emerald-800/60">
+              <span id="threeHoverLabel" class="text-amber-300 font-bold truncate">اسحب لاستكشاف الكلمات</span>
+              <span class="text-emerald-300 shrink-0">اسحب للتدوير</span>
+            </div>
+          </div>
+
+          <!-- Quick Strip of the 50 Words in Current Page -->
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[11px] font-bold text-emerald-300">⚡ شريط كلمات الصفحة (المس أي كلمة للنطق):</span>
+              <span id="pageMasteryCounter" class="text-[11px] font-bold text-amber-400">0 / 50</span>
+            </div>
+            <div id="currentLevelWordStrip" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 pt-0.5">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: STRUCTURED 1000-WORD DIRECTORY     -->
+    <!-- ========================================== -->
+    <section id="viewDirectory" class="hidden space-y-3">
+      <div class="bg-[#081f18]/95 border border-emerald-800/70 rounded-2xl p-3 sm:p-4 shadow-xl space-y-2.5">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-lg font-black text-white">قاموس الكلمات</h2>
+            <p class="text-[11px] text-emerald-300/80">ابحث عن كلمة أو تصفّح القائمة</p>
+          </div>
+          <button onclick="markEntirePageMastered()" class="px-2.5 py-1.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-[11px] font-bold border border-emerald-500/40">
+            إتقان الفصل الحالي
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+          <input id="dirSearchInput" type="text" oninput="renderDirectoryGrid()" placeholder="🔍 ابحث بالإنكليزي، بالعربي، أو برقم الكلمة (1-1000)..." class="w-full bg-[#04120e] border border-emerald-700/80 focus:border-amber-400 rounded-xl px-3 py-2 text-xs text-white placeholder:text-emerald-500/70 focus:outline-none" />
+
+          <select id="dirScopeSelect" onchange="renderDirectoryGrid()" class="bg-[#04120e] border border-emerald-700/80 rounded-xl px-3 py-2 text-xs text-white font-bold focus:outline-none">
+            <option value="current_page">📄 الصفحة الحالية فقط (50 كلمة مرتبة)</option>
+            <option value="all_1000">🌍 جميع القاموس كاملة (1 - 1000)</option>
+            <option value="cat_1">🏠 المجتمع والمنزل والحياة (صفحات 1، 6، 20)</option>
+            <option value="cat_2">🛒 المال والتسوق والمحاسبة (صفحات 2، 10، 16)</option>
+            <option value="cat_3">🩺 الصحة والجسم والرياضة (صفحات 3، 13، 14)</option>
+            <option value="cat_4">☀️ الطقس والطبيعة والاتجاهات (صفحات 4، 5)</option>
+            <option value="cat_5">✈️ السفر والمطاعم والطبخ (صفحات 11، 12، 17)</option>
+            <option value="cat_6">🎓 التعلم والجامعة والفنون (صفحات 7، 8، 9، 15، 18، 19)</option>
+          </select>
+
+          <select id="dirStatusSelect" onchange="renderDirectoryGrid()" class="bg-[#04120e] border border-emerald-700/80 rounded-xl px-3 py-2 text-xs text-white font-bold focus:outline-none">
+            <option value="all">📊 كل الحالات</option>
+            <option value="unmastered">⏳ قيد التعلم</option>
+            <option value="mastered">✅ المتقنة فقط</option>
+            <option value="starred">⭐ المهمة فقط</option>
+          </select>
+
+          <select id="dirSortSelect" onchange="renderDirectoryGrid()" class="bg-[#04120e] border border-emerald-700/80 rounded-xl px-3 py-2 text-xs text-white font-bold focus:outline-none">
+            <option value="id_asc">🔢 الترتيب الأصلي (1 إلى 1000)</option>
+            <option value="alpha_asc">🔤 أبجدي إنجليزي (A → Z)</option>
+            <option value="length_asc">📏 من الأقصر للأطول</option>
+          </select>
+        </div>
+
+        <div class="flex items-center justify-between text-[11px] text-emerald-300">
+          <span id="dirResultCount">يعرض 50 كلمة</span>
+          <span class="text-amber-300 font-bold"></span>
+        </div>
+      </div>
+
+      <!-- Mobile-Friendly Words List/Grid -->
+      <div id="directoryGridContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: INTERACTIVE QUIZ & MEMORY LAB      -->
+    <!-- ========================================== -->
+    <section id="viewQuiz" class="hidden space-y-3">
+      <div class="bg-[#081f18]/95 border border-emerald-800/70 rounded-2xl p-3.5 sm:p-6 shadow-xl max-w-2xl mx-auto space-y-3">
+        <div class="flex items-center justify-between gap-2 border-b border-emerald-800/70 pb-2.5">
+          <div>
+            <h2 class="text-sm sm:text-lg font-black text-white">اختبر نفسك</h2>
+            <p class="text-[11px] text-emerald-300/80">اختر طريقة الاختبار</p>
+          </div>
+          <div class="flex items-center gap-1.5 bg-emerald-950 px-2.5 py-1 rounded-xl border border-amber-500/40 text-xs font-bold">
+            <span>🔥 <strong id="quizStreak" class="text-amber-400 font-en">0</strong></span>
+            <span>|</span>
+            <span>🏆 <strong id="quizScore" class="text-emerald-400 font-en">0/0</strong></span>
+          </div>
+        </div>
+
+        <!-- Quiz Configuration Bar -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2">
+          <div class="grid grid-cols-3 gap-1 bg-[#04120e] p-1 rounded-xl border border-emerald-800">
+            <button id="qModeMeaning" onclick="setQuizMode('meaning')" class="py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950">
+              🎯 اختبار المعنى
+            </button>
+            <button id="qModeAudio" onclick="setQuizMode('audio')" class="py-1.5 rounded-lg text-xs font-bold text-emerald-200">
+              🎧 اختبار الاستماع
+            </button>
+            <button id="qModeSpell" onclick="setQuizMode('spell')" class="py-1.5 rounded-lg text-xs font-bold text-emerald-200">
+              ✍️ اختبار التهجئة
+            </button>
+          </div>
+
+          <select id="quizPoolSelect" onchange="generateNextQuizQuestion()" class="bg-[#04120e] border border-emerald-700 rounded-xl px-3 py-2 text-xs font-bold text-white">
+            <option value="current_page">نطاق الاختبار: الصفحة الحالية (50 كلمة)</option>
+            <option value="all_1000">نطاق الاختبار: جميع القاموس</option>
+            <option value="starred">نطاق الاختبار: الكلمات المهمة ⭐</option>
+          </select>
+        </div>
+
+        <!-- Active Question Card -->
+        <div class="bg-gradient-to-br from-[#0c2d23] to-[#051410] border-2 border-emerald-600/50 rounded-2xl p-4 text-center space-y-3 shadow-inner">
+          <div class="flex items-center justify-between text-xs text-emerald-300">
+            <span id="quizWordMeta">#1 • صفحة 1</span>
+            <button onclick="speakQuizWord()" class="px-3 py-1 rounded-lg bg-amber-500/20 border border-amber-400/50 text-amber-300 font-bold active:scale-95">
+              🔊 استمع للنطق مرة أخرى
+            </button>
+          </div>
+
+          <div id="quizPromptEmoji" class="text-4xl sm:text-5xl">🏠</div>
+          <div id="quizPromptText" class="text-2xl sm:text-3xl font-black text-white font-en">apartment</div>
+          <div id="quizPromptSub" class="text-xs text-amber-300 font-bold">اختر الترجمة العربية الصحيحة:</div>
+
+          <!-- Multiple Choice Options Container -->
+          <div id="quizOptionsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+          </div>
+
+          <!-- Spelling Mode Container -->
+          <div id="quizSpellingBox" class="hidden space-y-2.5 pt-1">
+            <div class="flex items-center gap-2 max-w-md mx-auto">
+              <input id="quizSpellInput" type="text" dir="ltr" placeholder="اكتب الكلمة بالإنجليزية..." onkeydown="if(event.key==='Enter') submitQuizSpelling()" class="flex-1 bg-[#030e0b] border-2 border-emerald-600 focus:border-amber-400 rounded-xl px-3 py-2.5 text-center font-en text-base font-bold text-white focus:outline-none" />
+              <button onclick="submitQuizSpelling()" class="px-4 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-black text-xs">
+                تحقق ✔️
+              </button>
+            </div>
+            <div id="quizSpellHint" class="text-xs text-emerald-300 font-en"></div>
+          </div>
+
+          <!-- Quiz Feedback Banner -->
+          <div id="quizFeedbackBox" class="hidden p-2.5 rounded-xl text-xs sm:text-sm font-bold"></div>
+
+          <div class="pt-1">
+            <button onclick="generateNextQuizQuestion()" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-800 active:bg-emerald-700 text-white text-xs font-extrabold border border-emerald-600">
+              السؤال التالي ›
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 4: GENIUS 20-LEVEL ROADMAP & POMODORO -->
+    <!-- ========================================== -->
+    <section id="viewRoadmap" class="hidden space-y-3">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
+
+        <!-- Pomodoro 25-Min Study Timer (5 cols) -->
+        <div class="lg:col-span-5 bg-[#081f18]/95 border border-emerald-800/70 rounded-2xl p-4 space-y-3 shadow-xl">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm sm:text-base font-black text-white">مؤقت التركيز</h2>
+            <span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[11px] font-bold border border-amber-400/30">بومودورو</span>
+          </div>
+
+          <div class="bg-[#04120e] border-2 border-emerald-700/60 rounded-2xl p-4 text-center space-y-2.5">
+            <div id="pomoTimeDisplay" class="font-en text-4xl sm:text-5xl font-black text-amber-400 tracking-wider">25:00</div>
+            <div id="pomoStatusLabel" class="text-xs font-bold text-emerald-300">جاهز لبدء جلسة حفظ صفحة كاملة (50 كلمة)</div>
+            <div class="flex items-center justify-center gap-2">
+              <button id="btnPomoStart" onclick="togglePomodoro()" class="px-4 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-black text-xs active:scale-95">
+                ▶️ ابدأ جلسة 25 دقيقة
+              </button>
+              <button onclick="resetPomodoro()" class="px-3 py-2.5 rounded-xl bg-emerald-900 text-white font-bold text-xs active:scale-95">
+                🔄 إعادة ضبط
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-1.5 text-xs">
+            <div class="font-extrabold text-amber-300"></div>
+            <div class="p-2 rounded-xl bg-emerald-950/70 border border-emerald-800/60 text-emerald-200">
+              • <strong>اسحب البطاقة يميناً أو يساراً</strong> بإبهامك للانتقال بين الكلمات.<br/>
+              • <strong>اضغط على وسط البطاقة</strong> لسماع النطق الفوري.<br/>
+              • <strong>شغّل راديو النطق</strong> للاستماع المتواصل أثناء المشي أو التمرين.
+            </div>
+          </div>
+        </div>
+
+        <!-- 20-Page Mastery Roadmap Cards (7 cols) -->
+        <div class="lg:col-span-7 bg-[#081f18]/95 border border-emerald-800/70 rounded-2xl p-4 space-y-3 shadow-xl">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-sm sm:text-base font-black text-white">الفصول</h2>
+              <p class="text-[11px] text-emerald-300/80">اختر فصلاً للمتابعة</p>
+            </div>
+            <button onclick="resetAllProgressModal()" class="px-2.5 py-1.5 rounded-xl bg-rose-950/80 text-rose-200 border border-rose-700/50 text-xs font-bold">
+              🗑️ تصفير التقدم
+            </button>
+          </div>
+
+          <div id="roadmapCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================== -->
+  <!-- FIXED MOBILE BOTTOM NAVIGATION BAR (THUMB-FRIENDLY)  -->
+  <!-- ==================================================== -->
+  <nav class="md:hidden fixed bottom-0 right-0 left-0 z-40 bg-[#04120e]/95 backdrop-blur-xl border-t border-emerald-800/80 px-2 py-1.5 shadow-2xl">
+    <div class="grid grid-cols-4 gap-1 max-w-md mx-auto">
+      <button id="mNavPalace" onclick="switchMainTab('palace')" class="flex flex-col items-center justify-center py-1.5 rounded-xl bg-amber-500 text-slate-950 font-black text-[11px] transition-all">
+        <span class="text-base leading-none mb-0.5">◉</span>
+        <span>تعلّم</span>
+      </button>
+      <button id="mNavDirectory" onclick="switchMainTab('directory')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-emerald-200 font-bold text-[11px] transition-all">
+        <span class="text-base leading-none mb-0.5">▤</span>
+        <span>القاموس</span>
+      </button>
+      <button id="mNavQuiz" onclick="switchMainTab('quiz')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-emerald-200 font-bold text-[11px] transition-all">
+        <span class="text-base leading-none mb-0.5">◇</span>
+        <span>اختبر نفسك</span>
+      </button>
+      <button id="mNavRoadmap" onclick="switchMainTab('roadmap')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-emerald-200 font-bold text-[11px] transition-all">
+        <span class="text-base leading-none mb-0.5">◷</span>
+        <span>الفصول</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Toast Notification -->
+  <button id="btnInstallApp" onclick="installApp()" class="hidden fixed bottom-[6.75rem] left-4 z-40 px-3 py-2 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-xs shadow-2xl border border-white/20 active:scale-95">📲 ثبّت التطبيق</button>
+
+  <div id="toastBox" class="fixed bottom-20 left-4 right-4 sm:right-auto z-50 hidden px-4 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-xs text-center shadow-2xl border border-white/20 transition-all">
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmResetModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-[#08221a] border-2 border-amber-500/60 rounded-2xl max-w-sm w-full p-5 text-center space-y-4 shadow-2xl">
+      <div class="text-4xl">⚠️</div>
+      <h3 class="text-base font-black text-white">إعادة ضبط سجل الحفظ؟</h3>
+      <p class="text-xs text-emerald-200">هل تريد مسح علامات الإتقان والنقاط والبدء من جديد؟ لا يمكن التراجع عن هذه الخطوة.</p>
+      <div class="flex items-center justify-center gap-2">
+        <button onclick="confirmResetAllProgress()" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs">
+          نعم، امسح التقدم
+        </button>
+        <button onclick="closeResetModal()" class="px-4 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs">
+          إلغاء
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ====================================================
+    // 1. EMBEDDED 1000-WORD A2 DATASET (PAGES 1 TO 20)
+    // ====================================================
+    const WORDS_DB = [{"id":1,"p":1,"e":"🏠","en":"apartment","ar":"شقة","pr":"أَبارتمِنت"},{"id":2,"p":1,"e":"🛋️","en":"sofa","ar":"أريكة","pr":"سوفا"},{"id":3,"p":1,"e":"🧺","en":"basket","ar":"سلة","pr":"باسكِت"},{"id":4,"p":1,"e":"🧱","en":"wall","ar":"حائط","pr":"وول"},{"id":5,"p":1,"e":"🏠","en":"roof","ar":"سقف","pr":"رووف"},{"id":6,"p":1,"e":"🪟","en":"curtain","ar":"ستارة","pr":"كِيرتِن"},{"id":7,"p":1,"e":"💡","en":"lamp","ar":"مصباح","pr":"لامب"},{"id":8,"p":1,"e":"🚪","en":"entrance","ar":"مدخل","pr":"إِنترَنس"},{"id":9,"p":1,"e":"🚪","en":"exit","ar":"مخرج","pr":"إِكزِت"},{"id":10,"p":1,"e":"🏘️","en":"neighborhood","ar":"حيّ","pr":"نِيبَرهود"},{"id":11,"p":1,"e":"🏙️","en":"area","ar":"منطقة","pr":"إِيريا"},{"id":12,"p":1,"e":"🏙️","en":"capital","ar":"عاصمة","pr":"كابِيتال"},{"id":13,"p":1,"e":"👥","en":"population","ar":"عدد السكان","pr":"بوبيولِيشِن"},{"id":14,"p":1,"e":"👤","en":"member","ar":"عضو","pr":"مِمبَر"},{"id":15,"p":1,"e":"🤝","en":"couple","ar":"زوجان","pr":"كَبل"},{"id":16,"p":1,"e":"👨‍👩‍👧","en":"relative","ar":"قريب","pr":"رِيلَتِف"},{"id":17,"p":1,"e":"🎓","en":"education","ar":"تعليم","pr":"إِديوكِيشِن"},{"id":18,"p":1,"e":"💼","en":"career","ar":"مهنة / مسار مهني","pr":"كَرِير"},{"id":19,"p":1,"e":"📈","en":"progress","ar":"تقدم","pr":"برُوغريس"},{"id":20,"p":1,"e":"◷","en":"experience","ar":"خبرة / تجربة","pr":"إِكسبِيريَنس"},{"id":21,"p":1,"e":"🎯","en":"purpose","ar":"غرض / هدف","pr":"بِيربَس"},{"id":22,"p":1,"e":"📌","en":"choice","ar":"اختيار","pr":"تشُويس"},{"id":23,"p":1,"e":"🔘","en":"decision","ar":"قرار","pr":"دِيسِيجِن"},{"id":24,"p":1,"e":"📅","en":"event","ar":"حدث","pr":"إِيفِينت"},{"id":25,"p":1,"e":"🎁","en":"surprise","ar":"مفاجأة","pr":"سَربرايز"},{"id":26,"p":1,"e":"💑","en":"couple","ar":"زوجان","pr":"كَبل"},{"id":27,"p":1,"e":"🧑","en":"adult","ar":"بالغ","pr":"أَدَلت"},{"id":28,"p":1,"e":"🧒","en":"teenager","ar":"مراهق","pr":"تِين إِيجَر"},{"id":29,"p":1,"e":"💍","en":"marriage","ar":"زواج","pr":"مارِيج"},{"id":30,"p":1,"e":"👥","en":"community","ar":"مجتمع","pr":"كَوميونِيتي"},{"id":31,"p":1,"e":"🗣️","en":"dialogue","ar":"حوار","pr":"دايَلوغ"},{"id":32,"p":1,"e":"💡","en":"idea","ar":"فكرة","pr":"آيدِيا"},{"id":33,"p":1,"e":"❓","en":"question","ar":"سؤال","pr":"كوِيستشِن"},{"id":34,"p":1,"e":"💡","en":"reason","ar":"سبب","pr":"رِيزِن"},{"id":35,"p":1,"e":"🎯","en":"goal","ar":"هدف","pr":"غُول"},{"id":36,"p":1,"e":"📋","en":"plan","ar":"خطة","pr":"بلان"},{"id":37,"p":1,"e":"🧩","en":"problem","ar":"مشكلة","pr":"برُوبلِم"},{"id":38,"p":1,"e":"💡","en":"solution","ar":"حل","pr":"سُولوشِن"},{"id":39,"p":1,"e":"✏️","en":"mistake","ar":"خطأ","pr":"مِستِيك"},{"id":40,"p":1,"e":"⚠️","en":"danger","ar":"خطر","pr":"دِينجَر"},{"id":41,"p":1,"e":"🛡️","en":"safety","ar":"أمان","pr":"سِيفتي"},{"id":42,"p":1,"e":"💪","en":"strength","ar":"قوة","pr":"سترِينغث"},{"id":43,"p":1,"e":"⚡","en":"energy","ar":"طاقة","pr":"إِنِرجي"},{"id":44,"p":1,"e":"🏆","en":"success","ar":"نجاح","pr":"سَكسِيس"},{"id":45,"p":1,"e":"🏅","en":"achievement","ar":"إنجاز","pr":"أَتشِيفمِنت"},{"id":46,"p":1,"e":"🔍","en":"example","ar":"مثال","pr":"إِكزامبل"},{"id":47,"p":1,"e":"🗣️","en":"opinion","ar":"رأي","pr":"أُوبِينيَن"},{"id":48,"p":1,"e":"💬","en":"message","ar":"رسالة","pr":"مِيسِيج"},{"id":49,"p":1,"e":"📞","en":"conversation","ar":"محادثة","pr":"كُونفَرسِيشِن"},{"id":50,"p":1,"e":"⭐","en":"chance","ar":"فرصة","pr":"تشانس"},{"id":51,"p":2,"e":"📦","en":"package","ar":"طرد / حزمة","pr":"باكِيج"},{"id":52,"p":2,"e":"📦","en":"parcel","ar":"طرد بريدي","pr":"بارسِل"},{"id":53,"p":2,"e":"🛍️","en":"product","ar":"منتج","pr":"برُودَكت"},{"id":54,"p":2,"e":"🏷️","en":"brand","ar":"علامة تجارية","pr":"براند"},{"id":55,"p":2,"e":"🛒","en":"cart","ar":"عربة تسوق","pr":"كارت"},{"id":56,"p":2,"e":"🧾","en":"bill","ar":"فاتورة","pr":"بِيل"},{"id":57,"p":2,"e":"👛","en":"wallet","ar":"محفظة","pr":"وولِت"},{"id":58,"p":2,"e":"🏧","en":"cashier","ar":"أمين الصندوق","pr":"كاشِير"},{"id":59,"p":2,"e":"🏢","en":"department","ar":"قسم","pr":"دِيبارتمِنت"},{"id":60,"p":2,"e":"🛍️","en":"sale","ar":"تخفيض / بيع","pr":"سِيل"},{"id":61,"p":2,"e":"📉","en":"discount","ar":"خصم","pr":"دِيسكاونت"},{"id":62,"p":2,"e":"📏","en":"size","ar":"مقاس / حجم","pr":"سايز"},{"id":63,"p":2,"e":"⚖️","en":"weight","ar":"وزن","pr":"وِيت"},{"id":64,"p":2,"e":"📦","en":"quantity","ar":"كمية","pr":"كوانتِيتي"},{"id":65,"p":2,"e":"🎨","en":"quality","ar":"جودة","pr":"كوالِيتي"},{"id":66,"p":2,"e":"🔄","en":"order","ar":"طلب","pr":"أُوردَر"},{"id":67,"p":2,"e":"🚚","en":"delivery","ar":"توصيل","pr":"دِيلِيفَري"},{"id":68,"p":2,"e":"🚚","en":"service","ar":"خدمة","pr":"سِيرفِس"},{"id":69,"p":2,"e":"🛠️","en":"repair","ar":"إصلاح","pr":"رِيبِير"},{"id":70,"p":2,"e":"🔧","en":"machine","ar":"آلة","pr":"مَشِين"},{"id":71,"p":2,"e":"💻","en":"computer","ar":"حاسوب","pr":"كُمبيوتَر"},{"id":72,"p":2,"e":"⌨️","en":"keyboard","ar":"لوحة مفاتيح","pr":"كِيبُورد"},{"id":73,"p":2,"e":"🖥️","en":"screen","ar":"شاشة","pr":"سكرِين"},{"id":74,"p":2,"e":"🖱️","en":"mouse","ar":"فأرة الكمبيوتر","pr":"ماوس"},{"id":75,"p":2,"e":"📱","en":"message","ar":"رسالة","pr":"مِيسِيج"},{"id":76,"p":2,"e":"🛒","en":"customer","ar":"زبون / عميل","pr":"كَستَمَر"},{"id":77,"p":2,"e":"🧾","en":"receipt","ar":"إيصال","pr":"رِيسِيت"},{"id":78,"p":2,"e":"💵","en":"price","ar":"سعر","pr":"برايس"},{"id":79,"p":2,"e":"💳","en":"cost","ar":"تكلفة","pr":"كُوست"},{"id":80,"p":2,"e":"💰","en":"cash","ar":"نقود","pr":"كاش"},{"id":81,"p":2,"e":"💳","en":"credit","ar":"ائتمان","pr":"كرِيدِت"},{"id":82,"p":2,"e":"🏦","en":"account","ar":"حساب","pr":"أَكاونت"},{"id":83,"p":2,"e":"💸","en":"budget","ar":"ميزانية","pr":"بَدجِت"},{"id":84,"p":2,"e":"💰","en":"income","ar":"دخل","pr":"إِنكَم"},{"id":85,"p":2,"e":"💸","en":"expense","ar":"مصروف","pr":"إِكسبِينس"},{"id":86,"p":2,"e":"💵","en":"value","ar":"قيمة","pr":"فاليو"},{"id":87,"p":2,"e":"📊","en":"amount","ar":"كمية / مبلغ","pr":"أَماونت"},{"id":88,"p":2,"e":"🔢","en":"total","ar":"المجموع","pr":"تُوتال"},{"id":89,"p":2,"e":"📈","en":"average","ar":"متوسط","pr":"أَفِيرِيج"},{"id":90,"p":2,"e":"🔢","en":"percent","ar":"نسبة مئوية","pr":"بِيرسِينت"},{"id":91,"p":2,"e":"📈","en":"increase","ar":"زيادة","pr":"إِنكرِيس"},{"id":92,"p":2,"e":"📉","en":"decrease","ar":"انخفاض","pr":"دِيكرِيس"},{"id":93,"p":2,"e":"🔄","en":"change","ar":"تغيير","pr":"تشِينج"},{"id":94,"p":2,"e":"📊","en":"improvement","ar":"تحسين","pr":"إِمبرووفمِنت"},{"id":95,"p":2,"e":"📌","en":"condition","ar":"حالة / وضع","pr":"كَندِيشِن"},{"id":96,"p":2,"e":"🗂️","en":"information","ar":"معلومات","pr":"إِنفُورمِيشِن"},{"id":97,"p":2,"e":"📄","en":"document","ar":"مستند","pr":"دُوكيومِنت"},{"id":98,"p":2,"e":"📝","en":"form","ar":"استمارة","pr":"فُورم"},{"id":99,"p":2,"e":"✍️","en":"signature","ar":"توقيع","pr":"سِيغنِيتشَر"},{"id":100,"p":2,"e":"📅","en":"appointment","ar":"موعد","pr":"أَبُوينتمِنت"},{"id":101,"p":3,"e":"🧹","en":"dust","ar":"غبار","pr":"دأست"},{"id":102,"p":3,"e":"🧼","en":"dirt","ar":"أوساخ","pr":"ديرت"},{"id":103,"p":3,"e":"🧽","en":"cleaner","ar":"منظف","pr":"كلينر"},{"id":104,"p":3,"e":"🗑️","en":"trash","ar":"قمامة","pr":"تراش"},{"id":105,"p":3,"e":"♻️","en":"recycle","ar":"يعيد التدوير","pr":"ريسيكل"},{"id":106,"p":3,"e":"🍼","en":"bottle","ar":"زجاجة","pr":"بوتل"},{"id":107,"p":3,"e":"🧻","en":"tissue","ar":"منديل","pr":"تيسأي"},{"id":108,"p":3,"e":"🧴","en":"cream","ar":"كريم","pr":"كريم"},{"id":109,"p":3,"e":"🪥","en":"paste","ar":"معجون","pr":"باستي"},{"id":110,"p":3,"e":"🧹","en":"mop","ar":"ممسحة","pr":"موب"},{"id":111,"p":3,"e":"🧺","en":"laundry","ar":"غسيل الملابس","pr":"لوندري"},{"id":112,"p":3,"e":"👕","en":"clothes","ar":"ملابس","pr":"كلوثيس"},{"id":113,"p":3,"e":"🥼","en":"uniform","ar":"زيّ موحد","pr":"أنيفورم"},{"id":114,"p":3,"e":"👟","en":"pair","ar":"زوج / ثنائي","pr":"باير"},{"id":115,"p":3,"e":"📏","en":"length","ar":"طول","pr":"لنغث"},{"id":116,"p":3,"e":"📐","en":"height","ar":"ارتفاع / طول","pr":"هـيايت"},{"id":117,"p":3,"e":"⚖️","en":"weight","ar":"وزن","pr":"وِيت"},{"id":118,"p":3,"e":"🪞","en":"appearance","ar":"مظهر","pr":"ابيرانس"},{"id":119,"p":3,"e":"🙂","en":"face","ar":"وجه","pr":"فاس"},{"id":120,"p":3,"e":"😊","en":"expression","ar":"تعبير","pr":"يكسبريسجِن"},{"id":121,"p":3,"e":"💇","en":"style","ar":"أسلوب / مظهر","pr":"ستيل"},{"id":122,"p":3,"e":"🧴","en":"skin","ar":"جلد / بشرة","pr":"سكين"},{"id":123,"p":3,"e":"🦴","en":"bone","ar":"عظمة","pr":"بوني"},{"id":124,"p":3,"e":"💪","en":"muscle","ar":"عضلة","pr":"مأسكل"},{"id":125,"p":3,"e":"🩸","en":"blood","ar":"دم","pr":"بلود"},{"id":126,"p":3,"e":"💊","en":"medicine","ar":"دواء","pr":"ميديسيني"},{"id":127,"p":3,"e":"🩹","en":"injury","ar":"إصابة","pr":"ينجري"},{"id":128,"p":3,"e":"😣","en":"pain","ar":"ألم","pr":"باين"},{"id":129,"p":3,"e":"🦷","en":"dentist","ar":"طبيب أسنان","pr":"دينتيست"},{"id":130,"p":3,"e":"🏥","en":"clinic","ar":"عيادة","pr":"كلينيك"},{"id":131,"p":3,"e":"💊","en":"pill","ar":"حبة دواء","pr":"بيل"},{"id":132,"p":3,"e":"🩺","en":"health","ar":"صحة","pr":"هـيلث"},{"id":133,"p":3,"e":"🥗","en":"diet","ar":"نظام غذائي","pr":"دييت"},{"id":134,"p":3,"e":"🥦","en":"healthy","ar":"صحي","pr":"هـيلثي"},{"id":135,"p":3,"e":"😴","en":"rest","ar":"راحة","pr":"ريست"},{"id":136,"p":3,"e":"🏃","en":"exercise","ar":"تمرين","pr":"يكسرسيسي"},{"id":137,"p":3,"e":"🏋️","en":"training","ar":"تدريب","pr":"تراينينغ"},{"id":138,"p":3,"e":"😩","en":"weakness","ar":"ضعف","pr":"وينيس"},{"id":139,"p":3,"e":"🌡️","en":"fever","ar":"حمى","pr":"فيفر"},{"id":140,"p":3,"e":"🤧","en":"cough","ar":"سعال","pr":"كأو"},{"id":141,"p":3,"e":"🤒","en":"flu","ar":"إنفلونزا","pr":"فلأ"},{"id":142,"p":3,"e":"😮‍💨","en":"breath","ar":"نفس","pr":"بريث"},{"id":143,"p":3,"e":"🫁","en":"breathe","ar":"يتنفس","pr":"بريثي"},{"id":144,"p":3,"e":"🧘","en":"relax","ar":"يسترخي","pr":"ريلاكس"},{"id":145,"p":3,"e":"😌","en":"comfortable","ar":"مريح","pr":"كومفورتابل"},{"id":146,"p":3,"e":"😖","en":"uncomfortable","ar":"غير مريح","pr":"أنكومفورتابل"},{"id":147,"p":3,"e":"🥵","en":"temperature","ar":"درجة الحرارة","pr":"تيمبراتشَر"},{"id":148,"p":3,"e":"🌡️","en":"degree","ar":"درجة","pr":"ديغري"},{"id":149,"p":3,"e":"☀️","en":"sunshine","ar":"ضوء الشمس","pr":"سأنشيني"},{"id":150,"p":3,"e":"🌈","en":"rainbow","ar":"قوس قزح","pr":"راينباو"},{"id":151,"p":4,"e":"☀️","en":"sunny","ar":"مشمس","pr":"سأني"},{"id":152,"p":4,"e":"☁️","en":"cloudy","ar":"غائم","pr":"كلاودي"},{"id":153,"p":4,"e":"🌧️","en":"rainy","ar":"ممطر","pr":"رايني"},{"id":154,"p":4,"e":"💨","en":"windy","ar":"عاصف","pr":"ويندي"},{"id":155,"p":4,"e":"🌫️","en":"foggy","ar":"ضبابي","pr":"فوغي"},{"id":156,"p":4,"e":"⛈️","en":"stormy","ar":"عاصف","pr":"ستورمي"},{"id":157,"p":4,"e":"❄️","en":"icy","ar":"جليدي","pr":"يسي"},{"id":158,"p":4,"e":"☁️","en":"gray","ar":"رمادي","pr":"غراي"},{"id":159,"p":4,"e":"🌡️","en":"degree","ar":"درجة","pr":"ديغري"},{"id":160,"p":4,"e":"🥵","en":"heat","ar":"حرارة","pr":"هـيت"},{"id":161,"p":4,"e":"🥶","en":"freeze","ar":"يتجمد","pr":"فريزي"},{"id":162,"p":4,"e":"🔥","en":"burn","ar":"يحترق / يحرق","pr":"برن"},{"id":163,"p":4,"e":"💧","en":"wet","ar":"مبلل","pr":"ويت"},{"id":164,"p":4,"e":"🏜️","en":"dry","ar":"جاف","pr":"دري"},{"id":165,"p":4,"e":"🌬️","en":"breeze","ar":"نسيم","pr":"بريزي"},{"id":166,"p":4,"e":"🌬️","en":"airflow","ar":"تدفق الهواء","pr":"ايرفلاو"},{"id":167,"p":4,"e":"☂️","en":"umbrella","ar":"مظلة","pr":"أمبريلا"},{"id":168,"p":4,"e":"🧥","en":"jacket","ar":"سترة","pr":"جاكيت"},{"id":169,"p":4,"e":"🧶","en":"sweater","ar":"سترة صوفية","pr":"سويتر"},{"id":170,"p":4,"e":"🧤","en":"gloves","ar":"قفازات","pr":"غلوفيس"},{"id":171,"p":4,"e":"🧊","en":"cool","ar":"بارد قليلاً","pr":"كول"},{"id":172,"p":4,"e":"🔥","en":"warm","ar":"دافئ","pr":"وارم"},{"id":173,"p":4,"e":"🥵","en":"hot","ar":"حار","pr":"هـوت"},{"id":174,"p":4,"e":"🥶","en":"cold","ar":"بارد","pr":"كولد"},{"id":175,"p":4,"e":"🌡️","en":"mild","ar":"معتدل","pr":"ميلد"},{"id":176,"p":4,"e":"🌡️","en":"freezing","ar":"شديد البرودة","pr":"فريزينغ"},{"id":177,"p":4,"e":"🔥","en":"boiling","ar":"شديد الحرارة","pr":"بويلينغ"},{"id":178,"p":4,"e":"🌤️","en":"forecast","ar":"توقعات الطقس","pr":"فوريكاست"},{"id":179,"p":4,"e":"🌍","en":"climate","ar":"مناخ","pr":"كليماتي"},{"id":180,"p":4,"e":"🌎","en":"environment","ar":"بيئة","pr":"ينفيرونمينت"},{"id":181,"p":4,"e":"🌳","en":"nature","ar":"طبيعة","pr":"ناتشَر"},{"id":182,"p":4,"e":"🌱","en":"earth","ar":"الأرض","pr":"يرث"},{"id":183,"p":4,"e":"🌾","en":"field","ar":"حقل","pr":"فييلد"},{"id":184,"p":4,"e":"🌾","en":"farm","ar":"مزرعة","pr":"فارم"},{"id":185,"p":4,"e":"🏞️","en":"valley","ar":"وادٍ","pr":"فالي"},{"id":186,"p":4,"e":"🏜️","en":"desert","ar":"صحراء","pr":"ديسرت"},{"id":187,"p":4,"e":"🌊","en":"coast","ar":"ساحل","pr":"كواست"},{"id":188,"p":4,"e":"🏖️","en":"shore","ar":"شاطئ","pr":"شوري"},{"id":189,"p":4,"e":"🏝️","en":"island","ar":"جزيرة","pr":"يسلاند"},{"id":190,"p":4,"e":"🪨","en":"rock","ar":"صخرة","pr":"روك"},{"id":191,"p":4,"e":"🏞️","en":"waterfall","ar":"شلال","pr":"واترفال"},{"id":192,"p":4,"e":"⛺","en":"camp","ar":"مخيم","pr":"كامب"},{"id":193,"p":4,"e":"⛺","en":"tent","ar":"خيمة","pr":"تينت"},{"id":194,"p":4,"e":"🔦","en":"flashlight","ar":"مصباح يدوي","pr":"فلاشلايت"},{"id":195,"p":4,"e":"🔥","en":"campfire","ar":"نار المخيم","pr":"كامبفيري"},{"id":196,"p":4,"e":"🥾","en":"hiking","ar":"المشي لمسافات طويلة","pr":"هـيكينغ"},{"id":197,"p":4,"e":"🥾","en":"hike","ar":"نزهة مشي","pr":"هـيكي"},{"id":198,"p":4,"e":"🧭","en":"direction","ar":"اتجاه","pr":"ديريكشِن"},{"id":199,"p":4,"e":"🧭","en":"north","ar":"الشمال","pr":"نورث"},{"id":200,"p":4,"e":"🧭","en":"south","ar":"الجنوب","pr":"ساوث"},{"id":201,"p":5,"e":"🧭","en":"east","ar":"الشرق","pr":"يست"},{"id":202,"p":5,"e":"🧭","en":"west","ar":"الغرب","pr":"ويست"},{"id":203,"p":5,"e":"⬆️","en":"straight","ar":"مباشرة","pr":"سترايت"},{"id":204,"p":5,"e":"⬅️","en":"left","ar":"اليسار","pr":"لفت"},{"id":205,"p":5,"e":"➡️","en":"right","ar":"اليمين","pr":"رايت"},{"id":206,"p":5,"e":"📍","en":"nearby","ar":"قريب","pr":"نيربي"},{"id":207,"p":5,"e":"↔️","en":"opposite","ar":"مقابل","pr":"وبوسيتي"},{"id":208,"p":5,"e":"⬆️","en":"forward","ar":"إلى الأمام","pr":"فوروارد"},{"id":209,"p":5,"e":"⬅️","en":"backward","ar":"إلى الخلف","pr":"باكوارد"},{"id":210,"p":5,"e":"📍","en":"between","ar":"بين","pr":"بيتوين"},{"id":211,"p":5,"e":"📍","en":"behind","ar":"خلف","pr":"بيهـيند"},{"id":212,"p":5,"e":"📍","en":"under","ar":"تحت","pr":"أندر"},{"id":213,"p":5,"e":"📍","en":"above","ar":"فوق","pr":"ابوفي"},{"id":214,"p":5,"e":"📍","en":"inside","ar":"في الداخل","pr":"ينسيدي"},{"id":215,"p":5,"e":"📍","en":"outside","ar":"في الخارج","pr":"اوتسيدي"},{"id":216,"p":5,"e":"🚶","en":"along","ar":"على طول","pr":"الونغ"},{"id":217,"p":5,"e":"🛣️","en":"across","ar":"عبر / على الجانب الآخر","pr":"اكروس"},{"id":218,"p":5,"e":"🚶","en":"through","ar":"من خلال","pr":"ثرأو"},{"id":219,"p":5,"e":"🚶","en":"toward","ar":"نحو","pr":"تاوارد"},{"id":220,"p":5,"e":"🔙","en":"away","ar":"بعيدًا","pr":"واي"},{"id":221,"p":5,"e":"🚗","en":"journey","ar":"رحلة","pr":"جاورنيي"},{"id":222,"p":5,"e":"🧳","en":"destination","ar":"وجهة","pr":"ديستيناشِن"},{"id":223,"p":5,"e":"🚪","en":"entrance","ar":"دخول","pr":"إِنترَنس"},{"id":224,"p":5,"e":"🚪","en":"departure","ar":"مغادرة","pr":"ديبارتشَر"},{"id":225,"p":5,"e":"🛬","en":"arrival","ar":"وصول","pr":"اريفال"},{"id":226,"p":5,"e":"🛣️","en":"route","ar":"طريق / مسار","pr":"راوتي"},{"id":227,"p":5,"e":"🚦","en":"crossing","ar":"معبر","pr":"كروسينغ"},{"id":228,"p":5,"e":"🚶","en":"corner","ar":"زاوية","pr":"كورنر"},{"id":229,"p":5,"e":"🏙️","en":"square","ar":"ميدان","pr":"سكواري"},{"id":230,"p":5,"e":"🏙️","en":"downtown","ar":"وسط المدينة","pr":"داونتاون"},{"id":231,"p":5,"e":"🏘️","en":"suburb","ar":"ضاحية","pr":"سأبرب"},{"id":232,"p":5,"e":"🏘️","en":"district","ar":"منطقة / حي","pr":"ديستريكت"},{"id":233,"p":5,"e":"🏛️","en":"government","ar":"حكومة","pr":"غوفرنمينت"},{"id":234,"p":5,"e":"🏢","en":"business","ar":"عمل / شركة","pr":"بأسينيس"},{"id":235,"p":5,"e":"👔","en":"employee","ar":"موظف","pr":"يمبلويي"},{"id":236,"p":5,"e":"👨‍💼","en":"employer","ar":"صاحب العمل","pr":"يمبلوير"},{"id":237,"p":5,"e":"🧑‍💼","en":"colleague","ar":"زميل عمل","pr":"كوليغأي"},{"id":238,"p":5,"e":"👫","en":"relationship","ar":"علاقة","pr":"ريلاشِنشيب"},{"id":239,"p":5,"e":"🤝","en":"friendship","ar":"صداقة","pr":"فرييندشيب"},{"id":240,"p":5,"e":"💬","en":"discussion","ar":"نقاش","pr":"ديسكأسجِن"},{"id":241,"p":5,"e":"🗣️","en":"conversation","ar":"محادثة","pr":"كُونفَرسِيشِن"},{"id":242,"p":5,"e":"📢","en":"announcement","ar":"إعلان","pr":"اناونسمينت"},{"id":243,"p":5,"e":"📞","en":"contact","ar":"اتصال / جهة اتصال","pr":"كونتاكت"},{"id":244,"p":5,"e":"✉️","en":"reply","ar":"رد","pr":"ريبلي"},{"id":245,"p":5,"e":"❓","en":"request","ar":"طلب","pr":"ريكويست"},{"id":246,"p":5,"e":"💡","en":"advice","ar":"نصيحة","pr":"ادفيس"},{"id":247,"p":5,"e":"📋","en":"information","ar":"معلومات","pr":"إِنفُورمِيشِن"},{"id":248,"p":5,"e":"📝","en":"detail","ar":"تفصيل","pr":"ديتايل"},{"id":249,"p":5,"e":"📌","en":"note","ar":"ملاحظة","pr":"نوتي"},{"id":250,"p":5,"e":"🏘️","en":"neighborhood","ar":"حي / منطقة سكنية","pr":"نِيبَرهود"},{"id":251,"p":6,"e":"🏠","en":"household","ar":"أسرة / منزلي","pr":"هـاوسيهـولد"},{"id":252,"p":6,"e":"🪑","en":"furniture","ar":"أثاث","pr":"فرنيتشَر"},{"id":253,"p":6,"e":"🏠","en":"balcony","ar":"شرفة","pr":"بالكوني"},{"id":254,"p":6,"e":"🚗","en":"garage","ar":"مرآب","pr":"غاراج"},{"id":255,"p":6,"e":"🪜","en":"basement","ar":"قبو","pr":"باسيمينت"},{"id":256,"p":6,"e":"🛗","en":"elevator","ar":"مصعد","pr":"يلفاتور"},{"id":257,"p":6,"e":"🪜","en":"stairs","ar":"سلالم","pr":"ستايرس"},{"id":258,"p":6,"e":"🚪","en":"hallway","ar":"ممر","pr":"هـالواي"},{"id":259,"p":6,"e":"🏠","en":"ceiling","ar":"سقف داخلي","pr":"سيلينغ"},{"id":260,"p":6,"e":"🧱","en":"floor","ar":"أرضية","pr":"فلور"},{"id":261,"p":6,"e":"🚽","en":"toilet","ar":"مرحاض","pr":"تويلت"},{"id":262,"p":6,"e":"🧊","en":"fridge","ar":"ثلاجة","pr":"فريدج"},{"id":263,"p":6,"e":"❄️","en":"freezer","ar":"مجمّد","pr":"فريزر"},{"id":264,"p":6,"e":"🔥","en":"oven","ar":"فرن","pr":"وفين"},{"id":265,"p":6,"e":"📡","en":"microwave","ar":"ميكروويف","pr":"ميكراوافي"},{"id":266,"p":6,"e":"🚰","en":"sink","ar":"حوض","pr":"سينك"},{"id":267,"p":6,"e":"🍽️","en":"dishwasher","ar":"غسالة أطباق","pr":"ديشواشر"},{"id":268,"p":6,"e":"🗄️","en":"drawer","ar":"درج","pr":"درور"},{"id":269,"p":6,"e":"🗄️","en":"cupboard","ar":"خزانة","pr":"كأبوارد"},{"id":270,"p":6,"e":"🛏️","en":"pillow","ar":"وسادة","pr":"بيلاو"},{"id":271,"p":6,"e":"🛏️","en":"blanket","ar":"بطانية","pr":"بلانكيت"},{"id":272,"p":6,"e":"🛏️","en":"mattress","ar":"مرتبة","pr":"ماتريس"},{"id":273,"p":6,"e":"🏡","en":"yard","ar":"فناء","pr":"يارد"},{"id":274,"p":6,"e":"🚪","en":"gate","ar":"بوابة","pr":"غاتي"},{"id":275,"p":6,"e":"🚧","en":"fence","ar":"سياج","pr":"فينس"},{"id":276,"p":6,"e":"💬","en":"mention","ar":"يذكر","pr":"مينشِن"},{"id":277,"p":6,"e":"◷","en":"realize","ar":"يدرك","pr":"ريليزي"},{"id":278,"p":6,"e":"🤔","en":"wonder","ar":"يتساءل","pr":"ووندر"},{"id":279,"p":6,"e":"💭","en":"imagine","ar":"يتخيل","pr":"يماجيني"},{"id":280,"p":6,"e":"🎯","en":"expect","ar":"يتوقع","pr":"يكسبيكت"},{"id":281,"p":6,"e":"🙏","en":"hope","ar":"يأمل","pr":"هـوبي"},{"id":282,"p":6,"e":"💡","en":"suggest","ar":"يقترح","pr":"سأغجست"},{"id":283,"p":6,"e":"🎁","en":"offer","ar":"يعرض","pr":"وفر"},{"id":284,"p":6,"e":"🤝","en":"accept","ar":"يقبل","pr":"اكسبت"},{"id":285,"p":6,"e":"❌","en":"refuse","ar":"يرفض","pr":"ريفأسي"},{"id":286,"p":6,"e":"👍","en":"agree","ar":"يوافق","pr":"اغري"},{"id":287,"p":6,"e":"👎","en":"disagree","ar":"يختلف / لا يوافق","pr":"ديساغري"},{"id":288,"p":6,"e":"🗣️","en":"explain","ar":"يشرح","pr":"يكسبلاين"},{"id":289,"p":6,"e":"📝","en":"describe","ar":"يصف","pr":"ديسكريبي"},{"id":290,"p":6,"e":"🤞","en":"promise","ar":"يعد","pr":"بروميسي"},{"id":291,"p":6,"e":"🧩","en":"depend","ar":"يعتمد","pr":"ديبيند"},{"id":292,"p":6,"e":"⭐","en":"prefer","ar":"يفضل","pr":"بريفر"},{"id":293,"p":6,"e":"🛠️","en":"prepare","ar":"يجهز","pr":"بريباري"},{"id":294,"p":6,"e":"🔄","en":"continue","ar":"يستمر","pr":"كونتينأي"},{"id":295,"p":6,"e":"⏳","en":"happen","ar":"يحدث","pr":"هـابين"},{"id":296,"p":6,"e":"💭","en":"seem","ar":"يبدو","pr":"سيم"},{"id":297,"p":6,"e":"🔄","en":"become","ar":"يصبح","pr":"بيكومي"},{"id":298,"p":6,"e":"💰","en":"spend","ar":"ينفق","pr":"سبيند"},{"id":299,"p":6,"e":"🐷","en":"save","ar":"يدخر / يوفر","pr":"سافي"},{"id":300,"p":6,"e":"🗑️","en":"waste","ar":"يهدر / نفايات","pr":"واستي"},{"id":301,"p":7,"e":"💵","en":"earn","ar":"يكسب","pr":"يرن"},{"id":302,"p":7,"e":"💳","en":"afford","ar":"يستطيع تحمّل التكلفة","pr":"افورد"},{"id":303,"p":7,"e":"🤝","en":"share","ar":"يشارك","pr":"شاري"},{"id":304,"p":7,"e":"👥","en":"join","ar":"ينضم","pr":"جوين"},{"id":305,"p":7,"e":"▤","en":"borrow","ar":"يستعير","pr":"بوراو"},{"id":306,"p":7,"e":"🤲","en":"lend","ar":"يُعير","pr":"لند"},{"id":307,"p":7,"e":"🧹","en":"organize","ar":"ينظم","pr":"ورغانيزي"},{"id":308,"p":7,"e":"📝","en":"prepare","ar":"يجهز","pr":"بريباري"},{"id":309,"p":7,"e":"🛠️","en":"repair","ar":"يصلح","pr":"رِيبِير"},{"id":310,"p":7,"e":"🏗️","en":"create","ar":"ينشئ","pr":"كريتي"},{"id":311,"p":7,"e":"👷","en":"develop","ar":"يطوّر","pr":"ديفيلوب"},{"id":312,"p":7,"e":"📈","en":"improve","ar":"يحسّن","pr":"يمبروفي"},{"id":313,"p":7,"e":"🔁","en":"repeat","ar":"يكرر","pr":"ريبيت"},{"id":314,"p":7,"e":"🏃","en":"hurry","ar":"يسرع","pr":"هـري"},{"id":315,"p":7,"e":"⏸️","en":"wait","ar":"ينتظر","pr":"وايت"},{"id":316,"p":7,"e":"🚶","en":"follow","ar":"يتبع","pr":"فولاو"},{"id":317,"p":7,"e":"🏃","en":"escape","ar":"يهرب","pr":"يسكابي"},{"id":318,"p":7,"e":"🧗","en":"reach","ar":"يصل","pr":"ريتش"},{"id":319,"p":7,"e":"🎯","en":"miss","ar":"يفوّت","pr":"ميس"},{"id":320,"p":7,"e":"🏆","en":"win","ar":"يفوز","pr":"وين"},{"id":321,"p":7,"e":"❌","en":"lose","ar":"يخسر","pr":"لوسي"},{"id":322,"p":7,"e":"◷","en":"guess","ar":"يخمّن","pr":"غأيس"},{"id":323,"p":7,"e":"🗣️","en":"invite","ar":"يدعو","pr":"ينفيتي"},{"id":324,"p":7,"e":"🙅","en":"refuse","ar":"يرفض","pr":"ريفأسي"},{"id":325,"p":7,"e":"🤝","en":"accept","ar":"يقبل","pr":"اكسبت"},{"id":326,"p":7,"e":"👬","en":"introduce","ar":"يعرّف / يقدّم","pr":"ينترودأس"},{"id":327,"p":7,"e":"🙋","en":"invite","ar":"يدعو","pr":"ينفيتي"},{"id":328,"p":7,"e":"🎉","en":"celebrate","ar":"يحتفل","pr":"سلبراتي"},{"id":329,"p":7,"e":"🎁","en":"receive","ar":"يستلم / يتلقى","pr":"رِيسِيف"},{"id":330,"p":7,"e":"📦","en":"deliver","ar":"يوصّل","pr":"ديليفر"},{"id":331,"p":7,"e":"🔙","en":"return","ar":"يعيد","pr":"رِيتِيرن"},{"id":332,"p":7,"e":"🧺","en":"collect","ar":"يجمع","pr":"كولكت"},{"id":333,"p":7,"e":"🔍","en":"search","ar":"يبحث","pr":"سيرتش"},{"id":334,"p":7,"e":"🔎","en":"check","ar":"يفحص","pr":"تشيك"},{"id":335,"p":7,"e":"📌","en":"follow","ar":"يتبع","pr":"فولاو"},{"id":336,"p":7,"e":"🚫","en":"avoid","ar":"يتجنب","pr":"افويد"},{"id":337,"p":7,"e":"🛡️","en":"protect","ar":"يحمي","pr":"بروتيكت"},{"id":338,"p":7,"e":"⚠️","en":"warn","ar":"يحذر","pr":"وارن"},{"id":339,"p":7,"e":"🆘","en":"save","ar":"ينقذ / يوفر","pr":"سافي"},{"id":340,"p":7,"e":"🧭","en":"lead","ar":"يقود","pr":"ليد"},{"id":341,"p":7,"e":"👣","en":"reach","ar":"يصل إلى","pr":"ريتش"},{"id":342,"p":7,"e":"🎯","en":"achieve","ar":"يحقق","pr":"اتشييفي"},{"id":343,"p":7,"e":"🏆","en":"win","ar":"يفوز","pr":"وين"},{"id":344,"p":7,"e":"❌","en":"lose","ar":"يخسر","pr":"لوسي"},{"id":345,"p":7,"e":"⚖️","en":"compare","ar":"يقارن","pr":"كومباري"},{"id":346,"p":7,"e":"🔢","en":"count","ar":"يعدّ","pr":"كاونت"},{"id":347,"p":7,"e":"📏","en":"measure","ar":"يقيس","pr":"ميسري"},{"id":348,"p":7,"e":"💰","en":"spend","ar":"ينفق","pr":"سبيند"},{"id":349,"p":7,"e":"💰","en":"waste","ar":"يهدر","pr":"واستي"},{"id":350,"p":7,"e":"🎁","en":"provide","ar":"يوفّر / يُمد","pr":"بروفيدي"},{"id":351,"p":8,"e":"◷","en":"understand","ar":"يفهم","pr":"أندرستاند"},{"id":352,"p":8,"e":"🗣️","en":"pronounce","ar":"ينطق","pr":"بروناونس"},{"id":353,"p":8,"e":"📖","en":"translate","ar":"يترجم","pr":"ترانسلاتي"},{"id":354,"p":8,"e":"◷","en":"memorize","ar":"يحفظ","pr":"ميموريزي"},{"id":355,"p":8,"e":"▤","en":"review","ar":"يراجع","pr":"ريفييو"},{"id":356,"p":8,"e":"✍️","en":"correct","ar":"يصحح","pr":"كوريكت"},{"id":357,"p":8,"e":"❓","en":"mean","ar":"يعني","pr":"مين"},{"id":358,"p":8,"e":"🗣️","en":"discuss","ar":"يناقش","pr":"ديسكأس"},{"id":359,"p":8,"e":"📢","en":"communicate","ar":"يتواصل","pr":"كومأنيكاتي"},{"id":360,"p":8,"e":"👂","en":"notice","ar":"يلاحظ","pr":"نوتيس"},{"id":361,"p":8,"e":"◷","en":"realize","ar":"يدرك","pr":"ريليزي"},{"id":362,"p":8,"e":"🤲","en":"belong","ar":"ينتمي","pr":"بيلونغ"},{"id":363,"p":8,"e":"🔗","en":"connect","ar":"يتصل / يربط","pr":"كونيكت"},{"id":364,"p":8,"e":"🧩","en":"include","ar":"يتضمن","pr":"ينكلأدي"},{"id":365,"p":8,"e":"➕","en":"add","ar":"يضيف","pr":"اد"},{"id":366,"p":8,"e":"➖","en":"remove","ar":"يزيل","pr":"ريموفي"},{"id":367,"p":8,"e":"🔄","en":"replace","ar":"يستبدل","pr":"ريبلاس"},{"id":368,"p":8,"e":"🏷️","en":"describe","ar":"يصف","pr":"ديسكريبي"},{"id":369,"p":8,"e":"🔍","en":"discover","ar":"يكتشف","pr":"ديسكوفر"},{"id":370,"p":8,"e":"🕵️","en":"search","ar":"يبحث","pr":"سيرتش"},{"id":371,"p":8,"e":"🧪","en":"test","ar":"يختبر","pr":"تيست"},{"id":372,"p":8,"e":"🎯","en":"practice","ar":"يتدرب","pr":"براكتيس"},{"id":373,"p":8,"e":"🏋️","en":"train","ar":"يتدرب","pr":"تراين"},{"id":374,"p":8,"e":"📈","en":"improve","ar":"يتحسن","pr":"يمبروفي"},{"id":375,"p":8,"e":"🌟","en":"talented","ar":"موهوب","pr":"تالنتيد"},{"id":376,"p":8,"e":"🎨","en":"creative","ar":"مبدع","pr":"كريتيفي"},{"id":377,"p":8,"e":"🧘","en":"patient","ar":"صبور","pr":"باتيينت"},{"id":378,"p":8,"e":"😌","en":"calm","ar":"هادئ","pr":"كالم"},{"id":379,"p":8,"e":"😊","en":"polite","ar":"مهذب","pr":"بوليتي"},{"id":380,"p":8,"e":"😠","en":"rude","ar":"وقح","pr":"رأدي"},{"id":381,"p":8,"e":"🥰","en":"friendly","ar":"ودود","pr":"فرييندلي"},{"id":382,"p":8,"e":"😎","en":"serious","ar":"جاد","pr":"سرياوس"},{"id":383,"p":8,"e":"😂","en":"silly","ar":"سخيف / أحمق","pr":"سيلي"},{"id":384,"p":8,"e":"💪","en":"brave","ar":"شجاع","pr":"برافي"},{"id":385,"p":8,"e":"😰","en":"nervous","ar":"متوتر","pr":"نرفاوس"},{"id":386,"p":8,"e":"😍","en":"proud","ar":"فخور","pr":"براود"},{"id":387,"p":8,"e":"😔","en":"lonely","ar":"وحيد","pr":"لونيلي"},{"id":388,"p":8,"e":"😲","en":"surprised","ar":"متفاجئ","pr":"سربريسيد"},{"id":389,"p":8,"e":"😟","en":"worried","ar":"قلق","pr":"وورييد"},{"id":390,"p":8,"e":"😤","en":"upset","ar":"منزعج","pr":"أبسيت"},{"id":391,"p":8,"e":"🥱","en":"bored","ar":"يشعر بالملل","pr":"بوريد"},{"id":392,"p":8,"e":"🤩","en":"amazing","ar":"مذهل","pr":"امازينغ"},{"id":393,"p":8,"e":"👍","en":"useful","ar":"مفيد","pr":"أسيفأل"},{"id":394,"p":8,"e":"🚫","en":"useless","ar":"عديم الفائدة","pr":"أسيلس"},{"id":395,"p":8,"e":"💡","en":"possible","ar":"ممكن","pr":"بوسيبل"},{"id":396,"p":8,"e":"❌","en":"impossible","ar":"مستحيل","pr":"يمبوسيبل"},{"id":397,"p":8,"e":"⚡","en":"necessary","ar":"ضروري","pr":"نيساري"},{"id":398,"p":8,"e":"🎁","en":"special","ar":"خاص","pr":"سبيسيال"},{"id":399,"p":8,"e":"🏆","en":"successful","ar":"ناجح","pr":"سأكسفأل"},{"id":400,"p":8,"e":"💎","en":"valuable","ar":"قيّم","pr":"فالأابل"},{"id":401,"p":9,"e":"🏃","en":"active","ar":"نشيط","pr":"اكتيفي"},{"id":402,"p":9,"e":"💤","en":"lazy","ar":"كسول","pr":"لازي"},{"id":403,"p":9,"e":"◷","en":"clever","ar":"ذكي","pr":"كلفر"},{"id":404,"p":9,"e":"🤔","en":"careful","ar":"حذر","pr":"كاريفأل"},{"id":405,"p":9,"e":"⚠️","en":"careless","ar":"مهمل","pr":"كاريلس"},{"id":406,"p":9,"e":"💪","en":"healthy","ar":"صحي","pr":"هـيلثي"},{"id":407,"p":9,"e":"🌟","en":"famous","ar":"مشهور","pr":"فاماوس"},{"id":408,"p":9,"e":"🕵️","en":"secret","ar":"سري","pr":"سيكريت"},{"id":409,"p":9,"e":"🔒","en":"private","ar":"خاص","pr":"بريفاتي"},{"id":410,"p":9,"e":"🌍","en":"public","ar":"عام","pr":"بأبليك"},{"id":411,"p":9,"e":"🔊","en":"noisy","ar":"صاخب","pr":"نويسي"},{"id":412,"p":9,"e":"🤫","en":"silent","ar":"صامت","pr":"سيلنت"},{"id":413,"p":9,"e":"🏃","en":"busy","ar":"مشغول","pr":"بأسي"},{"id":414,"p":9,"e":"🆓","en":"free","ar":"مجاني / حر","pr":"فري"},{"id":415,"p":9,"e":"📅","en":"available","ar":"متاح","pr":"افايلابل"},{"id":416,"p":9,"e":"🚫","en":"unavailable","ar":"غير متاح","pr":"أنافايلابل"},{"id":417,"p":9,"e":"⚖️","en":"fair","ar":"عادل","pr":"فاير"},{"id":418,"p":9,"e":"❌","en":"unfair","ar":"غير عادل","pr":"أنفاير"},{"id":419,"p":9,"e":"👍","en":"perfect","ar":"مثالي","pr":"برفيكت"},{"id":420,"p":9,"e":"🔧","en":"broken","ar":"مكسور / معطل","pr":"بروكين"},{"id":421,"p":9,"e":"🆕","en":"ready","ar":"جاهز","pr":"ريدي"},{"id":422,"p":9,"e":"⏳","en":"busy","ar":"مشغول","pr":"بأسي"},{"id":423,"p":9,"e":"📦","en":"separate","ar":"منفصل","pr":"سيباراتي"},{"id":424,"p":9,"e":"🔗","en":"together","ar":"معًا","pr":"توجثر"},{"id":425,"p":9,"e":"🧽","en":"clean","ar":"نظيف","pr":"كلين"},{"id":426,"p":9,"e":"🧹","en":"tidy","ar":"مرتب","pr":"تيدي"},{"id":427,"p":9,"e":"🗑️","en":"messy","ar":"فوضوي","pr":"ميسي"},{"id":428,"p":9,"e":"🫙","en":"empty","ar":"فارغ","pr":"يمبتي"},{"id":429,"p":9,"e":"📦","en":"full","ar":"ممتلئ","pr":"فأل"},{"id":430,"p":9,"e":"🪶","en":"light","ar":"خفيف","pr":"لايت"},{"id":431,"p":9,"e":"🏋️","en":"heavy","ar":"ثقيل","pr":"هـيفي"},{"id":432,"p":9,"e":"📏","en":"wide","ar":"واسع","pr":"ويدي"},{"id":433,"p":9,"e":"📏","en":"narrow","ar":"ضيق","pr":"ناراو"},{"id":434,"p":9,"e":"📐","en":"deep","ar":"عميق","pr":"ديب"},{"id":435,"p":9,"e":"📏","en":"shallow","ar":"ضحل","pr":"شالاو"},{"id":436,"p":9,"e":"🏢","en":"modern","ar":"حديث","pr":"مودرن"},{"id":437,"p":9,"e":"🏛️","en":"traditional","ar":"تقليدي","pr":"تراديشِنال"},{"id":438,"p":9,"e":"🆕","en":"recent","ar":"حديث / مؤخّر","pr":"ريسنت"},{"id":439,"p":9,"e":"🕰️","en":"ancient","ar":"قديم جدًا","pr":"انسيينت"},{"id":440,"p":9,"e":"🧑","en":"local","ar":"محلي","pr":"لوكال"},{"id":441,"p":9,"e":"🌐","en":"foreign","ar":"أجنبي","pr":"فورييغن"},{"id":442,"p":9,"e":"🏠","en":"usual","ar":"معتاد","pr":"أسأال"},{"id":443,"p":9,"e":"✨","en":"strange","ar":"غريب","pr":"سترانج"},{"id":444,"p":9,"e":"💡","en":"clear","ar":"واضح","pr":"كلير"},{"id":445,"p":9,"e":"🌫️","en":"unclear","ar":"غير واضح","pr":"أنكلير"},{"id":446,"p":9,"e":"🔥","en":"dangerous","ar":"خطير","pr":"دانغراوس"},{"id":447,"p":9,"e":"🛡️","en":"safe","ar":"آمن","pr":"سافي"},{"id":448,"p":9,"e":"🌟","en":"lucky","ar":"محظوظ","pr":"لأكي"},{"id":449,"p":9,"e":"😞","en":"unlucky","ar":"سيئ الحظ","pr":"أنلأكي"},{"id":450,"p":9,"e":"🎯","en":"certain","ar":"مؤكد","pr":"كرتاين"},{"id":451,"p":10,"e":"🏠","en":"property","ar":"عقار / ملكية","pr":"بروبرتي"},{"id":452,"p":10,"e":"🔑","en":"belonging","ar":"ممتلكات","pr":"بيلونغينغ"},{"id":453,"p":10,"e":"👨‍💼","en":"manager","ar":"مدير","pr":"ماناغر"},{"id":454,"p":10,"e":"👷","en":"worker","ar":"عامل","pr":"ووركر"},{"id":455,"p":10,"e":"👬","en":"partner","ar":"شريك","pr":"بارتنر"},{"id":456,"p":10,"e":"🏢","en":"industry","ar":"صناعة","pr":"يندأستري"},{"id":457,"p":10,"e":"🛒","en":"marketplace","ar":"سوق","pr":"ماركيتبلاس"},{"id":458,"p":10,"e":"🏪","en":"storekeeper","ar":"صاحب متجر","pr":"ستوريكيبر"},{"id":459,"p":10,"e":"📦","en":"supplier","ar":"مورّد","pr":"سأبلير"},{"id":460,"p":10,"e":"💻","en":"website","ar":"موقع إلكتروني","pr":"ويبسيتي"},{"id":461,"p":10,"e":"📱","en":"application","ar":"تطبيق","pr":"ابليكاشِن"},{"id":462,"p":10,"e":"🔒","en":"password","ar":"كلمة مرور","pr":"باسوورد"},{"id":463,"p":10,"e":"📶","en":"network","ar":"شبكة","pr":"نيتوورك"},{"id":464,"p":10,"e":"⬇️","en":"download","ar":"تنزيل","pr":"داونلواد"},{"id":465,"p":10,"e":"⬆️","en":"upload","ar":"رفع","pr":"أبلواد"},{"id":466,"p":10,"e":"🔗","en":"link","ar":"رابط","pr":"لينك"},{"id":467,"p":10,"e":"📱","en":"online","ar":"عبر الإنترنت","pr":"ونليني"},{"id":468,"p":10,"e":"🔌","en":"device","ar":"جهاز","pr":"ديفيس"},{"id":469,"p":10,"e":"🔋","en":"battery","ar":"بطارية","pr":"باتري"},{"id":470,"p":10,"e":"🖨️","en":"printer","ar":"طابعة","pr":"برينتر"},{"id":471,"p":10,"e":"📁","en":"file","ar":"ملف","pr":"فيل"},{"id":472,"p":10,"e":"📄","en":"copy","ar":"نسخة","pr":"كوبي"},{"id":473,"p":10,"e":"✍️","en":"signature","ar":"توقيع","pr":"سِيغنِيتشَر"},{"id":474,"p":10,"e":"📅","en":"calendar","ar":"تقويم","pr":"كالندار"},{"id":475,"p":10,"e":"⏱️","en":"deadline","ar":"موعد نهائي","pr":"ديدليني"},{"id":476,"p":10,"e":"🧾","en":"receipt","ar":"إيصال","pr":"رِيسِيت"},{"id":477,"p":10,"e":"🏦","en":"banking","ar":"الخدمات المصرفية","pr":"بانكينغ"},{"id":478,"p":10,"e":"💳","en":"payment","ar":"دفعة / سداد","pr":"بايمينت"},{"id":479,"p":10,"e":"💰","en":"profit","ar":"ربح","pr":"بروفيت"},{"id":480,"p":10,"e":"📉","en":"loss","ar":"خسارة","pr":"لوس"},{"id":481,"p":10,"e":"💵","en":"salary","ar":"راتب","pr":"سالاري"},{"id":482,"p":10,"e":"🪙","en":"coin","ar":"عملة معدنية","pr":"كوين"},{"id":483,"p":10,"e":"💵","en":"note","ar":"ورقة نقدية","pr":"نوتي"},{"id":484,"p":10,"e":"🏦","en":"loan","ar":"قرض","pr":"لوان"},{"id":485,"p":10,"e":"💰","en":"debt","ar":"دَين","pr":"ديبت"},{"id":486,"p":10,"e":"🛍️","en":"purchase","ar":"شراء","pr":"برتشاسي"},{"id":487,"p":10,"e":"🏷️","en":"sale","ar":"تخفيض / بيع","pr":"سِيل"},{"id":488,"p":10,"e":"🛒","en":"shopping","ar":"تسوق","pr":"شوبينغ"},{"id":489,"p":10,"e":"🧾","en":"bill","ar":"فاتورة","pr":"بِيل"},{"id":490,"p":10,"e":"📞","en":"customer","ar":"عميل","pr":"كَستَمَر"},{"id":491,"p":10,"e":"🏨","en":"reservation","ar":"حجز","pr":"ريسرفاشِن"},{"id":492,"p":10,"e":"🛎️","en":"reception","ar":"استقبال","pr":"ريسبشِن"},{"id":493,"p":10,"e":"🛏️","en":"single","ar":"فردي / أعزب","pr":"سينغل"},{"id":494,"p":10,"e":"👫","en":"married","ar":"متزوج","pr":"مارييد"},{"id":495,"p":10,"e":"💔","en":"divorced","ar":"مطلق","pr":"ديفورسد"},{"id":496,"p":10,"e":"👶","en":"born","ar":"مولود","pr":"بورن"},{"id":497,"p":10,"e":"🎂","en":"age","ar":"عمر","pr":"اج"},{"id":498,"p":10,"e":"📅","en":"period","ar":"فترة","pr":"بريود"},{"id":499,"p":10,"e":"⏰","en":"moment","ar":"لحظة","pr":"مومينت"},{"id":500,"p":10,"e":"🔜","en":"future","ar":"مستقبل","pr":"فأتشَر"},{"id":501,"p":11,"e":"🧳","en":"luggage","ar":"أمتعة","pr":"لأغاج"},{"id":502,"p":11,"e":"🎒","en":"backpack","ar":"حقيبة ظهر","pr":"باكباك"},{"id":503,"p":11,"e":"🧳","en":"suitcase","ar":"حقيبة سفر","pr":"سأيتكاسي"},{"id":504,"p":11,"e":"✈️","en":"flight","ar":"رحلة جوية","pr":"فلايت"},{"id":505,"p":11,"e":"🛫","en":"airline","ar":"شركة طيران","pr":"ايرليني"},{"id":506,"p":11,"e":"🛬","en":"landing","ar":"هبوط","pr":"لاندينغ"},{"id":507,"p":11,"e":"🛫","en":"takeoff","ar":"إقلاع","pr":"تاكيوف"},{"id":508,"p":11,"e":"🛂","en":"visa","ar":"تأشيرة","pr":"فيسا"},{"id":509,"p":11,"e":"🛂","en":"border","ar":"حدود","pr":"بوردر"},{"id":510,"p":11,"e":"🧳","en":"baggage","ar":"أمتعة","pr":"باغاج"},{"id":511,"p":11,"e":"🎫","en":"boarding pass","ar":"بطاقة صعود الطائرة","pr":"بواردينغ باس"},{"id":512,"p":11,"e":"🛂","en":"security","ar":"أمن / تفتيش","pr":"سيكريتي"},{"id":513,"p":11,"e":"🧍","en":"passenger","ar":"مسافر","pr":"باسينغر"},{"id":514,"p":11,"e":"👨‍✈️","en":"pilot","ar":"طيار","pr":"بيلوت"},{"id":515,"p":11,"e":"👨‍✈️","en":"crew","ar":"طاقم","pr":"كريو"},{"id":516,"p":11,"e":"🪑","en":"seat","ar":"مقعد","pr":"سيت"},{"id":517,"p":11,"e":"🚪","en":"aisle","ar":"ممر","pr":"ايسل"},{"id":518,"p":11,"e":"🪟","en":"window seat","ar":"مقعد بجوار النافذة","pr":"وينداو سيت"},{"id":519,"p":11,"e":"🚉","en":"platform","ar":"رصيف المحطة","pr":"بلاتفورم"},{"id":520,"p":11,"e":"🚆","en":"carriage","ar":"عربة قطار","pr":"كارياج"},{"id":521,"p":11,"e":"🚉","en":"railway station","ar":"محطة قطار","pr":"رايلواي ستاشِن"},{"id":522,"p":11,"e":"🚕","en":"fare","ar":"أجرة","pr":"فاري"},{"id":523,"p":11,"e":"🗺️","en":"guide","ar":"دليل","pr":"غأيدي"},{"id":524,"p":11,"e":"📸","en":"tourist","ar":"سائح","pr":"تاوريست"},{"id":525,"p":11,"e":"🏛️","en":"attraction","ar":"معلم سياحي","pr":"اتراكشِن"},{"id":526,"p":11,"e":"🏨","en":"accommodation","ar":"مكان إقامة","pr":"اكوموداشِن"},{"id":527,"p":11,"e":"🛎️","en":"hotel room","ar":"غرفة فندق","pr":"هـوتيل روم"},{"id":528,"p":11,"e":"🔑","en":"keycard","ar":"بطاقة مفتاح","pr":"كييكارد"},{"id":529,"p":11,"e":"🛎️","en":"receptionist","ar":"موظف استقبال","pr":"ريسبشِنيست"},{"id":530,"p":11,"e":"🧹","en":"housekeeper","ar":"عامل نظافة","pr":"هـاوسيكيبر"},{"id":531,"p":11,"e":"🍽️","en":"breakfast buffet","ar":"بوفيه إفطار","pr":"بريكفاست بأفيت"},{"id":532,"p":11,"e":"🥗","en":"menu item","ar":"صنف في القائمة","pr":"مينأ يتيم"},{"id":533,"p":11,"e":"🍴","en":"forkful","ar":"لقمة بالشوكة","pr":"فوركفأل"},{"id":534,"p":11,"e":"🥤","en":"straw","ar":"شفاطة","pr":"سترو"},{"id":535,"p":11,"e":"🫙","en":"jar","ar":"برطمان","pr":"جار"},{"id":536,"p":11,"e":"🥫","en":"can","ar":"علبة معدنية","pr":"كان"},{"id":537,"p":11,"e":"🧂","en":"pepper","ar":"فلفل","pr":"بيبر"},{"id":538,"p":11,"e":"🫒","en":"oil","ar":"زيت","pr":"ويل"},{"id":539,"p":11,"e":"🧈","en":"butter","ar":"زبدة","pr":"بأتر"},{"id":540,"p":11,"e":"🥛","en":"yogurt","ar":"زبادي","pr":"يوغرت"},{"id":541,"p":11,"e":"🍇","en":"grape","ar":"عنب","pr":"غرابي"},{"id":542,"p":11,"e":"🍑","en":"peach","ar":"خوخ","pr":"بيتش"},{"id":543,"p":11,"e":"🍒","en":"cherry","ar":"كرز","pr":"تشري"},{"id":544,"p":11,"e":"🍍","en":"pineapple","ar":"أناناس","pr":"بينيبل"},{"id":545,"p":11,"e":"🥭","en":"mango","ar":"مانجو","pr":"مانغو"},{"id":546,"p":11,"e":"🥒","en":"cucumber","ar":"خيار","pr":"كأكأمبر"},{"id":547,"p":11,"e":"🧅","en":"onion","ar":"بصل","pr":"ونيون"},{"id":548,"p":11,"e":"🧄","en":"garlic","ar":"ثوم","pr":"غارليك"},{"id":549,"p":11,"e":"🌽","en":"corn","ar":"ذرة","pr":"كورن"},{"id":550,"p":11,"e":"🫘","en":"bean","ar":"فاصوليا","pr":"بين"},{"id":551,"p":12,"e":"🥦","en":"broccoli","ar":"بروكلي","pr":"بروكولي"},{"id":552,"p":12,"e":"🥬","en":"cabbage","ar":"ملفوف","pr":"كاباج"},{"id":553,"p":12,"e":"🫑","en":"pepper","ar":"فلفل","pr":"بيبر"},{"id":554,"p":12,"e":"🍆","en":"eggplant","ar":"باذنجان","pr":"يغبلانت"},{"id":555,"p":12,"e":"🥬","en":"lettuce","ar":"خس","pr":"لتأس"},{"id":556,"p":12,"e":"🫛","en":"pea","ar":"بازلاء","pr":"بي"},{"id":557,"p":12,"e":"🫘","en":"lentil","ar":"عدس","pr":"لنتيل"},{"id":558,"p":12,"e":"🌾","en":"flour","ar":"دقيق","pr":"فلاور"},{"id":559,"p":12,"e":"🥣","en":"cereal","ar":"حبوب الإفطار","pr":"كريل"},{"id":560,"p":12,"e":"🥣","en":"soup","ar":"حساء","pr":"ساوب"},{"id":561,"p":12,"e":"🥗","en":"salad","ar":"سلطة","pr":"سالاد"},{"id":562,"p":12,"e":"🫙","en":"jam","ar":"مربى","pr":"جام"},{"id":563,"p":12,"e":"🥛","en":"cream","ar":"قشطة / كريمة","pr":"كريم"},{"id":564,"p":12,"e":"🍪","en":"biscuit","ar":"بسكويت","pr":"بيسكأيت"},{"id":565,"p":12,"e":"🍫","en":"dessert","ar":"حلوى","pr":"ديسرت"},{"id":566,"p":12,"e":"🧂","en":"ingredient","ar":"مكوّن","pr":"ينغريديينت"},{"id":567,"p":12,"e":"📖","en":"recipe","ar":"وصفة","pr":"ريسيبي"},{"id":568,"p":12,"e":"🫖","en":"kettle","ar":"غلاية","pr":"كيتل"},{"id":569,"p":12,"e":"🍞","en":"toaster","ar":"محمصة خبز","pr":"تواستر"},{"id":570,"p":12,"e":"🍳","en":"pan","ar":"مقلاة","pr":"بان"},{"id":571,"p":12,"e":"😋","en":"appetite","ar":"شهية","pr":"ابيتيتي"},{"id":572,"p":12,"e":"🥄","en":"teaspoon","ar":"ملعقة صغيرة","pr":"تيسبون"},{"id":573,"p":12,"e":"🥄","en":"tablespoon","ar":"ملعقة كبيرة","pr":"تابلسبون"},{"id":574,"p":12,"e":"🧂","en":"seasoning","ar":"توابل","pr":"سيسونينغ"},{"id":575,"p":12,"e":"🥄","en":"stir","ar":"يقلب","pr":"ستير"},{"id":576,"p":12,"e":"🍳","en":"fry","ar":"يقلي","pr":"فري"},{"id":577,"p":12,"e":"♨️","en":"boil","ar":"يغلي","pr":"بويل"},{"id":578,"p":12,"e":"🔥","en":"grill","ar":"يشوي","pr":"غريل"},{"id":579,"p":12,"e":"🔥","en":"roast","ar":"يشوي في الفرن","pr":"رواست"},{"id":580,"p":12,"e":"🥣","en":"mix","ar":"يخلط","pr":"ميكس"},{"id":581,"p":12,"e":"🔪","en":"slice","ar":"يقطع إلى شرائح","pr":"سليس"},{"id":582,"p":12,"e":"🔪","en":"chop","ar":"يفرم / يقطع","pr":"تشوب"},{"id":583,"p":12,"e":"🧂","en":"add","ar":"يضيف","pr":"اد"},{"id":584,"p":12,"e":"🥄","en":"pour","ar":"يصب","pr":"باور"},{"id":585,"p":12,"e":"🍽️","en":"serve","ar":"يقدم","pr":"سرفي"},{"id":586,"p":12,"e":"😊","en":"satisfied","ar":"راضٍ","pr":"ساتيسفييد"},{"id":587,"p":12,"e":"👃","en":"smell","ar":"يشم / رائحة","pr":"سميل"},{"id":588,"p":12,"e":"🌶️","en":"spicy","ar":"حار / متبل","pr":"سبيسي"},{"id":589,"p":12,"e":"🍋","en":"sour","ar":"حامض","pr":"ساور"},{"id":590,"p":12,"e":"🍯","en":"sweet","ar":"حلو","pr":"سويت"},{"id":591,"p":12,"e":"🧂","en":"bitter","ar":"مُرّ","pr":"بيتر"},{"id":592,"p":12,"e":"😋","en":"delicious","ar":"لذيذ","pr":"ديليسياوس"},{"id":593,"p":12,"e":"🤢","en":"disgusting","ar":"مقزز","pr":"ديسغأستينغ"},{"id":594,"p":12,"e":"😊","en":"full","ar":"شبعان","pr":"فأل"},{"id":595,"p":12,"e":"🥤","en":"thirsty","ar":"عطشان","pr":"ثيرستي"},{"id":596,"p":12,"e":"🍴","en":"full","ar":"شبعان","pr":"فأل"},{"id":597,"p":12,"e":"🍽️","en":"serve","ar":"يقدم","pr":"سرفي"},{"id":598,"p":12,"e":"👨‍🍳","en":"cook","ar":"يطبخ","pr":"كوك"},{"id":599,"p":12,"e":"👨‍🍳","en":"cooking","ar":"طبخ","pr":"كوكينغ"},{"id":600,"p":12,"e":"🍴","en":"kitchenware","ar":"أدوات المطبخ","pr":"كيتشينواري"},{"id":601,"p":13,"e":"👨‍⚕️","en":"surgeon","ar":"جراح","pr":"سرجون"},{"id":602,"p":13,"e":"🏥","en":"patient","ar":"مريض","pr":"باتيينت"},{"id":603,"p":13,"e":"💊","en":"treatment","ar":"علاج","pr":"تريتمينت"},{"id":604,"p":13,"e":"🩺","en":"symptom","ar":"عرض مرضي","pr":"سيمبتوم"},{"id":605,"p":13,"e":"🩹","en":"bandage","ar":"ضمادة","pr":"بانداج"},{"id":606,"p":13,"e":"💉","en":"injection","ar":"حقنة","pr":"ينجيكشِن"},{"id":607,"p":13,"e":"🧪","en":"medicine","ar":"دواء","pr":"ميديسيني"},{"id":608,"p":13,"e":"🩻","en":"scan","ar":"فحص بالأشعة","pr":"سكان"},{"id":609,"p":13,"e":"🔬","en":"laboratory","ar":"مختبر","pr":"لابوراتوري"},{"id":610,"p":13,"e":"🦷","en":"toothache","ar":"ألم الأسنان","pr":"توثاتشي"},{"id":611,"p":13,"e":"🤕","en":"headache","ar":"صداع","pr":"هـيداتشي"},{"id":612,"p":13,"e":"🤧","en":"sneeze","ar":"يعطس / عطسة","pr":"سنيزي"},{"id":613,"p":13,"e":"🥵","en":"temperature","ar":"درجة الحرارة","pr":"تيمبراتشَر"},{"id":614,"p":13,"e":"🛌","en":"illness","ar":"مرض","pr":"يلنيس"},{"id":615,"p":13,"e":"🧘","en":"mental","ar":"عقلي / نفسي","pr":"مينتال"},{"id":616,"p":13,"e":"💪","en":"physical","ar":"جسدي","pr":"فيسيكال"},{"id":617,"p":13,"e":"🥗","en":"nutrition","ar":"تغذية","pr":"نأتريشِن"},{"id":618,"p":13,"e":"💧","en":"hydration","ar":"ترطيب","pr":"هـيدراشِن"},{"id":619,"p":13,"e":"🥦","en":"vitamin","ar":"فيتامين","pr":"فيتامين"},{"id":620,"p":13,"e":"💤","en":"sleepy","ar":"نعسان","pr":"سليبي"},{"id":621,"p":13,"e":"😴","en":"awake","ar":"مستيقظ","pr":"واكي"},{"id":622,"p":13,"e":"🛌","en":"asleep","ar":"نائم","pr":"اسليب"},{"id":623,"p":13,"e":"🏃","en":"fit","ar":"لائق بدنيًا","pr":"فيت"},{"id":624,"p":13,"e":"💪","en":"strong","ar":"قوي","pr":"سترونغ"},{"id":625,"p":13,"e":"🏃","en":"exercise","ar":"رياضة / تمرين","pr":"يكسرسيسي"},{"id":626,"p":13,"e":"🏃","en":"athlete","ar":"رياضي","pr":"اثلتي"},{"id":627,"p":13,"e":"🏋️","en":"gym","ar":"صالة ألعاب رياضية","pr":"غيم"},{"id":628,"p":13,"e":"🏃","en":"race","ar":"سباق","pr":"راس"},{"id":629,"p":13,"e":"🏅","en":"medal","ar":"ميدالية","pr":"ميدال"},{"id":630,"p":13,"e":"🏆","en":"prize","ar":"جائزة","pr":"بريزي"},{"id":631,"p":13,"e":"⚽","en":"team","ar":"فريق","pr":"تيم"},{"id":632,"p":13,"e":"🤼","en":"opponent","ar":"منافس","pr":"وبونينت"},{"id":633,"p":13,"e":"🏟️","en":"stadium","ar":"ملعب","pr":"ستاديأم"},{"id":634,"p":13,"e":"🏃","en":"match","ar":"مباراة","pr":"ماتش"},{"id":635,"p":13,"e":"⚽","en":"score","ar":"نتيجة / يسجل","pr":"سكوري"},{"id":636,"p":13,"e":"🥅","en":"goalkeeper","ar":"حارس مرمى","pr":"غوالكيبر"},{"id":637,"p":13,"e":"🥇","en":"champion","ar":"بطل","pr":"تشامبيون"},{"id":638,"p":13,"e":"🏆","en":"competition","ar":"منافسة","pr":"كومبيتيشِن"},{"id":639,"p":13,"e":"🏆","en":"tournament","ar":"بطولة","pr":"تاورنامينت"},{"id":640,"p":13,"e":"🏊","en":"swimmer","ar":"سباح","pr":"سويمر"},{"id":641,"p":13,"e":"🚴","en":"cycling","ar":"ركوب الدراجات","pr":"سيكلينغ"},{"id":642,"p":13,"e":"🤸","en":"stretch","ar":"يتمدد","pr":"ستريتش"},{"id":643,"p":13,"e":"🏋️","en":"lift","ar":"يرفع","pr":"ليفت"},{"id":644,"p":13,"e":"🏃","en":"run","ar":"يركض","pr":"رأن"},{"id":645,"p":13,"e":"🚶","en":"walk","ar":"يمشي","pr":"والك"},{"id":646,"p":13,"e":"🏊","en":"swim","ar":"يسبح","pr":"سويم"},{"id":647,"p":13,"e":"🚲","en":"cycle","ar":"يركب الدراجة","pr":"سيكل"},{"id":648,"p":13,"e":"🧗","en":"climb","ar":"يتسلق","pr":"كليمب"},{"id":649,"p":13,"e":"🏄","en":"surf","ar":"يمارس ركوب الأمواج","pr":"سرف"},{"id":650,"p":13,"e":"🥾","en":"walkway","ar":"ممر للمشي","pr":"والكواي"},{"id":651,"p":14,"e":"🤺","en":"exercise","ar":"يتمرن","pr":"يكسرسيسي"},{"id":652,"p":14,"e":"🥗","en":"nutrition","ar":"تغذية","pr":"نأتريشِن"},{"id":653,"p":14,"e":"🍎","en":"vitamin","ar":"فيتامين","pr":"فيتامين"},{"id":654,"p":14,"e":"🩺","en":"appointment","ar":"موعد","pr":"أَبُوينتمِنت"},{"id":655,"p":14,"e":"🏥","en":"emergency","ar":"حالة طارئة","pr":"يمرجنسي"},{"id":656,"p":14,"e":"🚑","en":"ambulance","ar":"سيارة إسعاف","pr":"امبألانس"},{"id":657,"p":14,"e":"💊","en":"pharmacy","ar":"صيدلية","pr":"فارماسي"},{"id":658,"p":14,"e":"🩹","en":"accident","ar":"حادث","pr":"اكسيدينت"},{"id":659,"p":14,"e":"🦴","en":"hurt","ar":"يؤلم / يجرح","pr":"هـرت"},{"id":660,"p":14,"e":"🩸","en":"bleed","ar":"ينزف","pr":"بليد"},{"id":661,"p":14,"e":"🤧","en":"allergy","ar":"حساسية","pr":"الرغي"},{"id":662,"p":14,"e":"💊","en":"prescription","ar":"وصفة طبية","pr":"بريسكريبشِن"},{"id":663,"p":14,"e":"🦷","en":"dentist","ar":"طبيب أسنان","pr":"دينتيست"},{"id":664,"p":14,"e":"🏥","en":"hospital","ar":"مستشفى","pr":"هـوسبيتال"},{"id":665,"p":14,"e":"👨‍⚕️","en":"doctor","ar":"طبيب","pr":"دوكتور"},{"id":666,"p":14,"e":"👩‍⚕️","en":"nurse","ar":"ممرض","pr":"نرسي"},{"id":667,"p":14,"e":"🏠","en":"careful","ar":"حذر","pr":"كاريفأل"},{"id":668,"p":14,"e":"⚠️","en":"dangerous","ar":"خطير","pr":"دانغراوس"},{"id":669,"p":14,"e":"🛡️","en":"protect","ar":"يحمي","pr":"بروتيكت"},{"id":670,"p":14,"e":"💥","en":"accidentally","ar":"بالخطأ","pr":"اكسيدينتالي"},{"id":671,"p":14,"e":"❤️","en":"feeling","ar":"شعور","pr":"فيلينغ"},{"id":672,"p":14,"e":"😊","en":"emotion","ar":"عاطفة / شعور","pr":"يموشِن"},{"id":673,"p":14,"e":"😍","en":"pleased","ar":"مسرور","pr":"بليسيد"},{"id":674,"p":14,"e":"😞","en":"disappointed","ar":"محبط","pr":"ديسابوينتيد"},{"id":675,"p":14,"e":"😡","en":"angry","ar":"غاضب","pr":"انغري"},{"id":676,"p":14,"e":"👫","en":"relationship","ar":"علاقة","pr":"ريلاشِنشيب"},{"id":677,"p":14,"e":"👥","en":"group","ar":"مجموعة","pr":"غراوب"},{"id":678,"p":14,"e":"👫","en":"couple","ar":"زوجان","pr":"كَبل"},{"id":679,"p":14,"e":"🎉","en":"celebration","ar":"احتفال","pr":"سلبراشِن"},{"id":680,"p":14,"e":"🎁","en":"occasion","ar":"مناسبة","pr":"وكاجِن"},{"id":681,"p":14,"e":"💌","en":"invitation","ar":"دعوة","pr":"ينفيتاشِن"},{"id":682,"p":14,"e":"🎂","en":"anniversary","ar":"ذكرى سنوية","pr":"انيفرساري"},{"id":683,"p":14,"e":"🤝","en":"neighbor","ar":"جار","pr":"نيايبور"},{"id":684,"p":14,"e":"🧑","en":"stranger","ar":"غريب","pr":"سترانغر"},{"id":685,"p":14,"e":"👋","en":"greet","ar":"يحيّي","pr":"غريت"},{"id":686,"p":14,"e":"🙏","en":"thank","ar":"يشكر","pr":"ثانك"},{"id":687,"p":14,"e":"🙇","en":"apologize","ar":"يعتذر","pr":"ابولوجيزي"},{"id":688,"p":14,"e":"🤝","en":"trust","ar":"يثق","pr":"ترأست"},{"id":689,"p":14,"e":"❤️","en":"care","ar":"يهتم","pr":"كاري"},{"id":690,"p":14,"e":"🆘","en":"support","ar":"يدعم","pr":"سأبورت"},{"id":691,"p":14,"e":"🗣️","en":"argue","ar":"يتجادل","pr":"ارغأي"},{"id":692,"p":14,"e":"🤝","en":"agree","ar":"يوافق","pr":"اغري"},{"id":693,"p":14,"e":"🧩","en":"solve","ar":"يحل","pr":"سولفي"},{"id":694,"p":14,"e":"🤲","en":"believe","ar":"يصدق / يؤمن","pr":"بيلييفي"},{"id":695,"p":14,"e":"❓","en":"doubt","ar":"يشك","pr":"داوبت"},{"id":696,"p":14,"e":"🎯","en":"expect","ar":"يتوقع","pr":"يكسبيكت"},{"id":697,"p":14,"e":"🌟","en":"wish","ar":"يتمنى","pr":"ويش"},{"id":698,"p":14,"e":"🙏","en":"hope","ar":"يأمل","pr":"هـوبي"},{"id":699,"p":14,"e":"😱","en":"fear","ar":"يخاف / خوف","pr":"فير"},{"id":700,"p":14,"e":"❤️","en":"love","ar":"حب","pr":"لوفي"},{"id":701,"p":15,"e":"🎯","en":"decision","ar":"قرار","pr":"دِيسِيجِن"},{"id":702,"p":15,"e":"🎯","en":"choice","ar":"اختيار","pr":"تشُويس"},{"id":703,"p":15,"e":"🔍","en":"reason","ar":"سبب","pr":"رِيزِن"},{"id":704,"p":15,"e":"💡","en":"solution","ar":"حل","pr":"سُولوشِن"},{"id":705,"p":15,"e":"⚠️","en":"risk","ar":"خطر / مخاطرة","pr":"ريسك"},{"id":706,"p":15,"e":"🎯","en":"purpose","ar":"هدف / غرض","pr":"بِيربَس"},{"id":707,"p":15,"e":"🏆","en":"result","ar":"نتيجة","pr":"ريسألت"},{"id":708,"p":15,"e":"📈","en":"effect","ar":"تأثير","pr":"يفيكت"},{"id":709,"p":15,"e":"🔄","en":"difference","ar":"اختلاف","pr":"ديفرينس"},{"id":710,"p":15,"e":"🔗","en":"connection","ar":"علاقة / اتصال","pr":"كونيكشِن"},{"id":711,"p":15,"e":"🧩","en":"part","ar":"جزء","pr":"بارت"},{"id":712,"p":15,"e":"📦","en":"whole","ar":"كامل / الكل","pr":"وول"},{"id":713,"p":15,"e":"🔢","en":"half","ar":"نصف","pr":"هـالف"},{"id":714,"p":15,"e":"📊","en":"level","ar":"مستوى","pr":"لفيل"},{"id":715,"p":15,"e":"📏","en":"amount","ar":"كمية","pr":"أَماونت"},{"id":716,"p":15,"e":"🔢","en":"total","ar":"إجمالي","pr":"تُوتال"},{"id":717,"p":15,"e":"📈","en":"rate","ar":"معدل","pr":"راتي"},{"id":718,"p":15,"e":"🔢","en":"number","ar":"عدد","pr":"نأمبر"},{"id":719,"p":15,"e":"📊","en":"score","ar":"درجة / نتيجة","pr":"سكوري"},{"id":720,"p":15,"e":"📝","en":"mark","ar":"علامة / درجة","pr":"مارك"},{"id":721,"p":15,"e":"🎓","en":"degree","ar":"شهادة / درجة علمية","pr":"ديغري"},{"id":722,"p":15,"e":"🏫","en":"education","ar":"تعليم","pr":"إِديوكِيشِن"},{"id":723,"p":15,"e":"▤","en":"knowledge","ar":"معرفة","pr":"ناولدج"},{"id":724,"p":15,"e":"✏️","en":"exercise","ar":"تمرين","pr":"يكسرسيسي"},{"id":725,"p":15,"e":"📖","en":"subject","ar":"موضوع / مادة","pr":"سأبجيكت"},{"id":726,"p":15,"e":"▤","en":"subject","ar":"مادة دراسية","pr":"سأبجيكت"},{"id":727,"p":15,"e":"📝","en":"course","ar":"دورة / مقرر","pr":"كاورسي"},{"id":728,"p":15,"e":"👨‍🏫","en":"lesson","ar":"درس","pr":"لسون"},{"id":729,"p":15,"e":"📖","en":"chapter","ar":"فصل","pr":"تشابتر"},{"id":730,"p":15,"e":"📄","en":"paragraph","ar":"فقرة","pr":"باراغراف"},{"id":731,"p":15,"e":"🔤","en":"sentence","ar":"جملة","pr":"سينتينس"},{"id":732,"p":15,"e":"📝","en":"meaning","ar":"معنى","pr":"مينينغ"},{"id":733,"p":15,"e":"▤","en":"language","ar":"لغة","pr":"لانغأاج"},{"id":734,"p":15,"e":"🗣️","en":"accent","ar":"لهجة","pr":"اكسنت"},{"id":735,"p":15,"e":"👂","en":"pronunciation","ar":"نطق","pr":"برونأنسياشِن"},{"id":736,"p":15,"e":"🎧","en":"listening","ar":"استماع","pr":"ليستينينغ"},{"id":737,"p":15,"e":"🗣️","en":"speaking","ar":"تحدث","pr":"سبيكينغ"},{"id":738,"p":15,"e":"✍️","en":"writing","ar":"كتابة","pr":"ريتينغ"},{"id":739,"p":15,"e":"📖","en":"reading","ar":"قراءة","pr":"ريدينغ"},{"id":740,"p":15,"e":"◷","en":"knowledge","ar":"معرفة","pr":"ناولدج"},{"id":741,"p":15,"e":"◷","en":"skill","ar":"مهارة","pr":"سكيل"},{"id":742,"p":15,"e":"🏅","en":"ability","ar":"قدرة","pr":"ابيليتي"},{"id":743,"p":15,"e":"🎓","en":"student","ar":"طالب","pr":"ستأدينت"},{"id":744,"p":15,"e":"👨‍🏫","en":"teacher","ar":"معلّم","pr":"تيتشر"},{"id":745,"p":15,"e":"🏫","en":"school","ar":"مدرسة","pr":"ستشول"},{"id":746,"p":15,"e":"🎓","en":"college","ar":"كلية","pr":"كولج"},{"id":747,"p":15,"e":"🏛️","en":"university","ar":"جامعة","pr":"أنيفرسيتي"},{"id":748,"p":15,"e":"📋","en":"exam","ar":"امتحان","pr":"يكسام"},{"id":749,"p":15,"e":"❓","en":"questionnaire","ar":"استبيان","pr":"كويسشِنايري"},{"id":750,"p":15,"e":"🏆","en":"certificate","ar":"شهادة","pr":"كرتيفيكاتي"},{"id":751,"p":16,"e":"💼","en":"workplace","ar":"مكان العمل","pr":"ووركبلاس"},{"id":752,"p":16,"e":"👔","en":"position","ar":"منصب / وظيفة","pr":"بوسيشِن"},{"id":753,"p":16,"e":"📋","en":"task","ar":"مهمة","pr":"تاسك"},{"id":754,"p":16,"e":"🎯","en":"project","ar":"مشروع","pr":"بروجيكت"},{"id":755,"p":16,"e":"📄","en":"report","ar":"تقرير","pr":"ريبورت"},{"id":756,"p":16,"e":"📧","en":"email","ar":"بريد إلكتروني","pr":"يمايل"},{"id":757,"p":16,"e":"📞","en":"phone call","ar":"مكالمة هاتفية","pr":"فوني كال"},{"id":758,"p":16,"e":"🗣️","en":"interview","ar":"مقابلة","pr":"ينترفييو"},{"id":759,"p":16,"e":"📄","en":"application","ar":"طلب / استمارة","pr":"ابليكاشِن"},{"id":760,"p":16,"e":"💼","en":"experience","ar":"خبرة","pr":"إِكسبِيريَنس"},{"id":761,"p":16,"e":"💰","en":"income","ar":"دخل","pr":"إِنكَم"},{"id":762,"p":16,"e":"💵","en":"wage","ar":"أجر","pr":"واج"},{"id":763,"p":16,"e":"💳","en":"salary","ar":"راتب","pr":"سالاري"},{"id":764,"p":16,"e":"🏦","en":"tax","ar":"ضريبة","pr":"تاكس"},{"id":765,"p":16,"e":"💰","en":"profit","ar":"ربح","pr":"بروفيت"},{"id":766,"p":16,"e":"📉","en":"loss","ar":"خسارة","pr":"لوس"},{"id":767,"p":16,"e":"🧾","en":"expense","ar":"مصروف","pr":"إِكسبِينس"},{"id":768,"p":16,"e":"💰","en":"savings","ar":"مدخرات","pr":"سافينغس"},{"id":769,"p":16,"e":"🏦","en":"investment","ar":"استثمار","pr":"ينفيستمينت"},{"id":770,"p":16,"e":"💳","en":"credit card","ar":"بطاقة ائتمان","pr":"كريديت كارد"},{"id":771,"p":16,"e":"🏧","en":"ATM","ar":"ماكينة صراف آلي","pr":"اتم"},{"id":772,"p":16,"e":"🏧","en":"cash machine","ar":"ماكينة صراف","pr":"كاش ماتشيني"},{"id":773,"p":16,"e":"💸","en":"cashier","ar":"أمين الصندوق","pr":"كاشِير"},{"id":774,"p":16,"e":"🛒","en":"customer","ar":"عميل","pr":"كَستَمَر"},{"id":775,"p":16,"e":"📦","en":"business","ar":"عمل تجاري","pr":"بأسينيس"},{"id":776,"p":16,"e":"📅","en":"weekly","ar":"أسبوعي","pr":"ويكلي"},{"id":777,"p":16,"e":"📅","en":"monthly","ar":"شهري","pr":"مونثلي"},{"id":778,"p":16,"e":"📅","en":"daily","ar":"يومي","pr":"دايلي"},{"id":779,"p":16,"e":"⏰","en":"schedule","ar":"جدول / مواعيد","pr":"ستشيدأل"},{"id":780,"p":16,"e":"🕒","en":"shift","ar":"وردية عمل","pr":"شيفت"},{"id":781,"p":16,"e":"🏖️","en":"break","ar":"استراحة","pr":"بريك"},{"id":782,"p":16,"e":"💼","en":"business trip","ar":"رحلة عمل","pr":"بأسينيس تريب"},{"id":783,"p":16,"e":"📈","en":"career","ar":"مسار مهني","pr":"كَرِير"},{"id":784,"p":16,"e":"🏢","en":"company","ar":"شركة","pr":"كومباني"},{"id":785,"p":16,"e":"👔","en":"profession","ar":"مهنة","pr":"بروفيسجِن"},{"id":786,"p":16,"e":"👥","en":"staff","ar":"موظفون","pr":"ستاف"},{"id":787,"p":16,"e":"👥","en":"teamwork","ar":"عمل جماعي","pr":"تيموورك"},{"id":788,"p":16,"e":"🏆","en":"success","ar":"نجاح","pr":"سَكسِيس"},{"id":789,"p":16,"e":"📈","en":"progress","ar":"تقدم","pr":"برُوغريس"},{"id":790,"p":16,"e":"🎯","en":"target","ar":"هدف","pr":"تارجت"},{"id":791,"p":16,"e":"🏅","en":"achievement","ar":"إنجاز","pr":"أَتشِيفمِنت"},{"id":792,"p":16,"e":"💡","en":"idea","ar":"فكرة","pr":"آيدِيا"},{"id":793,"p":16,"e":"◷","en":"knowledge","ar":"معرفة","pr":"ناولدج"},{"id":794,"p":16,"e":"🛠️","en":"skill","ar":"مهارة","pr":"سكيل"},{"id":795,"p":16,"e":"▤","en":"training","ar":"تدريب","pr":"تراينينغ"},{"id":796,"p":16,"e":"👨‍💼","en":"professional","ar":"محترف","pr":"بروفيسجِنال"},{"id":797,"p":16,"e":"⏰","en":"full-time","ar":"دوام كامل","pr":"فأل تيمي"},{"id":798,"p":16,"e":"🕒","en":"part-time","ar":"دوام جزئي","pr":"بارت تيمي"},{"id":799,"p":16,"e":"🏠","en":"remote","ar":"عن بُعد","pr":"ريموتي"},{"id":800,"p":16,"e":"🏢","en":"office","ar":"مكتب","pr":"وفيس"},{"id":801,"p":17,"e":"🍽️","en":"restaurant","ar":"مطعم","pr":"ريستورانت"},{"id":802,"p":17,"e":"📋","en":"menu","ar":"قائمة الطعام","pr":"مينأ"},{"id":803,"p":17,"e":"🍴","en":"waiter","ar":"نادل","pr":"وايتر"},{"id":804,"p":17,"e":"💁","en":"waitress","ar":"نادلة","pr":"وايتريس"},{"id":805,"p":17,"e":"💳","en":"tip","ar":"بقشيش / إكرامية","pr":"تيب"},{"id":806,"p":17,"e":"🍽️","en":"dish","ar":"طبق / وجبة","pr":"ديش"},{"id":807,"p":17,"e":"🍹","en":"drink","ar":"مشروب","pr":"درينك"},{"id":808,"p":17,"e":"🍴","en":"fork","ar":"شوكة","pr":"فورك"},{"id":809,"p":17,"e":"🥄","en":"spoon","ar":"ملعقة","pr":"سبون"},{"id":810,"p":17,"e":"🔪","en":"knife","ar":"سكين","pr":"نيفي"},{"id":811,"p":17,"e":"🍽️","en":"plate","ar":"طبق","pr":"بلاتي"},{"id":812,"p":17,"e":"🥣","en":"bowl","ar":"وعاء","pr":"باول"},{"id":813,"p":17,"e":"🧂","en":"salt","ar":"ملح","pr":"سالت"},{"id":814,"p":17,"e":"🧂","en":"sugar","ar":"سكر","pr":"سأغار"},{"id":815,"p":17,"e":"🧊","en":"ice","ar":"ثلج","pr":"يس"},{"id":816,"p":17,"e":"🥡","en":"takeaway","ar":"طعام سفري","pr":"تاكيواي"},{"id":817,"p":17,"e":"🛍️","en":"bag","ar":"حقيبة","pr":"باغ"},{"id":818,"p":17,"e":"🛒","en":"shopping","ar":"تسوق","pr":"شوبينغ"},{"id":819,"p":17,"e":"🏷️","en":"customer","ar":"عميل","pr":"كَستَمَر"},{"id":820,"p":17,"e":"💵","en":"cash","ar":"نقود","pr":"كاش"},{"id":821,"p":17,"e":"💳","en":"card","ar":"بطاقة","pr":"كارد"},{"id":822,"p":17,"e":"🧾","en":"bill","ar":"فاتورة","pr":"بِيل"},{"id":823,"p":17,"e":"💰","en":"tip","ar":"إكرامية","pr":"تيب"},{"id":824,"p":17,"e":"📞","en":"call","ar":"يتصل","pr":"كال"},{"id":825,"p":17,"e":"📲","en":"contact","ar":"جهة اتصال","pr":"كونتاكت"},{"id":826,"p":17,"e":"📱","en":"text","ar":"يرسل رسالة","pr":"تيكست"},{"id":827,"p":17,"e":"📞","en":"ring","ar":"يتصل / يرن","pr":"رينغ"},{"id":828,"p":17,"e":"💬","en":"chat","ar":"دردش","pr":"تشات"},{"id":829,"p":17,"e":"📲","en":"message","ar":"رسالة","pr":"مِيسِيج"},{"id":830,"p":17,"e":"📷","en":"selfie","ar":"صورة سيلفي","pr":"سيلفيي"},{"id":831,"p":17,"e":"📹","en":"video","ar":"فيديو","pr":"فيديو"},{"id":832,"p":17,"e":"🎥","en":"record","ar":"يسجل","pr":"ريكورد"},{"id":833,"p":17,"e":"▶️","en":"watch","ar":"يشاهد","pr":"واتش"},{"id":834,"p":17,"e":"⏯️","en":"pause","ar":"يوقف مؤقتًا","pr":"بوسي"},{"id":835,"p":17,"e":"▶️","en":"play","ar":"يشغل","pr":"بلاي"},{"id":836,"p":17,"e":"⏩","en":"fast-forward","ar":"يقدّم سريعًا","pr":"فاست فوروارد"},{"id":837,"p":17,"e":"🔊","en":"volume","ar":"مستوى الصوت","pr":"فولأمي"},{"id":838,"p":17,"e":"🎧","en":"headphones","ar":"سماعات","pr":"هـيدفونيس"},{"id":839,"p":17,"e":"🔌","en":"charger","ar":"شاحن","pr":"تشارغر"},{"id":840,"p":17,"e":"🔋","en":"battery","ar":"بطارية","pr":"باتري"},{"id":841,"p":17,"e":"📶","en":"signal","ar":"إشارة","pr":"سيغنال"},{"id":842,"p":17,"e":"🌐","en":"browser","ar":"متصفح","pr":"براوسر"},{"id":843,"p":17,"e":"🔍","en":"website","ar":"موقع إلكتروني","pr":"ويبسيتي"},{"id":844,"p":17,"e":"📲","en":"account","ar":"حساب","pr":"أَكاونت"},{"id":845,"p":17,"e":"🔑","en":"password","ar":"كلمة مرور","pr":"باسوورد"},{"id":846,"p":17,"e":"🔒","en":"secure","ar":"آمن","pr":"سيكري"},{"id":847,"p":17,"e":"⚙️","en":"setting","ar":"إعداد","pr":"سيتينغ"},{"id":848,"p":17,"e":"🔔","en":"notification","ar":"إشعار","pr":"نوتيفيكاشِن"},{"id":849,"p":17,"e":"📥","en":"inbox","ar":"صندوق الوارد","pr":"ينبوكس"},{"id":850,"p":17,"e":"🗑️","en":"delete","ar":"يحذف","pr":"ديلتي"},{"id":851,"p":18,"e":"🟢","en":"green","ar":"أخضر","pr":"غرين"},{"id":852,"p":18,"e":"🟡","en":"yellow","ar":"أصفر","pr":"ييلاو"},{"id":853,"p":18,"e":"⚫","en":"black","ar":"أسود","pr":"بلاك"},{"id":854,"p":18,"e":"⚪","en":"white","ar":"أبيض","pr":"ويتي"},{"id":855,"p":18,"e":"🟠","en":"orange","ar":"برتقالي","pr":"ورانج"},{"id":856,"p":18,"e":"🌈","en":"bright","ar":"زاه / ساطع","pr":"برايت"},{"id":857,"p":18,"e":"💡","en":"light","ar":"فاتح / خفيف","pr":"لايت"},{"id":858,"p":18,"e":"🟢","en":"greenish","ar":"مائل للأخضر","pr":"غرينيش"},{"id":859,"p":18,"e":"📏","en":"thick","ar":"سميك","pr":"ثيك"},{"id":860,"p":18,"e":"📐","en":"thin","ar":"رفيع","pr":"ثين"},{"id":861,"p":18,"e":"📏","en":"wide","ar":"واسع","pr":"ويدي"},{"id":862,"p":18,"e":"📐","en":"narrow","ar":"ضيق","pr":"ناراو"},{"id":863,"p":18,"e":"📐","en":"deep","ar":"عميق","pr":"ديب"},{"id":864,"p":18,"e":"🪶","en":"soft","ar":"ناعم","pr":"سوفت"},{"id":865,"p":18,"e":"🪨","en":"hard","ar":"صلب","pr":"هـارد"},{"id":866,"p":18,"e":"⚖️","en":"heavy","ar":"ثقيل","pr":"هـيفي"},{"id":867,"p":18,"e":"🪶","en":"lightweight","ar":"خفيف الوزن","pr":"لايتويايت"},{"id":868,"p":18,"e":"🧼","en":"smooth","ar":"أملس","pr":"سموث"},{"id":869,"p":18,"e":"🪵","en":"rough","ar":"خشن","pr":"رأو"},{"id":870,"p":18,"e":"🔥","en":"hot","ar":"ساخن","pr":"هـوت"},{"id":871,"p":18,"e":"🧊","en":"cool","ar":"بارد قليلاً","pr":"كول"},{"id":872,"p":18,"e":"🌡️","en":"warm","ar":"دافئ","pr":"وارم"},{"id":873,"p":18,"e":"🥶","en":"cold","ar":"بارد","pr":"كولد"},{"id":874,"p":18,"e":"🔴","en":"red","ar":"أحمر","pr":"ريد"},{"id":875,"p":18,"e":"🔵","en":"blue","ar":"أزرق","pr":"بلأي"},{"id":876,"p":18,"e":"🟣","en":"purple","ar":"بنفسجي","pr":"بربل"},{"id":877,"p":18,"e":"🩷","en":"pink","ar":"وردي","pr":"بينك"},{"id":878,"p":18,"e":"🟤","en":"brown","ar":"بني","pr":"براون"},{"id":879,"p":18,"e":"🩶","en":"gray","ar":"رمادي","pr":"غراي"},{"id":880,"p":18,"e":"🌈","en":"colorful","ar":"ملون","pr":"كولورفأل"},{"id":881,"p":18,"e":"⚫","en":"dark","ar":"داكن","pr":"دارك"},{"id":882,"p":18,"e":"🎨","en":"shade","ar":"درجة لون","pr":"شادي"},{"id":883,"p":18,"e":"🖌️","en":"paint","ar":"طلاء / يرسم","pr":"باينت"},{"id":884,"p":18,"e":"🖼️","en":"painting","ar":"لوحة فنية","pr":"باينتينغ"},{"id":885,"p":18,"e":"✏️","en":"artist","ar":"فنان","pr":"ارتيست"},{"id":886,"p":18,"e":"🎵","en":"singer","ar":"مغني","pr":"سينغر"},{"id":887,"p":18,"e":"🎸","en":"musician","ar":"موسيقي","pr":"مأسيسيان"},{"id":888,"p":18,"e":"🎭","en":"actor","ar":"ممثل","pr":"اكتور"},{"id":889,"p":18,"e":"🎭","en":"actress","ar":"ممثلة","pr":"اكتريس"},{"id":890,"p":18,"e":"🎬","en":"director","ar":"مخرج","pr":"ديريكتور"},{"id":891,"p":18,"e":"🎞️","en":"scene","ar":"مشهد","pr":"سني"},{"id":892,"p":18,"e":"📺","en":"series","ar":"مسلسل","pr":"سرييس"},{"id":893,"p":18,"e":"🎬","en":"episode","ar":"حلقة","pr":"يبيسودي"},{"id":894,"p":18,"e":"🎟️","en":"ticket","ar":"تذكرة","pr":"تيكيت"},{"id":895,"p":18,"e":"🎤","en":"concert","ar":"حفلة موسيقية","pr":"كونكرت"},{"id":896,"p":18,"e":"🎉","en":"festival","ar":"مهرجان","pr":"فيستيفال"},{"id":897,"p":18,"e":"🏛️","en":"theater","ar":"مسرح","pr":"ثيتر"},{"id":898,"p":18,"e":"🖼️","en":"gallery","ar":"معرض فني","pr":"غالري"},{"id":899,"p":18,"e":"◇","en":"entertainment","ar":"ترفيه","pr":"ينترتاينمينت"},{"id":900,"p":18,"e":"🎲","en":"activity","ar":"نشاط","pr":"اكتيفيتي"},{"id":901,"p":19,"e":"🏃","en":"activity","ar":"نشاط","pr":"اكتيفيتي"},{"id":902,"p":19,"e":"🏆","en":"hobby","ar":"هواية","pr":"هـوبي"},{"id":903,"p":19,"e":"⚽","en":"football","ar":"كرة قدم","pr":"فوتبال"},{"id":904,"p":19,"e":"🏀","en":"basketball","ar":"كرة سلة","pr":"باسكيتبال"},{"id":905,"p":19,"e":"🎾","en":"tennis","ar":"تنس","pr":"تينيس"},{"id":906,"p":19,"e":"🏊","en":"swimming","ar":"سباحة","pr":"سويمينغ"},{"id":907,"p":19,"e":"🚴","en":"cycling","ar":"ركوب الدراجات","pr":"سيكلينغ"},{"id":908,"p":19,"e":"⛺","en":"camping","ar":"تخييم","pr":"كامبينغ"},{"id":909,"p":19,"e":"📷","en":"photography","ar":"تصوير فوتوغرافي","pr":"فوتوغرافي"},{"id":910,"p":19,"e":"🎨","en":"drawing","ar":"رسم","pr":"دروينغ"},{"id":911,"p":19,"e":"🎸","en":"guitar","ar":"جيتار","pr":"غأيتار"},{"id":912,"p":19,"e":"🎹","en":"piano","ar":"بيانو","pr":"بيانو"},{"id":913,"p":19,"e":"▤","en":"reading","ar":"قراءة","pr":"ريدينغ"},{"id":914,"p":19,"e":"✍️","en":"writing","ar":"كتابة","pr":"ريتينغ"},{"id":915,"p":19,"e":"🧩","en":"puzzle","ar":"لغز / أحجية","pr":"بأزل"},{"id":916,"p":19,"e":"◇","en":"gaming","ar":"ألعاب إلكترونية","pr":"غامينغ"},{"id":917,"p":19,"e":"🧺","en":"picnic","ar":"نزهة","pr":"بيكنيك"},{"id":918,"p":19,"e":"🚶","en":"walking","ar":"المشي","pr":"والكينغ"},{"id":919,"p":19,"e":"🏖️","en":"sunbathing","ar":"حمام شمس","pr":"سأنباثينغ"},{"id":920,"p":19,"e":"🛍️","en":"shopping","ar":"التسوق","pr":"شوبينغ"},{"id":921,"p":19,"e":"🎬","en":"cinema","ar":"سينما","pr":"سينيما"},{"id":922,"p":19,"e":"📺","en":"television","ar":"تلفاز","pr":"تيلفيجِن"},{"id":923,"p":19,"e":"🎧","en":"podcast","ar":"بودكاست","pr":"بودكاست"},{"id":924,"p":19,"e":"📰","en":"magazine","ar":"مجلة","pr":"ماغازيني"},{"id":925,"p":19,"e":"📖","en":"novel","ar":"رواية","pr":"نوفيل"},{"id":926,"p":19,"e":"🧹","en":"cleaning","ar":"تنظيف","pr":"كلينينغ"},{"id":927,"p":19,"e":"🔨","en":"maintenance","ar":"صيانة","pr":"ماينتينانس"},{"id":928,"p":19,"e":"🔨","en":"tool","ar":"أداة","pr":"تول"},{"id":929,"p":19,"e":"⚒️","en":"hammer","ar":"مطرقة","pr":"هـامر"},{"id":930,"p":19,"e":"🔩","en":"screw","ar":"مسمار لولبي","pr":"سكريو"},{"id":931,"p":19,"e":"🪛","en":"screwdriver","ar":"مفك","pr":"سكريودريفر"},{"id":932,"p":19,"e":"🧰","en":"equipment","ar":"معدات","pr":"يكويبمينت"},{"id":933,"p":19,"e":"🧱","en":"material","ar":"مادة خامة","pr":"ماتريال"},{"id":934,"p":19,"e":"🪵","en":"wood","ar":"خشب","pr":"وود"},{"id":935,"p":19,"e":"🔩","en":"metal","ar":"معدن","pr":"ميتال"},{"id":936,"p":19,"e":"🥤","en":"plastic","ar":"بلاستيك","pr":"بلاستيك"},{"id":937,"p":19,"e":"🥛","en":"glass","ar":"زجاج","pr":"غلاس"},{"id":938,"p":19,"e":"🧵","en":"cloth","ar":"قماش","pr":"كلوث"},{"id":939,"p":19,"e":"🧱","en":"brick","ar":"طوبة","pr":"بريك"},{"id":940,"p":19,"e":"🏗️","en":"construction","ar":"بناء / تشييد","pr":"كونسترأكشِن"},{"id":941,"p":19,"e":"🏢","en":"building","ar":"مبنى","pr":"بأيلدينغ"},{"id":942,"p":19,"e":"🏠","en":"entrance","ar":"مدخل","pr":"إِنترَنس"},{"id":943,"p":19,"e":"🚪","en":"entrance hall","ar":"بهو المدخل","pr":"ينترانس هـال"},{"id":944,"p":19,"e":"🛗","en":"lift","ar":"مصعد","pr":"ليفت"},{"id":945,"p":19,"e":"🪜","en":"step","ar":"درجة / خطوة","pr":"ستيب"},{"id":946,"p":19,"e":"🔒","en":"lock","ar":"قفل","pr":"لوك"},{"id":947,"p":19,"e":"🔑","en":"unlock","ar":"يفتح القفل","pr":"أنلوك"},{"id":948,"p":19,"e":"🔒","en":"lock","ar":"يقفل","pr":"لوك"},{"id":949,"p":19,"e":"💡","en":"switch","ar":"مفتاح كهربائي","pr":"سويتش"},{"id":950,"p":19,"e":"🔌","en":"plug","ar":"قابس كهربائي","pr":"بلأغ"},{"id":951,"p":20,"e":"🔌","en":"socket","ar":"مقبس كهربائي","pr":"سوكيت"},{"id":952,"p":20,"e":"💡","en":"bulb","ar":"مصباح كهربائي","pr":"بألب"},{"id":953,"p":20,"e":"🧺","en":"washing machine","ar":"غسالة ملابس","pr":"واشينغ ماتشيني"},{"id":954,"p":20,"e":"🧊","en":"refrigerator","ar":"ثلاجة","pr":"ريفريغراتور"},{"id":955,"p":20,"e":"🧹","en":"vacuum cleaner","ar":"مكنسة كهربائية","pr":"فاكأأم كلينر"},{"id":956,"p":20,"e":"🗑️","en":"bin","ar":"سلة مهملات","pr":"بين"},{"id":957,"p":20,"e":"🧽","en":"sponge","ar":"إسفنجة","pr":"سبونج"},{"id":958,"p":20,"e":"🧴","en":"detergent","ar":"منظف","pr":"ديترجنت"},{"id":959,"p":20,"e":"🧻","en":"toilet paper","ar":"ورق حمام","pr":"تويلت بابر"},{"id":960,"p":20,"e":"🚿","en":"shower","ar":"دش / يستحم","pr":"شاور"},{"id":961,"p":20,"e":"🛁","en":"bathtub","ar":"حوض استحمام","pr":"باثتأب"},{"id":962,"p":20,"e":"🪥","en":"toothpaste","ar":"معجون أسنان","pr":"توثباستي"},{"id":963,"p":20,"e":"🪥","en":"toothbrush","ar":"فرشاة أسنان","pr":"توثبرأش"},{"id":964,"p":20,"e":"🪞","en":"mirror","ar":"مرآة","pr":"ميرور"},{"id":965,"p":20,"e":"🛏️","en":"bedroom","ar":"غرفة نوم","pr":"بيدروم"},{"id":966,"p":20,"e":"🛋️","en":"living room","ar":"غرفة المعيشة","pr":"ليفينغ روم"},{"id":967,"p":20,"e":"🍳","en":"kitchen","ar":"مطبخ","pr":"كيتشين"},{"id":968,"p":20,"e":"🚿","en":"bathroom","ar":"حمام","pr":"باثروم"},{"id":969,"p":20,"e":"🪑","en":"dining room","ar":"غرفة الطعام","pr":"دينينغ روم"},{"id":970,"p":20,"e":"🌿","en":"garden","ar":"حديقة","pr":"غاردين"},{"id":971,"p":20,"e":"🏡","en":"balcony","ar":"شرفة","pr":"بالكوني"},{"id":972,"p":20,"e":"🚪","en":"doorbell","ar":"جرس الباب","pr":"دوربيل"},{"id":973,"p":20,"e":"🪟","en":"curtain","ar":"ستارة","pr":"كِيرتِن"},{"id":974,"p":20,"e":"🪑","en":"shelf","ar":"رف","pr":"شيلف"},{"id":975,"p":20,"e":"📦","en":"storage","ar":"تخزين / مساحة تخزين","pr":"ستوراج"},{"id":976,"p":20,"e":"🚶","en":"enter","ar":"يدخل","pr":"إِنتَر"},{"id":977,"p":20,"e":"🚪","en":"leave","ar":"يغادر","pr":"لِيف"},{"id":978,"p":20,"e":"🏃","en":"arrive","ar":"يصل","pr":"أَرايف"},{"id":979,"p":20,"e":"🔙","en":"return","ar":"يعود","pr":"رِيتِيرن"},{"id":980,"p":20,"e":"🎯","en":"choose","ar":"يختار","pr":"تشُوز"},{"id":981,"p":20,"e":"✏️","en":"try","ar":"يحاول","pr":"تراي"},{"id":982,"p":20,"e":"🆘","en":"help","ar":"يساعد","pr":"هِيلب"},{"id":983,"p":20,"e":"👀","en":"show","ar":"يُظهر","pr":"شُو"},{"id":984,"p":20,"e":"🎁","en":"bring","ar":"يحضر","pr":"برِينغ"},{"id":985,"p":20,"e":"📤","en":"send","ar":"يرسل","pr":"سِيند"},{"id":986,"p":20,"e":"📥","en":"receive","ar":"يستلم","pr":"رِيسِيف"},{"id":987,"p":20,"e":"🏗️","en":"build","ar":"يبني","pr":"بِيلد"},{"id":988,"p":20,"e":"✂️","en":"cut","ar":"يقطع","pr":"كَت"},{"id":989,"p":20,"e":"👜","en":"carry","ar":"يحمل","pr":"كاري"},{"id":990,"p":20,"e":"🔧","en":"fix","ar":"يصلح","pr":"فِيكس"},{"id":991,"p":20,"e":"🔓","en":"open","ar":"يفتح","pr":"أُوبِن"},{"id":992,"p":20,"e":"🚚","en":"move","ar":"يتحرك / ينقل","pr":"مووف"},{"id":993,"p":20,"e":"🛑","en":"stop","ar":"يتوقف","pr":"ستُوب"},{"id":994,"p":20,"e":"▶️","en":"begin","ar":"يبدأ","pr":"بِيغِين"},{"id":995,"p":20,"e":"🏁","en":"finish","ar":"ينهي","pr":"فِينِش"},{"id":996,"p":20,"e":"🌱","en":"grow","ar":"ينمو","pr":"غرُو"},{"id":997,"p":20,"e":"🗣️","en":"speak","ar":"يتحدث","pr":"سبِيك"},{"id":998,"p":20,"e":"👂","en":"listen","ar":"يستمع","pr":"لِيسِن"},{"id":999,"p":20,"e":"😊","en":"smile","ar":"يبتسم","pr":"سمايل"},{"id":1000,"p":20,"e":"😂","en":"laugh","ar":"يضحك","pr":"لاف"}];
+
+    const PAGE_THEMES = {
+      1: { title: "المجتمع والحياة والأهداف", icon: "🏠", cat: "cat_1" },
+      2: { title: "التسوق والمال والبيانات", icon: "🛒", cat: "cat_2" },
+      3: { title: "النظافة والجسم والصحة", icon: "🩺", cat: "cat_3" },
+      4: { title: "الطقس والمناخ والطبيعة", icon: "☀️", cat: "cat_4" },
+      5: { title: "الاتجاهات والمدن والتواصل", icon: "🧭", cat: "cat_4" },
+      6: { title: "المنزل والأفعال الذهنية", icon: "🛋️", cat: "cat_1" },
+      7: { title: "أفعال الإنجاز والتفاعل", icon: "🚀", cat: "cat_6" },
+      8: { title: "التعلم والصفات الشخصية", icon: "◷", cat: "cat_6" },
+      9: { title: "الصفات المتضادة والأوصاف", icon: "⚖️", cat: "cat_6" },
+      10: { title: "الأعمال والتقنية والمصارف", icon: "💻", cat: "cat_2" },
+      11: { title: "السفر والطيران والفواكه", icon: "✈️", cat: "cat_5" },
+      12: { title: "الخضروات والمطبخ والطبخ", icon: "👨‍🍳", cat: "cat_5" },
+      13: { title: "الطب واللياقة والرياضة", icon: "🏋️", cat: "cat_3" },
+      14: { title: "الطوارئ والمشاعر والعلاقات", icon: "❤️", cat: "cat_3" },
+      15: { title: "التفكير والدراسة والجامعة", icon: "🎓", cat: "cat_6" },
+      16: { title: "الوظيفة والشركات والمحاسبة", icon: "💼", cat: "cat_2" },
+      17: { title: "المطاعم والهاتف والإنترنت", icon: "📱", cat: "cat_5" },
+      18: { title: "الألوان والأحجام والفنون", icon: "🎨", cat: "cat_6" },
+      19: { title: "الهوايات والأدوات والبناء", icon: "🛠️", cat: "cat_6" },
+      20: { title: "أجهزة المنزل والأفعال اليومية", icon: "🏡", cat: "cat_1" }
+    };
+
+    // ====================================================
+    // 2. APPLICATION STATE & SAFE LOCALSTORAGE
+    // ====================================================
+    const STORAGE_KEY = 'abbas_1000_en_3d_v1';
+    let appState = {
+      currentPage: 1,
+      currentWordId: 1,
+      mainTab: 'palace',
+      mobileLayout: 'card',
+      formation3D: 'helix',
+      autoRotate3D: true,
+      autoPlayRadio: false,
+      muteSfx: false,
+      masteredIds: {},
+      starredIds: {},
+      xp: 0,
+      quizMode: 'meaning',
+      quizStreak: 0,
+      quizCorrect: 0,
+      quizTotal: 0,
+      currentQuizWord: null
+    };
+
+    // ---- Auto-save: localStorage (main) + IndexedDB (backup copy) ----
+    const SAVE_VERSION = 2;
+    const IDB_NAME = 'abbas_palace_backup';
+    const IDB_STORE = 'state';
+    let stateLoaded = false;      // never save before the saved data was read
+    let loadedSavedAt = 0;        // time stamp of the data read from localStorage
+    let saveWarned = false;
+    let idbTimer = null;
+
+    function buildSnapshot() {
+      return {
+        v: SAVE_VERSION,
+        savedAt: Date.now(),
+        masteredIds: appState.masteredIds,
+        starredIds: appState.starredIds,
+        xp: appState.xp,
+        currentPage: appState.currentPage,
+        currentWordId: appState.currentWordId,
+        muteSfx: appState.muteSfx,
+        formation3D: appState.formation3D,
+        autoRotate3D: appState.autoRotate3D,
+        mobileLayout: appState.mobileLayout,
+        quizStreak: appState.quizStreak,
+        quizCorrect: appState.quizCorrect,
+        quizTotal: appState.quizTotal
+      };
+    }
+
+    function applySnapshot(p) {
+      if (!p || typeof p !== 'object') return false;
+      appState.masteredIds = (p.masteredIds && typeof p.masteredIds === 'object') ? p.masteredIds : {};
+      appState.starredIds = (p.starredIds && typeof p.starredIds === 'object') ? p.starredIds : {};
+      appState.xp = Number(p.xp) || 0;
+      const wid = Number(p.currentWordId);
+      appState.currentWordId = (wid >= 1 && wid <= 1000) ? wid : 1;
+      appState.currentPage = getWordById(appState.currentWordId).p;
+      if (typeof p.muteSfx === 'boolean') appState.muteSfx = p.muteSfx;
+      if (['helix', 'sphere', 'grid'].includes(p.formation3D)) appState.formation3D = p.formation3D;
+      if (typeof p.autoRotate3D === 'boolean') appState.autoRotate3D = p.autoRotate3D;
+      if (['split', 'card', '3d'].includes(p.mobileLayout)) appState.mobileLayout = p.mobileLayout;
+      appState.quizStreak = Number(p.quizStreak) || 0;
+      appState.quizCorrect = Number(p.quizCorrect) || 0;
+      appState.quizTotal = Number(p.quizTotal) || 0;
+      return true;
+    }
+
+    function loadSavedState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (applySnapshot(parsed)) loadedSavedAt = Number(parsed.savedAt) || 0;
+        }
+      } catch (e) {}
+      stateLoaded = true;
+    }
+
+    function idbOpen() {
+      return new Promise((resolve, reject) => {
+        if (!('indexedDB' in window)) { reject(new Error('no indexedDB')); return; }
+        const req = indexedDB.open(IDB_NAME, 1);
+        req.onupgradeneeded = () => req.result.createObjectStore(IDB_STORE);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    function idbPut(snapshot) {
+      return idbOpen().then(db => new Promise((resolve, reject) => {
+        const tx = db.transaction(IDB_STORE, 'readwrite');
+        tx.objectStore(IDB_STORE).put(snapshot, 'latest');
+        tx.oncomplete = () => { db.close(); resolve(); };
+        tx.onerror = tx.onabort = () => { db.close(); reject(tx.error); };
+      }));
+    }
+
+    function idbGet() {
+      return idbOpen().then(db => new Promise((resolve, reject) => {
+        const tx = db.transaction(IDB_STORE, 'readonly');
+        const req = tx.objectStore(IDB_STORE).get('latest');
+        req.onsuccess = () => { db.close(); resolve(req.result || null); };
+        req.onerror = () => { db.close(); reject(req.error); };
+      }));
+    }
+
+    function saveState(immediate = false) {
+      if (!stateLoaded) return;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(buildSnapshot()));
+      } catch (e) {
+        if (!saveWarned) {
+          saveWarned = true;
+          showToast('⚠️ تعذر الحفظ في المتصفح — تأكد أنك لست في وضع التصفح الخفي');
+        }
+      }
+      clearTimeout(idbTimer);
+      if (immediate) {
+        idbPut(buildSnapshot()).catch(() => {});
+      } else {
+        idbTimer = setTimeout(() => { idbPut(buildSnapshot()).catch(() => {}); }, 600);
+      }
+    }
+
+    // If localStorage was wiped (or is older), restore from the IndexedDB copy
+    function recoverFromBackup() {
+      idbGet().then(snap => {
+        if (!snap || typeof snap !== 'object') return;
+        const t = Number(snap.savedAt) || 0;
+        if (t <= loadedSavedAt) return;
+        if (!applySnapshot(snap)) return;
+        loadedSavedAt = t;
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(snap)); } catch (e) {}
+        paintSavedControls();
+        updateHeaderStats();
+        renderLevelSelectors();
+        renderCurrentLevelStrip();
+        renderFlashcard();
+        build3DNodesForCurrentPage();
+        showToast('✅ تم استرجاع تقدمك من النسخة الاحتياطية');
+      }).catch(() => {});
+    }
+
+    // Reflect saved settings on the buttons / counters
+    function paintSavedControls() {
+      const mute = document.getElementById('btnMuteSfx');
+      if (mute) mute.textContent = appState.muteSfx ? '🔇' : '🔔';
+      const rot = document.getElementById('btnAutoRotate');
+      if (rot) rot.textContent = appState.autoRotate3D ? 'دوران تلقائي' : '⏸️ دوران: متوقف';
+      const fmtBtns = { helix: 'btn3DHelix', sphere: 'btn3DSphere', grid: 'btn3DPalace' };
+      Object.keys(fmtBtns).forEach(k => {
+        const b = document.getElementById(fmtBtns[k]);
+        if (b) b.className = k === appState.formation3D
+          ? 'px-2 py-1 rounded-lg text-[11px] font-bold bg-amber-500 text-slate-950'
+          : 'px-2 py-1 rounded-lg text-[11px] font-bold text-emerald-200';
+      });
+      const qs = document.getElementById('quizStreak');
+      if (qs) qs.textContent = appState.quizStreak;
+      const sc = document.getElementById('quizScore');
+      if (sc) sc.textContent = `${appState.quizCorrect}/${appState.quizTotal}`;
+    }
+
+    // Save when the app goes to background / closes
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') saveState(true);
+    });
+    window.addEventListener('pagehide', () => saveState(true));
+
+    // Mobile Sub-Layout Switcher (Split vs Card-Only vs Expanded 3D)
+    function setMobileStudyLayout(mode, persist = true) {
+      appState.mobileLayout = mode;
+      if (persist) saveState();
+      const cardPanel = document.getElementById('mobileCardPanel');
+      const threePanel = document.getElementById('mobile3DPanel');
+      const threeBox = document.getElementById('threeContainer');
+
+      const btns = { split: 'mViewSplit', card: 'mViewCard', '3d': 'mView3D' };
+      Object.keys(btns).forEach(k => {
+        const b = document.getElementById(btns[k]);
+        if (b) {
+          b.className = k === mode
+            ? 'flex-1 py-1.5 rounded-lg text-[11px] font-extrabold bg-amber-500 text-slate-950 shadow text-center'
+            : 'flex-1 py-1.5 rounded-lg text-[11px] font-bold text-emerald-200 text-center';
+        }
+      });
+
+      if (mode === 'card') {
+        cardPanel.classList.remove('hidden');
+        threePanel.classList.add('hidden', 'lg:flex');
+      } else if (mode === '3d') {
+        cardPanel.classList.add('hidden', 'lg:flex');
+        threePanel.classList.remove('hidden');
+        threeBox.className = 'relative w-full h-[390px] sm:h-[430px] rounded-xl overflow-hidden bg-gradient-to-b from-[#030d0a] via-[#061c15] to-[#04120d] border border-emerald-700/50 shadow-inner';
+      } else {
+        cardPanel.classList.remove('hidden');
+        threePanel.classList.remove('hidden');
+        threeBox.className = 'relative w-full h-[230px] sm:h-[410px] rounded-xl overflow-hidden bg-gradient-to-b from-[#030d0a] via-[#061c15] to-[#04120d] border border-emerald-700/50 shadow-inner';
+      }
+
+      setTimeout(() => {
+        if (renderer && camera && threeBox) {
+          const w = threeBox.clientWidth || 340;
+          const h = threeBox.clientHeight || 230;
+          camera.aspect = w / h;
+          camera.updateProjectionMatrix();
+          renderer.setSize(w, h);
+        }
+      }, 60);
+    }
+
+    // ====================================================
+    // 3. SYNTHESIZED SOUND EFFECTS & WEB SPEECH API
+    // ====================================================
+    let audioCtx = null;
+    function playTone(freq, duration, type = 'sine') {
+      if (appState.muteSfx) return;
+      try {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (AudioContextClass) audioCtx = new AudioContextClass();
+        }
+        if (!audioCtx) return;
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function toggleMuteSfx() {
+      appState.muteSfx = !appState.muteSfx;
+      const btn = document.getElementById('btnMuteSfx');
+      if (btn) btn.textContent = appState.muteSfx ? '🔇' : '🔔';
+      showToast(appState.muteSfx ? 'تم كتم المؤثرات الصوتية' : 'تم تفعيل المؤثرات الصوتية');
+      saveState();
+    }
+
+    function speakText(text, rate = 1.0, onEndCallback = null) {
+      try {
+        if (!('speechSynthesis' in window)) {
+          showToast('متصفحك لا يدعم النطق الصوتي التلقائي');
+          if (onEndCallback) setTimeout(onEndCallback, 1200);
+          return;
+        }
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'en-US';
+        utter.rate = rate;
+        utter.pitch = 1.0;
+        const voices = window.speechSynthesis.getVoices();
+        const enVoice = voices.find(v => v.lang && (v.lang.startsWith('en-US') || v.lang.startsWith('en-GB') || v.lang.startsWith('en')));
+        if (enVoice) utter.voice = enVoice;
+        if (onEndCallback) {
+          utter.onend = () => onEndCallback();
+          utter.onerror = () => onEndCallback();
+        }
+        window.speechSynthesis.speak(utter);
+      } catch (e) {
+        if (onEndCallback) setTimeout(onEndCallback, 1200);
+      }
+    }
+
+    function getWordById(id) {
+      return WORDS_DB[(id - 1)] || WORDS_DB[0];
+    }
+
+    function getWordsByPage(pageNum) {
+      const start = (pageNum - 1) * 50;
+      return WORDS_DB.slice(start, start + 50);
+    }
+
+    function getWordPedagogy(w) {
+      const isVerb = w.ar.startsWith('ي') || w.ar.startsWith('ت');
+      const isAdj = ['مشمس','غائم','ممطر','عاصف','ضبابي','جليدي','رمادي','مبلل','جاف','بارد','دافئ','حار','معتدل','مريح','صحي','مبدع','صبور','هادئ','مهذب','وقح','ودود','جاد','شجاع','متوتر','فخور','وحيد','متفاجئ','قلق','منزعج','مذهل','مفيد','ممكن','مستحيل','ضروري','خاص','ناجح','نشيط','كسول','ذكي','حذر','مهمل','مشهور','سري','عام','صاخب','صامت','مشغول','متاح','عادل','مثالي','جاهز','نظيف','مرتب','فوضوي','فارغ','ممتلئ','خفيف','ثقيل','واسع','ضيق','عميق','حديث','تقليدي','محلي','أجنبي','واضح','خطير','آمن','محظوظ','مؤكد','أخضر','أصفر','أسود','أبيض','برتقالي','أحمر','أزرق','بنفسجي','وردي','بني','ملون','داكن','سميك','رفيع','ناعم','صلب','أملس','خشن','ساخن','لذيذ','حلو','حامض','عطشان','شبعان'].some(a => w.ar.includes(a));
+      let exEn = '';
+      let exAr = '';
+      if (isVerb) {
+        exEn = `Try to ${w.en} every day to improve your daily life.`;
+        exAr = `حاول أن (${w.ar}) كل يوم لتطوير حياتك اليومية.`;
+      } else if (isAdj) {
+        exEn = `Everything looks very ${w.en} in this situation.`;
+        exAr = `يبدو كل شيء (${w.ar}) جداً في هذا الموقف.`;
+      } else {
+        exEn = `This ${w.en} is very important in our daily life.`;
+        exAr = `هذا الـ (${w.ar}) مهم جداً في حياتنا اليومية.`;
+      }
+      const tip = `تخيل الرمز (${w.e}) بحجم عملاق وهو ينطق "${w.pr}" (${w.en}) ومعناه "${w.ar}" في قسم ${PAGE_THEMES[w.p].title}.`;
+      return { exEn, exAr, tip };
+    }
+
+    function speakCurrentWord(rate = 1.0) {
+      const w = getWordById(appState.currentWordId);
+      playTone(587.33, 0.08);
+      speakText(w.en, rate);
+    }
+
+    function speakCurrentSentence() {
+      const w = getWordById(appState.currentWordId);
+      const ped = getWordPedagogy(w);
+      speakText(`${w.en}. ${ped.exEn}`, 0.9);
+    }
+
+    function speakById(id, rate = 1.0, ev = null) {
+      if (ev) ev.stopPropagation();
+      const w = getWordById(id);
+      speakText(w.en, rate);
+    }
+
+    // ====================================================
+    // 4. THREE.JS 3D MEMORY GALAXY ENGINE (MOBILE TOUCH)
+    // ====================================================
+    let scene, camera, renderer, wordGroup;
+    let nodeMeshes = [];
+    let isDragging3D = false;
+    let prevPointer = { x: 0, y: 0 };
+    let pointerDownPos = { x: 0, y: 0 };
+    let pinchStartDist = 0;
+    let sphericalCam = { radius: 32, theta: 0.4, phi: Math.PI / 2.15 };
+    const HAS_THREE = typeof THREE !== 'undefined';
+    let targetCamLookAt = HAS_THREE ? new THREE.Vector3(0, 0, 0) : null;
+    let currentCamLookAt = HAS_THREE ? new THREE.Vector3(0, 0, 0) : null;
+    let raycaster = HAS_THREE ? new THREE.Raycaster() : null;
+    let mouseVec = HAS_THREE ? new THREE.Vector2() : null;
+
+    function createWordSpriteTexture(w, isSelected, isMastered, isStarred) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 256;
+      canvas.height = 128;
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = isSelected
+        ? 'rgba(245, 158, 11, 0.96)'
+        : isMastered
+          ? 'rgba(6, 95, 70, 0.92)'
+          : 'rgba(9, 34, 27, 0.90)';
+      const r = 20;
+      ctx.beginPath();
+      ctx.moveTo(r, 8);
+      ctx.lineTo(256 - r, 8);
+      ctx.quadraticCurveTo(248, 8, 248, 8 + r);
+      ctx.lineTo(248, 120 - r);
+      ctx.quadraticCurveTo(248, 120, 248 - r, 120);
+      ctx.lineTo(r, 120);
+      ctx.quadraticCurveTo(8, 120, 8, 120 - r);
+      ctx.lineTo(8, 8 + r);
+      ctx.quadraticCurveTo(8, 8, r, 8);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.lineWidth = isSelected ? 5 : 3;
+      ctx.strokeStyle = isSelected
+        ? '#ffffff'
+        : isStarred
+          ? '#fbbf24'
+          : isMastered
+            ? '#34d399'
+            : '#10b981';
+      ctx.stroke();
+
+      ctx.font = 'bold 24px Inter, Cairo, sans-serif';
+      ctx.fillStyle = isSelected ? '#051611' : '#fbbf24';
+      ctx.textAlign = 'left';
+      ctx.fillText(`#${w.id}`, 20, 38);
+
+      ctx.font = '26px sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText(w.e + (isMastered ? '✅' : ''), 236, 40);
+
+      ctx.font = '900 28px Inter, sans-serif';
+      ctx.fillStyle = isSelected ? '#051611' : '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.fillText(w.en.length > 14 ? w.en.slice(0, 13) + '…' : w.en, 128, 74);
+
+      ctx.font = 'bold 22px Cairo, sans-serif';
+      ctx.fillStyle = isSelected ? '#1e293b' : '#a7f3d0';
+      ctx.fillText(w.ar.length > 16 ? w.ar.slice(0, 15) + '…' : w.ar, 128, 106);
+
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.needsUpdate = true;
+      return tex;
+    }
+
+    function initThreeJS() {
+      const container = document.getElementById('threeContainer');
+      const canvas = document.getElementById('threeCanvas');
+      if (!container || !canvas || typeof THREE === 'undefined') return;
+
+      scene = new THREE.Scene();
+      const w = container.clientWidth || 360;
+      const h = container.clientHeight || 230;
+      camera = new THREE.PerspectiveCamera(50, w / h, 0.1, 300);
+
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setSize(w, h);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      const amb = new THREE.AmbientLight(0xffffff, 0.85);
+      scene.add(amb);
+      const pt1 = new THREE.PointLight(0xf59e0b, 1.4, 100);
+      pt1.position.set(20, 25, 20);
+      scene.add(pt1);
+      const pt2 = new THREE.PointLight(0x10b981, 1.2, 100);
+      pt2.position.set(-20, -20, -15);
+      scene.add(pt2);
+
+      const starGeo = new THREE.BufferGeometry();
+      const starCount = 260;
+      const starPos = new Float32Array(starCount * 3);
+      for (let i = 0; i < starCount * 3; i++) {
+        starPos[i] = (Math.random() - 0.5) * 130;
+      }
+      starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+      const starMat = new THREE.PointsMaterial({ color: 0x34d399, size: 0.45, transparent: true, opacity: 0.55 });
+      const stars = new THREE.Points(starGeo, starMat);
+      scene.add(stars);
+
+      wordGroup = new THREE.Group();
+      scene.add(wordGroup);
+
+      build3DNodesForCurrentPage();
+      setup3DEvents(canvas, container);
+      animate3D();
+    }
+
+    function get3DNodePosition(index, total, formation) {
+      if (formation === 'sphere') {
+        const phi = Math.acos(-1 + (2 * index + 1) / total);
+        const theta = Math.sqrt(total * Math.PI) * phi;
+        const r = 15.0;
+        return new THREE.Vector3(
+          r * Math.cos(theta) * Math.sin(phi),
+          r * Math.cos(phi),
+          r * Math.sin(theta) * Math.sin(phi)
+        );
+      } else if (formation === 'grid') {
+        const cols = 5;
+        const layer = Math.floor(index / 25);
+        const rem = index % 25;
+        const r = Math.floor(rem / cols);
+        const c = rem % cols;
+        return new THREE.Vector3(
+          (c - 2) * 6.2,
+          (2 - r) * 4.0,
+          (layer - 0.5) * 8.0
+        );
+      } else {
+        const angle = index * 0.48;
+        const y = (index - total / 2) * 0.56;
+        const r = 13.0;
+        return new THREE.Vector3(
+          Math.cos(angle) * r,
+          y,
+          Math.sin(angle) * r
+        );
+      }
+    }
+
+    function build3DNodesForCurrentPage() {
+      if (!wordGroup) return;
+      while (wordGroup.children.length > 0) {
+        const ch = wordGroup.children[0];
+        wordGroup.remove(ch);
+      }
+      nodeMeshes = [];
+
+      const pageWords = getWordsByPage(appState.currentPage);
+      const total = pageWords.length;
+
+      pageWords.forEach((w, idx) => {
+        const pos = get3DNodePosition(idx, total, appState.formation3D);
+        const isSelected = w.id === appState.currentWordId;
+        const isMastered = !!appState.masteredIds[w.id];
+        const isStarred = !!appState.starredIds[w.id];
+
+        const spriteMat = new THREE.SpriteMaterial({
+          map: createWordSpriteTexture(w, isSelected, isMastered, isStarred),
+          transparent: true
+        });
+        const sprite = new THREE.Sprite(spriteMat);
+        sprite.position.copy(pos);
+        sprite.scale.set(isSelected ? 5.8 : 4.4, isSelected ? 2.9 : 2.2, 1);
+        sprite.userData = { wordId: w.id, index: idx, targetPos: pos.clone() };
+        wordGroup.add(sprite);
+        nodeMeshes.push(sprite);
+      });
+
+      focus3DCameraOnWord(appState.currentWordId);
+    }
+
+    function refresh3DNodeTextures() {
+      if (!nodeMeshes || !nodeMeshes.length) return;
+      nodeMeshes.forEach(sprite => {
+        const w = getWordById(sprite.userData.wordId);
+        const isSelected = w.id === appState.currentWordId;
+        const isMastered = !!appState.masteredIds[w.id];
+        const isStarred = !!appState.starredIds[w.id];
+        if (sprite.material.map) sprite.material.map.dispose();
+        sprite.material.map = createWordSpriteTexture(w, isSelected, isMastered, isStarred);
+        sprite.scale.set(isSelected ? 5.8 : 4.4, isSelected ? 2.9 : 2.2, 1);
+      });
+    }
+
+    function focus3DCameraOnWord(wordId) {
+      const targetSprite = nodeMeshes.find(s => s.userData.wordId === wordId);
+      if (targetSprite) {
+        targetCamLookAt.copy(targetSprite.position).multiplyScalar(0.35);
+      }
+    }
+
+    function set3DFormation(fmt) {
+      appState.formation3D = fmt;
+      ['Helix', 'Sphere', 'Palace'].forEach(k => {
+        const b = document.getElementById('btn3D' + k);
+        if (b) b.className = 'px-2 py-1 rounded-lg text-[11px] font-bold text-emerald-200';
+      });
+      const activeId = fmt === 'helix' ? 'btn3DHelix' : fmt === 'sphere' ? 'btn3DSphere' : 'btn3DPalace';
+      const activeBtn = document.getElementById(activeId);
+      if (activeBtn) activeBtn.className = 'px-2 py-1 rounded-lg text-[11px] font-bold bg-amber-500 text-slate-950';
+
+      const total = nodeMeshes.length;
+      nodeMeshes.forEach((sprite, idx) => {
+        sprite.userData.targetPos = get3DNodePosition(idx, total, fmt);
+      });
+      playTone(523.25, 0.08);
+      saveState();
+    }
+
+    function toggle3DAutoRotate() {
+      appState.autoRotate3D = !appState.autoRotate3D;
+      saveState();
+      const btn = document.getElementById('btnAutoRotate');
+      if (btn) {
+        btn.textContent = appState.autoRotate3D ? 'دوران تلقائي' : '⏸️ دوران: متوقف';
+      }
+    }
+
+    function reset3DCamera() {
+      sphericalCam = { radius: 32, theta: 0.4, phi: Math.PI / 2.15 };
+      if (targetCamLookAt) targetCamLookAt.set(0, 0, 0);
+      playTone(440, 0.07);
+    }
+
+    function setup3DEvents(canvas, container) {
+      canvas.addEventListener('pointerdown', e => {
+        isDragging3D = true;
+        prevPointer = { x: e.clientX, y: e.clientY };
+        pointerDownPos = { x: e.clientX, y: e.clientY };
+      });
+
+      window.addEventListener('pointermove', e => {
+        if (!isDragging3D) return;
+        const dx = e.clientX - prevPointer.x;
+        const dy = e.clientY - prevPointer.y;
+        prevPointer = { x: e.clientX, y: e.clientY };
+        sphericalCam.theta -= dx * 0.008;
+        sphericalCam.phi = Math.max(0.35, Math.min(Math.PI - 0.35, sphericalCam.phi - dy * 0.008));
+      });
+
+      window.addEventListener('pointerup', e => {
+        if (!isDragging3D) return;
+        isDragging3D = false;
+        const dist = Math.hypot(e.clientX - pointerDownPos.x, e.clientY - pointerDownPos.y);
+        if (dist < 8) {
+          handle3DClick(e, canvas);
+        }
+      });
+
+      // Pinch-to-Zoom on Mobile Touch
+      canvas.addEventListener('touchstart', e => {
+        if (e.touches.length === 2) {
+          pinchStartDist = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+        }
+      }, { passive: true });
+
+      canvas.addEventListener('touchmove', e => {
+        if (e.touches.length === 2 && pinchStartDist > 0) {
+          const curDist = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+          const delta = pinchStartDist - curDist;
+          sphericalCam.radius = Math.max(16, Math.min(58, sphericalCam.radius + delta * 0.06));
+          pinchStartDist = curDist;
+        }
+      }, { passive: true });
+
+      canvas.addEventListener('wheel', e => {
+        e.preventDefault();
+        sphericalCam.radius = Math.max(16, Math.min(58, sphericalCam.radius + e.deltaY * 0.025));
+      }, { passive: false });
+
+      window.addEventListener('resize', () => {
+        if (!renderer || !camera || !container) return;
+        const w = container.clientWidth || 360;
+        const h = container.clientHeight || 230;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+      });
+    }
+
+    function handle3DClick(e, canvas) {
+      if (!camera || !nodeMeshes.length) return;
+      const rect = canvas.getBoundingClientRect();
+      mouseVec.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      mouseVec.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      raycaster.setFromCamera(mouseVec, camera);
+      const intersects = raycaster.intersectObjects(nodeMeshes);
+      if (intersects.length > 0) {
+        const hit = intersects[0].object;
+        if (hit && hit.userData && hit.userData.wordId) {
+          selectWord(hit.userData.wordId, true);
+        }
+      }
+    }
+
+    function animate3D() {
+      requestAnimationFrame(animate3D);
+      if (!renderer || !scene || !camera) return;
+
+      if (appState.autoRotate3D && !isDragging3D) {
+        sphericalCam.theta += 0.0022;
+      }
+
+      nodeMeshes.forEach(s => {
+        if (s.userData.targetPos) {
+          s.position.lerp(s.userData.targetPos, 0.08);
+        }
+      });
+
+      currentCamLookAt.lerp(targetCamLookAt, 0.08);
+      const x = sphericalCam.radius * Math.sin(sphericalCam.phi) * Math.cos(sphericalCam.theta);
+      const y = sphericalCam.radius * Math.cos(sphericalCam.phi);
+      const z = sphericalCam.radius * Math.sin(sphericalCam.phi) * Math.sin(sphericalCam.theta);
+      camera.position.set(currentCamLookAt.x + x, currentCamLookAt.y + y, currentCamLookAt.z + z);
+      camera.lookAt(currentCamLookAt);
+
+      renderer.render(scene, camera);
+    }
+
+    // ====================================================
+    // 5. MOBILE SWIPE GESTURES ON FLASHCARD
+    // ====================================================
+    function setupMobileCardSwipe() {
+      const cardZone = document.getElementById('touchCardZone');
+      if (!cardZone) return;
+      let startX = 0;
+      let startY = 0;
+
+      cardZone.addEventListener('touchstart', e => {
+        if (e.touches.length === 1) {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      cardZone.addEventListener('touchend', e => {
+        if (e.changedTouches.length === 1) {
+          const dx = e.changedTouches[0].clientX - startX;
+          const dy = e.changedTouches[0].clientY - startY;
+          if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+            if (dx > 0) {
+              stepWord(1);
+            } else {
+              stepWord(-1);
+            }
+          }
+        }
+      }, { passive: true });
+    }
+
+    // ====================================================
+    // 6. UI RENDERING & INTERACTIVE CONTROLLERS
+    // ====================================================
+    function updateHeaderStats() {
+      const masteredCount = Object.keys(appState.masteredIds).length;
+      const starredCount = Object.keys(appState.starredIds).length;
+      document.getElementById('statMastered').textContent = masteredCount;
+      document.getElementById('statStarred').textContent = starredCount;
+      document.getElementById('statXP').textContent = appState.xp;
+      const pct = Math.min(100, (masteredCount / 1000) * 100).toFixed(1);
+      document.getElementById('topProgressBar').style.width = pct + '%';
+    }
+
+    function renderLevelSelectors() {
+      const sel = document.getElementById('pageLevelSelect');
+      const pills = document.getElementById('levelPillsContainer');
+      if (!sel || !pills) return;
+
+      sel.innerHTML = '';
+      pills.innerHTML = '';
+
+      for (let p = 1; p <= 20; p++) {
+        const meta = PAGE_THEMES[p];
+        const startId = (p - 1) * 50 + 1;
+        const endId = p * 50;
+        const pageWords = getWordsByPage(p);
+        const mCount = pageWords.filter(w => appState.masteredIds[w.id]).length;
+
+        const opt = document.createElement('option');
+        opt.value = p;
+        opt.textContent = `فصل ${p} · ${meta.title}`;
+        if (p === appState.currentPage) opt.selected = true;
+        sel.appendChild(opt);
+
+        const btn = document.createElement('button');
+        const isCurrent = p === appState.currentPage;
+        const isComplete = mCount === 50;
+        btn.onclick = () => selectPageLevel(p);
+        btn.className = isCurrent
+          ? 'px-2.5 py-1 rounded-lg text-[11px] font-extrabold whitespace-nowrap bg-amber-500 text-slate-950 shadow flex items-center gap-1 shrink-0'
+          : isComplete
+            ? 'px-2.5 py-1 rounded-lg text-[11px] font-bold whitespace-nowrap bg-emerald-700/80 text-white border border-emerald-400/50 flex items-center gap-1 shrink-0'
+            : 'px-2.5 py-1 rounded-lg text-[11px] font-bold whitespace-nowrap bg-[#04120e] text-emerald-200 border border-emerald-800/70 flex items-center gap-1 shrink-0';
+        btn.innerHTML = `<span>${meta.icon}</span><span>ص${p}</span><span class="text-[10px] opacity-80 font-en">(${mCount}/50)</span>`;
+        pills.appendChild(btn);
+      }
+
+      const curMeta = PAGE_THEMES[appState.currentPage];
+      const sId = (appState.currentPage - 1) * 50 + 1;
+      const eId = appState.currentPage * 50;
+      document.getElementById('currentLevelTitleBadge').textContent =
+        `صفحة ${appState.currentPage}: ${curMeta.title} (${sId} - ${eId})`;
+    }
+
+    function renderCurrentLevelStrip() {
+      const strip = document.getElementById('currentLevelWordStrip');
+      if (!strip) return;
+      strip.innerHTML = '';
+      const pageWords = getWordsByPage(appState.currentPage);
+      let mCount = 0;
+
+      pageWords.forEach(w => {
+        const isSelected = w.id === appState.currentWordId;
+        const isMastered = !!appState.masteredIds[w.id];
+        if (isMastered) mCount++;
+        const chip = document.createElement('button');
+        chip.onclick = () => selectWord(w.id, true);
+        chip.className = isSelected
+          ? 'px-2.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-xs whitespace-nowrap shadow flex items-center gap-1 shrink-0'
+          : isMastered
+            ? 'px-2.5 py-1.5 rounded-xl bg-emerald-800/80 text-emerald-100 border border-emerald-500/50 font-bold text-xs whitespace-nowrap flex items-center gap-1 shrink-0'
+            : 'px-2.5 py-1.5 rounded-xl bg-[#04120e] text-emerald-200 border border-emerald-800/80 font-semibold text-xs whitespace-nowrap flex items-center gap-1 shrink-0';
+        chip.innerHTML = `<span class="font-en text-[10px] opacity-75">#${w.id}</span><span>${w.e}</span><span class="font-en">${w.en}</span>`;
+        strip.appendChild(chip);
+      });
+
+      document.getElementById('pageMasteryCounter').textContent = `${mCount} من 50 كلمة`;
+    }
+
+    function renderFlashcard() {
+      const w = getWordById(appState.currentWordId);
+      const ped = getWordPedagogy(w);
+      const isMastered = !!appState.masteredIds[w.id];
+      const isStarred = !!appState.starredIds[w.id];
+
+      document.getElementById('cardWordIdBadge').textContent = `#${w.id}`;
+      document.getElementById('cardPageBadge').textContent = `فصل ${w.p}`;
+      document.getElementById('cardEmoji').textContent = w.e;
+      document.getElementById('cardEnglishWord').textContent = w.en;
+      document.getElementById('cardPhoneticAr').textContent = w.pr;
+      document.getElementById('cardArabicWord').textContent = w.ar;
+
+      document.getElementById('backWordEn').textContent = w.en;
+      document.getElementById('backWordAr').textContent = w.ar;
+      document.getElementById('cardExampleEn').textContent = `"${ped.exEn}"`;
+      document.getElementById('cardExampleAr').textContent = `"${ped.exAr}"`;
+      document.getElementById('cardMemoryTip').textContent = ped.tip;
+
+      const starBtn = document.getElementById('btnCardStar');
+      starBtn.textContent = isStarred ? '⭐ مهمة' : '☆ مهمة';
+      starBtn.className = isStarred
+        ? 'px-2.5 py-1 rounded-lg bg-amber-500/30 border border-amber-400 text-amber-200 text-xs font-bold'
+        : 'px-2.5 py-1 rounded-lg bg-emerald-950/90 border border-emerald-700 text-xs font-bold';
+
+      const masterBtn = document.getElementById('btnMasterWord');
+      const masterTxt = document.getElementById('btnMasterWordText');
+      if (isMastered) {
+        masterBtn.className = 'py-3 px-2 rounded-xl bg-emerald-800 text-emerald-200 border border-emerald-500 text-xs sm:text-sm font-black flex items-center justify-center gap-1';
+        masterTxt.textContent = 'متقنة ✅';
+      } else {
+        masterBtn.className = 'py-3 px-2 rounded-xl bg-emerald-500 text-slate-950 text-xs sm:text-sm font-black flex items-center justify-center gap-1 shadow';
+        masterTxt.textContent = 'أتقنتها';
+      }
+
+      const spellInput = document.getElementById('quickSpellInput');
+      if (spellInput) spellInput.value = '';
+      const spellFb = document.getElementById('quickSpellFeedback');
+      if (spellFb) {
+        spellFb.textContent = 'إملاء';
+        spellFb.className = 'text-[11px] font-bold px-2 py-1.5 rounded-lg bg-emerald-950 border border-emerald-800 text-emerald-300 whitespace-nowrap';
+      }
+
+      const hoverLabel = document.getElementById('threeHoverLabel');
+      if (hoverLabel) {
+        hoverLabel.textContent = `#${w.id} ${w.en} — ${w.ar} (${w.pr})`;
+      }
+    }
+
+    function flip3DCard(forceState = null) {
+      const inner = document.getElementById('flashcardInner');
+      if (!inner) return;
+      if (forceState === true) inner.classList.add('is-flipped');
+      else if (forceState === false) inner.classList.remove('is-flipped');
+      else inner.classList.toggle('is-flipped');
+      playTone(480, 0.06);
+    }
+
+    function selectPageLevel(pageNum) {
+      const p = Math.max(1, Math.min(20, pageNum));
+      appState.currentPage = p;
+      appState.currentWordId = (p - 1) * 50 + 1;
+      flip3DCard(false);
+      saveState();
+      renderLevelSelectors();
+      renderCurrentLevelStrip();
+      renderFlashcard();
+      build3DNodesForCurrentPage();
+      if (appState.mainTab === 'directory') renderDirectoryGrid();
+      if (appState.mainTab === 'quiz') generateNextQuizQuestion();
+    }
+
+    function changePageLevel(delta) {
+      let next = appState.currentPage + delta;
+      if (next < 1) next = 20;
+      if (next > 20) next = 1;
+      selectPageLevel(next);
+    }
+
+    function selectWord(wordId, speakImmediately = false) {
+      const w = getWordById(wordId);
+      const targetPage = w.p;
+      const pageChanged = targetPage !== appState.currentPage;
+      appState.currentWordId = w.id;
+      appState.currentPage = targetPage;
+      flip3DCard(false);
+      saveState();
+
+      if (pageChanged) {
+        renderLevelSelectors();
+        build3DNodesForCurrentPage();
+      } else {
+        refresh3DNodeTextures();
+        focus3DCameraOnWord(w.id);
+      }
+      renderCurrentLevelStrip();
+      renderFlashcard();
+
+      if (speakImmediately) {
+        speakCurrentWord(1.0);
+      }
+    }
+
+    function stepWord(delta) {
+      let nextId = appState.currentWordId + delta;
+      if (nextId < 1) nextId = 1000;
+      if (nextId > 1000) nextId = 1;
+      selectWord(nextId, true);
+    }
+
+    function toggleMasterCurrentWord() {
+      toggleMasterById(appState.currentWordId);
+    }
+
+    function toggleMasterById(id, ev = null) {
+      if (ev) ev.stopPropagation();
+      if (appState.masteredIds[id]) {
+        delete appState.masteredIds[id];
+        playTone(320, 0.08);
+      } else {
+        appState.masteredIds[id] = true;
+        appState.xp += 10;
+        playTone(659.25, 0.12);
+      }
+      saveState();
+      updateHeaderStats();
+      renderLevelSelectors();
+      renderCurrentLevelStrip();
+      renderFlashcard();
+      refresh3DNodeTextures();
+      if (appState.mainTab === 'directory') renderDirectoryGrid();
+      if (appState.mainTab === 'roadmap') renderRoadmapGrid();
+    }
+
+    function toggleStarCurrentWord() {
+      toggleStarById(appState.currentWordId);
+    }
+
+    function toggleStarById(id, ev = null) {
+      if (ev) ev.stopPropagation();
+      if (appState.starredIds[id]) {
+        delete appState.starredIds[id];
+      } else {
+        appState.starredIds[id] = true;
+        playTone(740, 0.08);
+      }
+      saveState();
+      updateHeaderStats();
+      renderFlashcard();
+      refresh3DNodeTextures();
+      if (appState.mainTab === 'directory') renderDirectoryGrid();
+    }
+
+    function checkQuickSpelling(val) {
+      const w = getWordById(appState.currentWordId);
+      const fb = document.getElementById('quickSpellFeedback');
+      if (!fb) return;
+      const cleanVal = val.trim().toLowerCase();
+      const target = w.en.toLowerCase();
+      if (!cleanVal) {
+        fb.textContent = 'إملاء';
+        fb.className = 'text-[11px] font-bold px-2 py-1.5 rounded-lg bg-emerald-950 border border-emerald-800 text-emerald-300 whitespace-nowrap';
+        return;
+      }
+      if (cleanVal === target) {
+        fb.textContent = '🎉 صحيح! +5';
+        fb.className = 'text-[11px] font-extrabold px-2 py-1.5 rounded-lg bg-emerald-500 text-slate-950 whitespace-nowrap';
+        appState.xp += 5;
+        saveState();
+        updateHeaderStats();
+        playTone(784, 0.14);
+      } else if (target.startsWith(cleanVal)) {
+        fb.textContent = '👍 أكمل...';
+        fb.className = 'text-[11px] font-bold px-2 py-1.5 rounded-lg bg-amber-500/20 border border-amber-400 text-amber-300 whitespace-nowrap';
+      } else {
+        fb.textContent = '❌ راجع';
+        fb.className = 'text-[11px] font-bold px-2 py-1.5 rounded-lg bg-rose-950 border border-rose-600 text-rose-300 whitespace-nowrap';
+      }
+    }
+
+    // ====================================================
+    // 7. AUTO-PLAY AUDIO RADIO (HANDS-FREE LEARNING)
+    // ====================================================
+    let autoPlayTimer = null;
+    function toggleAutoPlayRadio() {
+      appState.autoPlayRadio = !appState.autoPlayRadio;
+      const btn = document.getElementById('btnAutoPlayToggle');
+      if (appState.autoPlayRadio) {
+        btn.textContent = '⏹️ إيقاف الراديو';
+        btn.className = 'px-3 py-2 rounded-xl bg-rose-500 text-white font-extrabold text-xs shrink-0 shadow';
+        showToast('🎧 تم تشغيل راديو النطق التلقائي المتسلسل');
+        runNextAutoPlayStep();
+      } else {
+        stopAutoPlayRadio();
+      }
+    }
+
+    function stopAutoPlayRadio() {
+      appState.autoPlayRadio = false;
+      if (autoPlayTimer) {
+        clearTimeout(autoPlayTimer);
+        autoPlayTimer = null;
+      }
+      const btn = document.getElementById('btnAutoPlayToggle');
+      if (btn) {
+        btn.textContent = '▶️ تشغيل الراديو';
+        btn.className = 'px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-extrabold text-xs shrink-0 shadow';
+      }
+    }
+
+    function runNextAutoPlayStep() {
+      if (!appState.autoPlayRadio) return;
+      const w = getWordById(appState.currentWordId);
+      speakText(w.en, 0.92, () => {
+        if (!appState.autoPlayRadio) return;
+        autoPlayTimer = setTimeout(() => {
+          if (!appState.autoPlayRadio) return;
+          let nextId = appState.currentWordId + 1;
+          if (nextId > 1000) nextId = 1;
+          selectWord(nextId, false);
+          runNextAutoPlayStep();
+        }, 1500);
+      });
+    }
+
+    // ====================================================
+    // 8. STRUCTURED 1000-WORD DIRECTORY VIEW
+    // ====================================================
+    function renderDirectoryGrid() {
+      const container = document.getElementById('directoryGridContainer');
+      if (!container) return;
+
+      const query = (document.getElementById('dirSearchInput').value || '').trim().toLowerCase();
+      const scope = document.getElementById('dirScopeSelect').value;
+      const status = document.getElementById('dirStatusSelect').value;
+      const sortBy = document.getElementById('dirSortSelect').value;
+
+      let list = [];
+      if (query) {
+        list = WORDS_DB.slice();
+      } else if (scope === 'current_page') {
+        list = getWordsByPage(appState.currentPage);
+      } else if (scope === 'all_1000') {
+        list = WORDS_DB.slice();
+      } else if (scope.startsWith('cat_')) {
+        list = WORDS_DB.filter(w => PAGE_THEMES[w.p].cat === scope);
+      } else {
+        list = getWordsByPage(appState.currentPage);
+      }
+
+      if (query) {
+        list = list.filter(w =>
+          w.en.toLowerCase().includes(query) ||
+          w.ar.includes(query) ||
+          w.pr.includes(query) ||
+          String(w.id) === query
+        );
+      }
+
+      if (status === 'mastered') {
+        list = list.filter(w => !!appState.masteredIds[w.id]);
+      } else if (status === 'unmastered') {
+        list = list.filter(w => !appState.masteredIds[w.id]);
+      } else if (status === 'starred') {
+        list = list.filter(w => !!appState.starredIds[w.id]);
+      }
+
+      if (sortBy === 'alpha_asc') {
+        list.sort((a, b) => a.en.localeCompare(b.en));
+      } else if (sortBy === 'length_asc') {
+        list.sort((a, b) => a.en.length - b.en.length || a.id - b.id);
+      } else {
+        list.sort((a, b) => a.id - b.id);
+      }
+
+      document.getElementById('dirResultCount').textContent = `يعرض ${list.length} كلمة من أصل 1000`;
+
+      const htmlParts = list.map(w => {
+        const isM = !!appState.masteredIds[w.id];
+        const isS = !!appState.starredIds[w.id];
+        return `
+          <div onclick="openWordIn3DPalace(${w.id})" class="cursor-pointer rounded-xl p-2.5 border transition-all flex items-center justify-between gap-2 ${isM ? 'bg-emerald-950/75 border-emerald-500/60' : 'bg-[#081f18]/95 border-emerald-800/70 active:border-amber-400'}">
+            <div class="flex items-center gap-2.5 min-w-0 flex-1">
+              <div class="w-10 h-10 rounded-xl bg-[#04120e] border border-emerald-800 flex flex-col items-center justify-center shrink-0">
+                <span class="text-lg leading-none">${w.e}</span>
+                <span class="font-en text-[9px] text-amber-400 font-bold">#${w.id}</span>
+              </div>
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-en text-base font-black text-white truncate">${w.en}</span>
+                  <span class="text-[11px] text-amber-300 font-bold truncate">(${w.pr})</span>
+                </div>
+                <div class="text-sm font-extrabold text-emerald-300 truncate">${w.ar}</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 shrink-0">
+              <button onclick="speakById(${w.id}, 1.0, event)" class="w-9 h-9 rounded-xl bg-amber-500 active:scale-95 text-slate-950 font-extrabold text-xs flex items-center justify-center shadow" title="نطق">
+                🔊
+              </button>
+              <button onclick="speakById(${w.id}, 0.6, event)" class="w-8 h-9 rounded-xl bg-emerald-800 active:scale-95 text-white text-xs flex items-center justify-center" title="نطق بطيء">
+                🐢
+              </button>
+              <button onclick="toggleStarById(${w.id}, event)" class="w-8 h-9 rounded-xl ${isS ? 'bg-amber-500/30 text-amber-300 border border-amber-400' : 'bg-slate-950 text-slate-400'} text-xs flex items-center justify-center">
+                ${isS ? '⭐' : '☆'}
+              </button>
+              <button onclick="toggleMasterById(${w.id}, event)" class="w-8 h-9 rounded-xl ${isM ? 'bg-emerald-500 text-slate-950 font-black' : 'bg-slate-950 text-emerald-300 border border-emerald-800'} text-xs flex items-center justify-center">
+                ✅
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = htmlParts.join('');
+    }
+
+    function openWordIn3DPalace(id) {
+      switchMainTab('palace');
+      selectWord(id, true);
+    }
+
+    function markEntirePageMastered() {
+      const pageWords = getWordsByPage(appState.currentPage);
+      pageWords.forEach(w => {
+        if (!appState.masteredIds[w.id]) {
+          appState.masteredIds[w.id] = true;
+          appState.xp += 10;
+        }
+      });
+      saveState();
+      updateHeaderStats();
+      renderLevelSelectors();
+      renderCurrentLevelStrip();
+      renderFlashcard();
+      refresh3DNodeTextures();
+      renderDirectoryGrid();
+      showToast(`🎉 تم تحديد جميع كلمات صفحة ${appState.currentPage} (50 كلمة) كمتقنة!`);
+    }
+
+    // ====================================================
+    // 9. INTERACTIVE 3-MODE QUIZ LAB
+    // ====================================================
+    function setQuizMode(mode) {
+      appState.quizMode = mode;
+      const map = { meaning: 'qModeMeaning', audio: 'qModeAudio', spell: 'qModeSpell' };
+      Object.keys(map).forEach(k => {
+        const b = document.getElementById(map[k]);
+        if (b) {
+          b.className = k === mode
+            ? 'py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950'
+            : 'py-1.5 rounded-lg text-xs font-bold text-emerald-200';
+        }
+      });
+      generateNextQuizQuestion();
+    }
+
+    function getQuizPool() {
+      const poolType = document.getElementById('quizPoolSelect').value;
+      if (poolType === 'all_1000') return WORDS_DB;
+      if (poolType === 'starred') {
+        const starred = WORDS_DB.filter(w => appState.starredIds[w.id]);
+        return starred.length >= 4 ? starred : getWordsByPage(appState.currentPage);
+      }
+      return getWordsByPage(appState.currentPage);
+    }
+
+    function generateNextQuizQuestion() {
+      const pool = getQuizPool();
+      const target = pool[Math.floor(Math.random() * pool.length)];
+      appState.currentQuizWord = target;
+
+      document.getElementById('quizWordMeta').textContent = `الكلمة #${target.id} • صفحة ${target.p}`;
+      const fb = document.getElementById('quizFeedbackBox');
+      fb.className = 'hidden';
+
+      const optGrid = document.getElementById('quizOptionsGrid');
+      const spellBox = document.getElementById('quizSpellingBox');
+
+      if (appState.quizMode === 'meaning' || appState.quizMode === 'audio') {
+        optGrid.classList.remove('hidden');
+        spellBox.classList.add('hidden');
+
+        if (appState.quizMode === 'audio') {
+          document.getElementById('quizPromptEmoji').textContent = '🎧';
+          document.getElementById('quizPromptText').textContent = '🔊 استمع للكلمة...';
+          document.getElementById('quizPromptSub').textContent = 'ما هو المعنى الصحيح للكلمة التي سمعتها؟';
+          speakText(target.en, 0.95);
+        } else {
+          document.getElementById('quizPromptEmoji').textContent = target.e;
+          document.getElementById('quizPromptText').textContent = `${target.en} (${target.pr})`;
+          document.getElementById('quizPromptSub').textContent = 'اختر الترجمة العربية الصحيحة:';
+          speakText(target.en, 1.0);
+        }
+
+        const distractors = [];
+        while (distractors.length < 3) {
+          const cand = WORDS_DB[Math.floor(Math.random() * WORDS_DB.length)];
+          if (cand.id !== target.id && cand.ar !== target.ar && !distractors.some(d => d.ar === cand.ar)) {
+            distractors.push(cand);
+          }
+        }
+        const choices = [target, ...distractors].sort(() => Math.random() - 0.5);
+        optGrid.innerHTML = '';
+        choices.forEach(ch => {
+          const btn = document.createElement('button');
+          btn.className = 'py-3 px-4 rounded-xl bg-[#04120e] active:bg-emerald-900 border-2 border-emerald-700/70 text-white font-extrabold text-sm transition-all';
+          btn.textContent = `${ch.ar}`;
+          btn.onclick = () => checkQuizChoice(ch.id === target.id, btn);
+          optGrid.appendChild(btn);
+        });
+      } else {
+        optGrid.classList.add('hidden');
+        spellBox.classList.remove('hidden');
+        document.getElementById('quizPromptEmoji').textContent = target.e;
+        document.getElementById('quizPromptText').textContent = target.ar;
+        document.getElementById('quizPromptSub').textContent = `اكتب الكلمة الإنجليزية المطابقة (النطق: ${target.pr}):`;
+        const inp = document.getElementById('quizSpellInput');
+        inp.value = '';
+        document.getElementById('quizSpellHint').textContent = `تلميح: تبدأ بحرف "${target.en[0].toUpperCase()}" (${target.en.length} حروف)`;
+        speakText(target.en, 0.9);
+      }
+    }
+
+    function speakQuizWord() {
+      if (appState.currentQuizWord) {
+        speakText(appState.currentQuizWord.en, 0.9);
+      }
+    }
+
+    function checkQuizChoice(isCorrect, btnElem) {
+      const target = appState.currentQuizWord;
+      appState.quizTotal++;
+      const fb = document.getElementById('quizFeedbackBox');
+      fb.classList.remove('hidden');
+
+      if (isCorrect) {
+        appState.quizCorrect++;
+        appState.quizStreak++;
+        appState.xp += 15;
+        appState.masteredIds[target.id] = true;
+        btnElem.className = 'py-3 px-4 rounded-xl bg-emerald-500 text-slate-950 font-black text-sm border-2 border-white';
+        fb.className = 'p-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-emerald-500/20 border border-emerald-400 text-emerald-200';
+        fb.textContent = `🎉 إجابة صحيحة! ${target.en} = ${target.ar} (+15 XP)`;
+        playTone(783.99, 0.15);
+      } else {
+        appState.quizStreak = 0;
+        btnElem.className = 'py-3 px-4 rounded-xl bg-rose-700 text-white font-bold text-sm border-2 border-rose-400';
+        fb.className = 'p-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-rose-950/90 border border-rose-500 text-rose-200';
+        fb.textContent = `💡 الصحيح: ${target.en} = ${target.ar} (${target.pr})`;
+        playTone(220, 0.2, 'sawtooth');
+      }
+      document.getElementById('quizStreak').textContent = appState.quizStreak;
+      document.getElementById('quizScore').textContent = `${appState.quizCorrect}/${appState.quizTotal}`;
+      saveState();
+      updateHeaderStats();
+    }
+
+    function submitQuizSpelling() {
+      const target = appState.currentQuizWord;
+      if (!target) return;
+      const val = (document.getElementById('quizSpellInput').value || '').trim().toLowerCase();
+      appState.quizTotal++;
+      const fb = document.getElementById('quizFeedbackBox');
+      fb.classList.remove('hidden');
+
+      if (val === target.en.toLowerCase()) {
+        appState.quizCorrect++;
+        appState.quizStreak++;
+        appState.xp += 20;
+        appState.masteredIds[target.id] = true;
+        fb.className = 'p-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-emerald-500/20 border border-emerald-400 text-emerald-200';
+        fb.textContent = `🏆 تهجئة ممتازة! ${target.en} — ${target.ar} (+20 XP)`;
+        playTone(880, 0.16);
+      } else {
+        appState.quizStreak = 0;
+        fb.className = 'p-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-rose-950/90 border border-rose-500 text-rose-200';
+        fb.textContent = `الكتابة الصحيحة هي: ${target.en} (${target.ar})`;
+        playTone(220, 0.2, 'sawtooth');
+      }
+      document.getElementById('quizStreak').textContent = appState.quizStreak;
+      document.getElementById('quizScore').textContent = `${appState.quizCorrect}/${appState.quizTotal}`;
+      saveState();
+      updateHeaderStats();
+    }
+
+    // ====================================================
+    // 10. 20-LEVEL ROADMAP & 25-MIN POMODORO TIMER
+    // ====================================================
+    let pomoSeconds = 25 * 60;
+    let pomoInterval = null;
+
+    function togglePomodoro() {
+      const btn = document.getElementById('btnPomoStart');
+      if (pomoInterval) {
+        clearInterval(pomoInterval);
+        pomoInterval = null;
+        btn.textContent = '▶️ استئناف';
+        document.getElementById('pomoStatusLabel').textContent = 'الجلسة متوقفة مؤقتاً';
+      } else {
+        btn.textContent = '⏸️ إيقاف مؤقت';
+        document.getElementById('pomoStatusLabel').textContent = `🔥 جلسة التركيز نشطة — صفحة ${appState.currentPage}`;
+        pomoInterval = setInterval(() => {
+          if (pomoSeconds > 0) {
+            pomoSeconds--;
+            updatePomoDisplay();
+          } else {
+            clearInterval(pomoInterval);
+            pomoInterval = null;
+            playTone(880, 0.4);
+            showToast('🎉 أحسنت! أتممت جلسة 25 دقيقة (+50 XP)');
+            appState.xp += 50;
+            saveState();
+            updateHeaderStats();
+          }
+        }, 1000);
+      }
+    }
+
+    function resetPomodoro() {
+      if (pomoInterval) {
+        clearInterval(pomoInterval);
+        pomoInterval = null;
+      }
+      pomoSeconds = 25 * 60;
+      updatePomoDisplay();
+      document.getElementById('btnPomoStart').textContent = '▶️ ابدأ جلسة 25 دقيقة';
+      document.getElementById('pomoStatusLabel').textContent = 'جاهز لبدء جلسة حفظ صفحة كاملة (50 كلمة)';
+    }
+
+    function updatePomoDisplay() {
+      const m = String(Math.floor(pomoSeconds / 60)).padStart(2, '0');
+      const s = String(pomoSeconds % 60).padStart(2, '0');
+      document.getElementById('pomoTimeDisplay').textContent = `${m}:${s}`;
+    }
+
+    function renderRoadmapGrid() {
+      const grid = document.getElementById('roadmapCardsGrid');
+      if (!grid) return;
+      const cards = [];
+      for (let p = 1; p <= 20; p++) {
+        const meta = PAGE_THEMES[p];
+        const pWords = getWordsByPage(p);
+        const mCount = pWords.filter(w => appState.masteredIds[w.id]).length;
+        const pct = Math.round((mCount / 50) * 100);
+        const sId = (p - 1) * 50 + 1;
+        const eId = p * 50;
+        cards.push(`
+          <div onclick="jumpToPageFromRoadmap(${p})" class="cursor-pointer p-3 rounded-xl bg-[#04120e] active:bg-emerald-950 border ${p === appState.currentPage ? 'border-amber-400' : 'border-emerald-800/70'} transition-all space-y-1.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-xl">${meta.icon}</span>
+                <div>
+                  <div class="text-[11px] font-black text-amber-400">الصفحة ${p} (${sId} - ${eId})</div>
+                  <div class="text-xs font-extrabold text-white">${meta.title}</div>
+                </div>
+              </div>
+              <span class="font-en text-xs font-black px-2 py-0.5 rounded-md ${pct === 100 ? 'bg-emerald-500 text-slate-950' : 'bg-emerald-900/80 text-emerald-200'}">${mCount}/50</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-emerald-950 overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-emerald-400 to-amber-400" style="width:${pct}%"></div>
+            </div>
+          </div>
+        `);
+      }
+      grid.innerHTML = cards.join('');
+    }
+
+    function jumpToPageFromRoadmap(p) {
+      selectPageLevel(p);
+      switchMainTab('palace');
+    }
+
+    function resetAllProgressModal() {
+      document.getElementById('confirmResetModal').classList.remove('hidden');
+    }
+
+    function closeResetModal() {
+      document.getElementById('confirmResetModal').classList.add('hidden');
+    }
+
+    function confirmResetAllProgress() {
+      appState.masteredIds = {};
+      appState.starredIds = {};
+      appState.xp = 0;
+      saveState();
+      closeResetModal();
+      updateHeaderStats();
+      renderLevelSelectors();
+      renderCurrentLevelStrip();
+      renderFlashcard();
+      refresh3DNodeTextures();
+      renderRoadmapGrid();
+      showToast('تم تصفير سجل التقدم بنجاح');
+    }
+
+    // ====================================================
+    // 11. MAIN TAB NAVIGATION (DESKTOP + MOBILE BOTTOM BAR)
+    // ====================================================
+    function switchMainTab(tab) {
+      appState.mainTab = tab;
+      if (tab !== 'palace' && appState.autoPlayRadio) {
+        stopAutoPlayRadio();
+      }
+      const views = {
+        palace: 'viewPalace',
+        directory: 'viewDirectory',
+        quiz: 'viewQuiz',
+        roadmap: 'viewRoadmap'
+      };
+      const deskBtns = {
+        palace: 'tabBtn3D',
+        directory: 'tabBtnList',
+        quiz: 'tabBtnQuiz',
+        roadmap: 'tabBtnPlan'
+      };
+      const mobBtns = {
+        palace: 'mNavPalace',
+        directory: 'mNavDirectory',
+        quiz: 'mNavQuiz',
+        roadmap: 'mNavRoadmap'
+      };
+
+      Object.keys(views).forEach(k => {
+        const v = document.getElementById(views[k]);
+        const db = document.getElementById(deskBtns[k]);
+        const mb = document.getElementById(mobBtns[k]);
+        if (k === tab) {
+          v.classList.remove('hidden');
+          if (db) db.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 shadow';
+          if (mb) mb.className = 'flex flex-col items-center justify-center py-1.5 rounded-xl bg-amber-500 text-slate-950 font-black text-[11px] transition-all shadow';
+        } else {
+          v.classList.add('hidden');
+          if (db) db.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-emerald-200 hover:bg-emerald-900/50';
+          if (mb) mb.className = 'flex flex-col items-center justify-center py-1.5 rounded-xl text-emerald-200 font-bold text-[11px] transition-all';
+        }
+      });
+
+      if (tab === 'directory') renderDirectoryGrid();
+      if (tab === 'quiz') generateNextQuizQuestion();
+      if (tab === 'roadmap') renderRoadmapGrid();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showToast(msg) {
+      const box = document.getElementById('toastBox');
+      if (!box) return;
+      box.textContent = msg;
+      box.classList.remove('hidden');
+      setTimeout(() => {
+        box.classList.add('hidden');
+      }, 2400);
+    }
+
+    window.addEventListener('keydown', e => {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+      if (appState.mainTab === 'palace') {
+        if (e.key === 'ArrowLeft') stepWord(1);
+        else if (e.key === 'ArrowRight') stepWord(-1);
+        else if (e.key === ' ') {
+          e.preventDefault();
+          speakCurrentWord(1.0);
+        }
+      }
+    });
+
+    // ====================================================
+    // 12. PWA: SERVICE WORKER + INSTALL BUTTON
+    // ====================================================
+    let deferredInstallPrompt = null;
+
+    function hideInstallButton() {
+      const b = document.getElementById('btnInstallApp');
+      if (b) b.classList.add('hidden');
+    }
+
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      const b = document.getElementById('btnInstallApp');
+      if (b) {
+        b.classList.remove('hidden');
+        setTimeout(hideInstallButton, 20000);
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredInstallPrompt = null;
+      hideInstallButton();
+      showToast('✅ تم تثبيت التطبيق');
+    });
+
+    function installApp() {
+      if (!deferredInstallPrompt) return;
+      deferredInstallPrompt.prompt();
+      deferredInstallPrompt.userChoice.then(() => {
+        deferredInstallPrompt = null;
+        hideInstallButton();
+      }).catch(() => {});
+    }
+
+    function registerServiceWorker() {
+      if (!('serviceWorker' in navigator)) return;
+      const okHost = location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      if (!okHost) return;
+      navigator.serviceWorker.register('./sw.js').then(reg => {
+        reg.addEventListener('updatefound', () => {
+          const nw = reg.installing;
+          if (!nw) return;
+          nw.addEventListener('statechange', () => {
+            if (nw.state === 'installed' && navigator.serviceWorker.controller) {
+              showToast('🔄 تحديث جديد جاهز — يُطبَّق عند فتح التطبيق مرة أخرى');
+            }
+          });
+        });
+      }).catch(() => {});
+    }
+
+    window.addEventListener('load', function() {
+      loadSavedState();
+      paintSavedControls();
+      updateHeaderStats();
+      renderLevelSelectors();
+      renderCurrentLevelStrip();
+      renderFlashcard();
+      setupMobileCardSwipe();
+      initThreeJS();
+      setMobileStudyLayout(appState.mobileLayout, false);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.getVoices();
+      }
+      if (!HAS_THREE) showToast('⚠️ العرض ثلاثي الأبعاد يحتاج اتصال إنترنت في أول فتح');
+      recoverFromBackup();
+      if (navigator.storage && navigator.storage.persist) {
+        navigator.storage.persist().catch(() => {});
+      }
+      registerServiceWorker();
+    });
+  </script>
+</body>
+</html>
